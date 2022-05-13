@@ -23,7 +23,7 @@ This application provides users with the ability to browse other user’s public
 ## Project Management (to finish)
 ---
 * Using GitHub
-    * (link)
+    * [project-four-cook-ebook GitHub Projects](https://github.com/mountaincharlie/project-four-cook-ebook/projects)
 
 * Using GitHub Projects to create Epics (big features)
     * [screenshot]
