@@ -240,7 +240,9 @@ This application provides users with the ability to browse other user’s public
 ---
 
 ### Python Testing with Unittest
-* Testing views
+* Testing models:
+    * tested to make sure that when a recipe is created, its 'public_status' is set to 'Private'/0 by default
+    * tested to make sure that the Recipe class' 'number_of_chefs_kisses' method calculated the number of chefs kisses correctly
 * 
 
 ### JavaScript Testing with JEST
