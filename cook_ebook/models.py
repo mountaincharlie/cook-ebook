@@ -27,8 +27,22 @@ class Recipe(models.Model):
         return self.chefs_kisses.count()
 
 
-# class Ingredient
+class Ingredient(models.Model):
+    item = models.CharField(max_length=200)
 
-# class Method
+    def __str__(self):
+        return self.item
 
-# class Tags
+
+class Method(models.Model):
+    step = models.CharField(max_length=400)
+
+    def __str__(self):
+        return self.step
+
+
+class Tag(models.Model):
+    tag = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.tag
