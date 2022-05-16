@@ -266,8 +266,10 @@ This application provides users with the ability to browse other user’s public
 * should be “No errors or warnings”
 * (link)
 
-### Testing the site on a physical mobile device?
-* [images]
+### Manual Testing (on a physical mobile device?)
+* e.g. TEST: when users view their own recipe can they see the 'Edit' and 'Delete' buttons?
+    * OUTCOME: explain
+    * [images]
 
 
 ## Bugs (to finish)
