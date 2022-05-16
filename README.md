@@ -240,6 +240,8 @@ This application provides users with the ability to browse other user’s public
 ---
 
 ### Python Testing with Unittest
+* In order to run these tests, I needed Django to use sqlite3 as a local database. To do this I created a 'TESTING' variable in my env.py file and then in settings.py I added an If Statement which checked for this variable and used the sqlite3 database if it was found. When I was not running tests, I commented out this variable and so Django instead used my postgresql database.
+    * [screenshots]
 * Testing models:
     * tested to make sure that when a recipe is created, its 'public_status' is set to 'Private'/0 by default
     * tested to make sure that the Recipe class' 'number_of_chefs_kisses' method calculated the number of chefs kisses correctly
