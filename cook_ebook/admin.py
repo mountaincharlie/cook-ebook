@@ -28,5 +28,10 @@ class IngredientAdmin(admin.ModelAdmin):
     search_fields = ('item', 'id')
 
 
-admin.site.register(Method)
+@admin.register(Method)
+class MethodAdmin(admin.ModelAdmin):
+    list_display = ('step', 'id')
+    search_fields = ('step', 'id')
+
+
 admin.site.register(Tag)
