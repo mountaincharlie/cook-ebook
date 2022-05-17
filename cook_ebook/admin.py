@@ -22,6 +22,11 @@ class RecipeAdmin(admin.ModelAdmin):
         queryset.update(public_status=2)
 
 
-admin.site.register(Ingredient)
+@admin.register(Ingredient)
+class IngredientAdmin(admin.ModelAdmin):
+    list_display = ('item', 'id')
+    search_fields = ('item', 'id')
+
+
 admin.site.register(Method)
 admin.site.register(Tag)
