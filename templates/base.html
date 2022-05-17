@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ADD THESE META DETAILS -->
+        <meta name="description" content="#"> 
+        <meta name="keywords" content="#"> 
+        <meta name="author" content="#">
+
+        <!-- google font api link -->
+
+        <!-- font awesome cdn -->
+
+        <!-- bootstrap cdn -->
+
+        <!-- ADD favicon link to ensure its found by all browsers -->
+        <!-- <link href = "#" rel = "shortcut icon" type = "image/x-icon"> -->
+
+        <!-- linked css file -->
+
+        <title>Cook eBook</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="{% url 'home' %}">Cook eBook</a>
+            <nav>
+
+            </nav>
+        </header>
+
+        <!-- templates content -->
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+
+        <footer>
+            <span>links</span>
+        </footer>
+    </body>
+</html>
