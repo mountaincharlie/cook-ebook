@@ -34,4 +34,7 @@ class MethodAdmin(admin.ModelAdmin):
     search_fields = ('step', 'id')
 
 
-admin.site.register(Tag)
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('tag', 'id')
+    search_fields = ('tag', 'id')
