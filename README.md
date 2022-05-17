@@ -276,8 +276,10 @@ This application provides users with the ability to browse other user’s public
 ---
 
 ### Bugs and Fixes
-* [date?] Bug:
-    * Fix:
+* Bug: trying to allow the admin to search recipes by 'chef', in the admin pannel, raised a FieldError
+    * Fix: using '__' notation to search by 'chef__username' instead, as reccomended by [markwalker_](https://stackoverflow.com/a/65689026). Also in Django documentation for [ModelAdmin.search_fields](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields).
+* Bug: 
+    * Fix: 
 
 ### Unfixed Bugs
 * should be “No unfixed bugs”
