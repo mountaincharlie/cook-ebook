@@ -1,6 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>welcome to Cook eBook</h1>
+<div class="container">
+    <div class="row cover-image-container">
+        <!-- image credit: https://unsplash.com/photos/m1meZgcUYEk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+        <img class="cover-image" class="img-fluid" src="{% static 'images/cover-image.jpg' %}" alt="Homepage cover image">
+    </div>
+    <div class="row site-intro-container">
+        <div class="col-md-3 col-sm-1 site-intro">
+            <span>FIND<br>what you fancy</span>
+        </div>
+        <div class="col-md-3 col-sm-1 site-intro">
+            <span>CREATE<br>your own recipes</span>
+        </div>
+        <div class="col-md-3 col-sm-1 site-intro">
+            <span>SHARE<br>your creations</span>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
