@@ -19,6 +19,11 @@
         <!-- font awesome cdn -->
 
         <!-- bootstrap cdn -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+        </script>
 
         <!-- ADD favicon link to ensure its found by all browsers -->
         <!-- <link href = "#" rel = "shortcut icon" type = "image/x-icon"> -->
@@ -30,7 +35,7 @@
     </head>
 
     <body>
-        <header>
+        <header class="header--bg-light-grey">
             <a href="{% url 'home' %}">Cook eBook</a>
             <nav>
 
@@ -43,7 +48,7 @@
             {% endblock content %}
         </main>
 
-        <footer>
+        <footer class="footer--bg-dark-grey text-white">
             <span>links</span>
         </footer>
     </body>

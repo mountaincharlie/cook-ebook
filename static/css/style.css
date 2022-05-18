@@ -16,17 +16,33 @@ body{
 
 /* ---------------------- BG COLOURS */
 
+.header--bg-light-grey{
+    background-color: rgb(189, 188, 188);
+}
+
+.footer--bg-dark-grey{
+    background-color: rgb(56, 55, 55);
+}
 
 
 /* ---------------------- HEADER */
 
 header{
     font-family: Raleway, sans-serif;
+    min-height: 5vh;
 }
 
 
 /* ---------------------- MAIN */
 
+main{
+    min-height: 90vh;
+
+}
 
 
 /* ---------------------- FOOTER */
+
+footer{
+    min-height: 5vh;
+}
