@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from colorfield.fields import ColorField
+
 
 PUBLIC_STATUS = ((0, 'Private'), (1, 'Public'), (2, 'Awaits'))
 
@@ -21,6 +23,7 @@ class Method(models.Model):
 
 class Tag(models.Model):
     tag = models.CharField(max_length=100)
+    color = ColorField(unique=True)
 
     def __str__(self):
         return self.tag
