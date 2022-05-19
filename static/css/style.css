@@ -62,7 +62,6 @@ main{
     width:100%;
     height: 40vh;
     text-align: center;
-    justify-content: space-between;
     align-content: center;
 
     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(/static/images/cover-image.jpg);
@@ -79,6 +78,21 @@ main{
     color: rgb(94, 17, 17);
     padding: 0.3em;
     margin: 0;
+}
+
+/* ---------------------- TAG TILES */
+
+.tag-tile{
+    text-align: center;
+    color: black;
+    border-radius: 4px;
+}
+
+.tag-tile p{
+    background-color: white;
+    padding: 0.4em;
+    margin: 0;
+    border-radius: 4px;
 }
 
 /* ---------------------- FOOTER */
