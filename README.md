@@ -306,6 +306,9 @@ This application provides users with the ability to browse other user’s public
 ### Content
 * Fonts: 
 
+### Code
+* installed [django-colorfield](https://github.com/fabiocaccamo/django-colorfield) by [Fabio Caccamo](https://github.com/fabiocaccamo), originally developed by [Jared Forsyth](https://github.com/jaredly). Used to create a color field in the Tag table so that each Tag can have a unique color associated with it in order to create the Tag tiles.
+
 ### Media
 * Images:
 
