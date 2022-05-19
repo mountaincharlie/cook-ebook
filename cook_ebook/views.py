@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.views import generic, View
-from .models import Recipe
+from .models import Tag
 
 
 # viewing the recipes on the homepage
-class RecipeList(generic.ListView):
+class TagList(generic.ListView):
     # table model to use
-    model = Recipe
-    # filtering only public recipes
-    queryset = Recipe.objects.filter(public_status=1).order_by("-created_date")
+    model = Tag
+    # the template to show the list in (as 'tag_list')
     template_name = "index.html"
