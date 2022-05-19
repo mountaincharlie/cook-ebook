@@ -278,6 +278,8 @@ This application provides users with the ability to browse other user’s public
 ### Bugs and Fixes
 * Bug: trying to allow the admin to search recipes by 'chef', in the admin pannel, raised a FieldError
     * Fix: using '__' notation to search by 'chef__username' instead, as reccomended by [markwalker_](https://stackoverflow.com/a/65689026). Also in Django documentation for [ModelAdmin.search_fields](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields).
+* Bug: when opening the expandable navigation on small screens, on the homepage, the menu obscured the site intro text.
+    * Fix: instead of using css to manually overlay the site intro text over the cover image, I set the cover image as the background-image for the site-intro-container in css. Now when the mobile navigation is expanded, the cover image and site intro text move down together.
 * Bug: 
     * Fix: 
 
