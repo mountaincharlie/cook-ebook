@@ -36,5 +36,5 @@ class MethodAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ('tag', 'id')
-    search_fields = ('tag', 'id')
+    list_display = ('tag', 'color', 'id')
+    search_fields = ('tag', 'color', 'id')
