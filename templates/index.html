@@ -15,8 +15,46 @@
         </div>
     </div>
     <div class="row search-bar-container">
+
+        <form action="{% url 'search_recipes' %}" method="get">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Search Recipe">
+            <button type="submit">Search</button>
+        </form>
+
+        <h1>{{ search }}</h1>
         
     </div>
+
+    {% if recipes %}
+
+    <!-- search results -->
+    <div class="row search-result-container">
+
+        <div class="row">
+            <h1>Search results: {{ num_results }}</h1>
+        </div>
+
+        {% if num_results == 0 %}
+        <div class="row">
+            <p>No recipe titles contain all or part of this search</p>
+        </div>
+
+        {% else %}
+
+        <div class="row">
+            {% for recipe in recipes %}
+            <div class=".col-md-4 col-sm-12">
+                {{ recipe }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
     <div class="row tag-tiles-container">
 
         {% for tag in tag_list %}
@@ -30,8 +68,9 @@
                 
             </div>
         {% endfor %}
-        
+
     </div>
+
 </div>
 
 {% endblock content %}
