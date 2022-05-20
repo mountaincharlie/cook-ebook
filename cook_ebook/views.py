@@ -16,18 +16,16 @@ class RecipeSearchView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
 
-        all_recipes = Recipe.objects.all()
         search_input = request.GET.get('search').replace(" ", "")
         recipes = Recipe.objects.filter(title__icontains=search_input).filter(public_status=1)
 
-        # checking if search isnt blank and if any of recipes exits in all_recipes
-        if search_input != '' and bool(set(recipes) & set(all_recipes)):
+        # checking if search isnt blank and if any recipes title contain it
+        if search_input != '' and recipes:
             context = {
                 'recipes': recipes,
                 'num_results': len(recipes)
             }
         else:
-            # print(recipes)
             context = {
                 'recipes': 'none',
                 'num_results': 0,
