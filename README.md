@@ -301,7 +301,10 @@ This application provides users with the ability to browse other user’s public
 ---
 
 ### Helpful Resources
-* 
+* [JPG's solution on Slack](https://stackoverflow.com/a/64218886) for how to test IntegrityError Unique Constraint to make sure that newly created Tags cannot have the same color as existing Tags.
+* [David Roseman's solution on Slack](https://stackoverflow.com/a/24599835) for how to access the primary key of a particular item in the database. I used this so that when a user clicks on a Tag Tile, the primary key of that tag is attached to the url path and is also used in the RecipeByTagView class to filter the recipes by those which contain that particular tag.
+* [JustDjango's youtube video](https://youtu.be/vU0VeFN-abU) for how to use the '__icontains' method, so that I could check if the user's input in the searchbar contained all or part of a recipe's title.
+*   
 
 ### Content
 * Fonts: 
