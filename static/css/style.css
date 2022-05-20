@@ -23,6 +23,11 @@ body{
     margin:0;
 }
 
+.small-centered-hr{
+    width:85%;
+    margin:auto;
+}
+
 
 /* ---------------------- BG COLOURS */
 
@@ -201,6 +206,25 @@ main{
 .title-container{
     text-align: center;
     margin: 1em;
+}
+
+.tags-container {
+    margin: 1em 0;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipe-details-tags{
+    color:black;
+    font-size: 16px;
+
+    border-width: 6px;
+    border-style: solid;
+    border-radius: 4px;
+    margin: 0.2em;
+    padding: 0 0.2em;
 }
 
 /* ---------------------- FOOTER */
