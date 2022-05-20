@@ -49,7 +49,7 @@
 
             <div class="col-md-4 col-sm-12 my-4">
                 <!-- creating the recipe cards -->
-                <a class="recipe-card-link" href="#">
+                <a class="recipe-card-link" href="{% url 'recipe_details' recipe.pk %}">
                     <div class="card h-100">
                         <!-- card cover image -->
                         {% if "placeholder" in recipe.cover_image.url %}
