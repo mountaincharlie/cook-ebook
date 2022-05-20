@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Tag, Recipe
 
@@ -52,3 +52,16 @@ class RecipeByTagView(generic.ListView):
                 'message': 'No public Recipes have been assigned this tag yet'
             }
         return render(request, 'index.html', context)
+
+
+class RecipeDetailsView(View):
+
+    def get(self, request, *args, **kwargs):
+        # getting all the public recipes
+        public_recipes = Recipe.objects.filter(public_status=1)
+        recipe = get_object_or_404(public_recipes, pk=self.kwargs['pk'])
+        context = {
+            "recipe": recipe,
+        }
+
+        return render(request, 'recipe_details.html', context)
