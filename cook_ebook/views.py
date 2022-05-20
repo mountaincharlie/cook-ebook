@@ -18,7 +18,7 @@ class RecipeSearchView(generic.ListView):
 
         queryset = Recipe.objects.all()
         search_input = request.GET.get('search').replace(" ", "")
-        recipes = Recipe.objects.filter(title__icontains=search_input)
+        recipes = Recipe.objects.filter(title__icontains=search_input).filter(public_status=1)
 
         # checking if search isnt blank and if any of recipes exits in queryset
         if search_input != '' and bool(set(recipes) & set(queryset)):
@@ -30,6 +30,27 @@ class RecipeSearchView(generic.ListView):
             # print(recipes)
             context = {
                 'recipes': 'none',
-                'num_results': 0
+                'num_results': 0,
+                'message': "No Public Recipe's titles contain all or part of this search"
+            }
+        return render(request, 'index.html', context)
+
+
+class RecipeByTagView(generic.ListView):
+
+    def get(self, request, *args, **kwargs):
+        # getting all recipes with this tag (by its pk)
+        recipes = Recipe.objects.filter(tags=self.kwargs['pk']).filter(public_status=1)
+        print('This is recipes:', recipes)
+        if len(recipes) != 0:
+            context = {
+                'recipes': recipes,
+                'num_results': len(recipes)
+            }
+        else:
+            context = {
+                'recipes': 'none',
+                'num_results': len(recipes),
+                'message': 'No public Recipes have been assigned this tag yet'
             }
         return render(request, 'index.html', context)
