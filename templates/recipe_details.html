@@ -21,7 +21,7 @@
     <!-- title -->
     <div class="row title-container">
         <div class="col">
-
+            <h1 class="m-0">{{ recipe.title }}</h1>
         </div>
     </div>
 
@@ -29,10 +29,10 @@
     <div class="row chef-and-status-container">
         <!-- 2 columns on md screens and 1 on small screens -->
         <div class="col-md-6 col-sm-12">
-
+            <p class="m-0">Chef: {{ recipe.chef }}</p>
         </div>
-        <div class="col-md-6 col-sm-12">
-
+        <div class="col-md-6 col-sm-12 text-md-end">
+            <p class="m-0">Public Status: {{ recipe.get_public_status_display }}</p>
         </div>
     </div>
 
