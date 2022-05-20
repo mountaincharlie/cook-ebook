@@ -6,8 +6,15 @@
 <div class="container">
     <!-- cover image -->
     <div class="row cover-image-container">
-        <div class="col">
-            
+        <div class="col p-0">
+            {% if "placeholder" in recipe.cover_image.url %}
+                <!-- placeholder image in static dir -->
+                <!-- placeholder image credits: https://unsplash.com/photos/5O1ddenSM4g?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+                <img src="{% static 'images/placeholder-image.jpg' %}" alt="recipe cover image">
+            {% else %}
+                <!-- user specified image in Cloudinary -->
+                <img src=" {{ recipe.cover_image.url }}" alt="recipe cover image">
+            {% endif %}
         </div>
     </div>
 
