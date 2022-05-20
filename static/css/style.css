@@ -198,6 +198,11 @@ main{
     object-fit: cover;
 }
 
+.title-container{
+    text-align: center;
+    margin: 1em;
+}
+
 /* ---------------------- FOOTER */
 
 footer{
