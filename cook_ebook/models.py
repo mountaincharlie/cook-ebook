@@ -32,7 +32,7 @@ class Tag(models.Model):
 class Recipe(models.Model):
     title = models.CharField(max_length=150)
     summary = models.TextField(blank=True)
-    cover_image = CloudinaryField('image', default='placecholder')
+    cover_image = CloudinaryField('image', default='placeholder')
     ingredients = models.ManyToManyField(Ingredient, related_name='recipe_item')
     method = models.ManyToManyField(Method, related_name='recipe_step')
     tags = models.ManyToManyField(Tag, blank=True, related_name='recipe_tag')
