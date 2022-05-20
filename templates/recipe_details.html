@@ -26,7 +26,7 @@
     </div>
 
     <!-- Chef (right) and public status (left) -->
-    <div class="row chef-and-status-container">
+    <div class="row">
         <!-- 2 columns on md screens and 1 on small screens -->
         <div class="col-md-6 col-sm-12">
             <p class="m-0">Chef: {{ recipe.chef }}</p>
@@ -39,23 +39,37 @@
     <!-- tags -->
     <div class="row tags-container">
         <!-- 6 columns on md screens and 3 on small screens -->
-        <div class="col-md-2 col-sm-4">
-
-        </div>
+        {% if recipe.tags %}
+            {% for tag in recipe.tags.all %}
+            <div class="col-md-3 col-sm-6">
+                <span class="recipe-details-tags" style="border-color:{{ tag.color }}">{{ tag }}</span>
+            </div>
+            {% endfor %}
+        {% endif %}
     </div>
 
     <!-- hr - add 50% width class -->
-    <hr>
+    <hr class="small-centered-hr">
 
     <!-- Ingredient col -->
     <!-- Method col -->
-    <div class="row items-and-steps-container">
+    <div class="row">
         <!-- 2 columns on md screens and 1 on small screens -->
         <div class="col-md-6 col-sm-12">
-
+            <h4>Ingredients:</h4>
+            <ul>
+                {% for item in recipe.ingredients.all %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="col-md-6 col-sm-12">
-
+            <h4>Method:</h4>
+            <ol>
+                {% for step in recipe.method.all %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
         </div>
     </div>
 
