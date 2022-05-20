@@ -68,6 +68,14 @@
                             <p class="card-text">Open the full view to see more...</p>
                             {% endif %}
                         </div>
+                        <!-- showing tags added to the recipe if any -->
+                        {% if recipe.tags %}
+                        <div class="card-body-tags-container">
+                            {% for tag in recipe.tags.all %}
+                            <span class="card-body-tags" style="border-color:{{ tag.color }}">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                         <!-- card footer info -->
                         <div class="card-footer text-muted">
                             <p class="m-0">
