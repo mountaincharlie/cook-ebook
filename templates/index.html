@@ -33,17 +33,17 @@
     <div class="row search-result-container">
 
         <div class="row">
-            <h1>Search results: {{ num_results }}</h1>
+            <h2 class="m-0">Search results: {{ num_results }}</h2>
+            <a class="return-to-tag-tiles-link m-3" href="{% url 'home' %}">Return to Tag Tiles</a>
         </div>
 
         {% if num_results == 0 %}
         <div class="row">
-            <p>No recipe titles contain all or part of this search</p>
+            <p>{{ message }}</p>
         </div>
-
         {% else %}
 
-        <div class="row">
+        <div class="row search-results">
         <!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
             {% for recipe in recipes %}
 
@@ -103,11 +103,13 @@
         {% for tag in tag_list %}
             <div class="col-md-3 col-sm-6 px-4 py-4">
                 
-                <div class="card">
-                    <div class="card-body tag-tile" style="background-color:{{ tag.color }}">
-                        <p>{{ tag.tag }}</p>
+                <a class="tag-tile-link" href="{% url 'search_tags' tag.pk %}">
+                    <div class="card">
+                        <div class="card-body tag-tile" style="background-color:{{ tag.color }}">
+                            <p>{{ tag.tag }}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 
             </div>
         {% endfor %}
