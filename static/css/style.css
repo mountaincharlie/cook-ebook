@@ -80,6 +80,10 @@ main{
     margin: 0;
 }
 
+.search-result-container .row{
+    justify-content: center;
+}
+
 /* ---------------------- TAG TILES */
 
 .tag-tile{
@@ -93,6 +97,18 @@ main{
     padding: 0.4em;
     margin: 0;
     border-radius: 4px;
+}
+
+/* ---------------------- RECIPE CARDS */
+
+.recipe-card-link{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+.recipe-card-link:hover{
+    color: grey;
 }
 
 /* ---------------------- FOOTER */
