@@ -14,11 +14,12 @@
             <span>SHARE<br>Your Creations</span>
         </div>
     </div>
-    <div class="row search-bar-container">
+
+    <div class="row search-bar-container my-4">
 
         <form action="{% url 'search_recipes' %}" method="get">
             {% csrf_token %}
-            <input type="text" name="search" placeholder="Search Recipe">
+            <input type="text" name="search" placeholder="Search Recipe Titles...">
             <button type="submit">Search</button>
         </form>
 

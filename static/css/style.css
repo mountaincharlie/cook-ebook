@@ -80,6 +80,35 @@ main{
     margin: 0;
 }
 
+.search-bar-container{
+    
+}
+
+.search-bar-container form{
+    text-align: center;
+}
+
+.search-bar-container form input{
+    padding: 0 0.2em;
+    border: 2px solid black;
+    border-radius:4px;
+}
+
+.search-bar-container form input:hover{
+    border-color:grey;
+}
+
+.search-bar-container form button{
+    padding: 0 0.2em;
+    border: 2px solid grey;
+    border-radius:4px;
+}
+
+.search-bar-container form button:hover{
+    color:grey;
+    background-color: white;
+}
+
 .search-result-container .row{
     justify-content: center;
 }
