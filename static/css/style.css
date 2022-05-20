@@ -109,16 +109,37 @@ main{
     background-color: white;
 }
 
-.search-result-container .row{
+.search-results {
     justify-content: center;
+}
+
+.return-to-tag-tiles-link{
+    /* margin-left: 0.8em; */
+    text-decoration: none;
+    color: black;
+    background-color:#efefef;
+    border: 2px solid grey;
+    border-radius: 4px;
+    width:auto;
+}
+
+.return-to-tag-tiles-link:hover{
+    color: grey;
+    background-color:white;
 }
 
 /* ---------------------- TAG TILES */
 
-.tag-tile{
+.tag-tile-link{
+    text-decoration: none;
     text-align: center;
     color: black;
     border-radius: 4px;
+}
+
+.tag-tile-link:hover{
+    color: grey;
+    opacity:0.8;
 }
 
 .tag-tile p{
