@@ -83,7 +83,11 @@
                                 Chef: {{ recipe.chef }} <br>
                                 <!-- | <i class="fa-solid fa-hands-clapping fa-xs"></i>
                                 {{ recipe.number_of_likes }}  -->
-                                <small>{{ recipe.created_date }}</small>
+                                <small>{{ recipe.created_date }}</small> |
+                                <small>
+                                    Chefs Kisses: {{ recipe.number_of_chefs_kisses }}
+                                    <i class="fa-regular fa-face-kiss-wink-heart"></i> 
+                                </small>
                             </p>
                         </div>
                     </div>
