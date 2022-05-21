@@ -314,8 +314,12 @@ This application provides users with the ability to browse other user’s public
 
 ### Media
 * Images:
+    * [Image](https://unsplash.com/photos/Yn0l7uwBrpw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink) by Jimmy Dean on Unsplash, used as the site's homepage cover image.
+    * [Person reads cookbook recipe](https://unsplash.com/photos/5O1ddenSM4g?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink) by Dan Gold on Unsplash, used as a placeholder cover image for recipes when the user chooses not to upload their own image.
 
 * Icons:
+    * Font Awesome's [solid face-kiss-wink-heart](https://fontawesome.com/icons/face-kiss-wink-heart?s=solid) for when a logged in user clicks/has previously clicked the 'Chefs Kiss' button for a recipe
+    * Font Awesome's [regular face-kiss-wink-heart](https://fontawesome.com/icons/face-kiss-wink-heart?s=regular) for when a non-logged in user sees the 'Chefs Kisses' for a recipe and when a logged in user clicks the 'Chefs Kiss' button for a recipe again to undo their 'Chefs Kiss'
 
 ## Future Features (to finish)
 ---
