@@ -74,16 +74,19 @@
         </div>
     </div>
 
-    <!-- edit button [interactive] -->
-    <!-- delete button [interactive] -->
-    <div class="row cover-image-container">
-        <div class="col">
+    <!-- ensuring the user is logged in and the chef for this recipe -->
+    {% if user.is_authenticated and user.id == recipe.chef.id%}
+    <div class="row p-2">
+        <div class="col-12 text-md-end">
+            <a class="btn btn-primary" href="#" role="button">Edit</a>
 
+            <a class="btn btn-danger" href="#" role="button">Delete</a>
         </div>
     </div>
+    {% endif %}
 
     <!-- Chefs kisses [interactive] -->
-    <div class="row cover-image-container">
+    <div class="row">
         <div class="col">
             
         </div>
