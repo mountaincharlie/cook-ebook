@@ -224,6 +224,15 @@ main{
     margin-bottom: 1em;
 }
 
+.chefs-kisses-container p{
+    display: inline;
+    color:black;
+}
+
+.chef-kiss-icon{
+    font-size:larger;
+}
+
 
 /* ---------------------- FOOTER */
 
