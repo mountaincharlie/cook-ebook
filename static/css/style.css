@@ -208,6 +208,15 @@ main{
     margin: 1em;
 }
 
+.chef-and-status-container h5{
+    display:inline;
+    font-weight: 600;
+}
+
+.chef-and-status-container p{
+    display:inline;
+}
+
 .tags-container {
     margin: 1em 0;
     justify-content: center;
@@ -225,6 +234,13 @@ main{
     margin: 0.2em;
     padding: 0 0.2em;
 }
+
+.recipe-list-container h4{
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
 
 /* ---------------------- FOOTER */
 
