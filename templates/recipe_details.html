@@ -74,20 +74,9 @@
         </div>
     </div>
 
-    <!-- ensuring the user is logged in and the chef for this recipe -->
-    {% if user.is_authenticated and user.id == recipe.chef.id %}
-    <div class="row p-2">
-        <div class="col-12 text-md-end">
-            <a class="btn btn-primary" href="#" role="button">Edit</a>
-
-            <a class="btn btn-danger" href="#" role="button">Delete</a>
-        </div>
-    </div>
-    {% endif %}
-
-    <!-- user must be logged in to give a recipe a Chefs kisses -->
-    <div class="row chefs-kisses-container">
-        <div class="col">
+    <!-- row for chefs kisses(left) and edit/delete buttons(right if user=Chef) -->
+    <div class="row">
+        <div class="col-6 chefs-kisses-container p-2">
             <p>Chefs kisses:</p>
             <p>{{ recipe.number_of_chefs_kisses }}</p>
             {% if user.is_authenticated %}
@@ -110,11 +99,15 @@
             <i class="fa-regular fa-face-kiss-wink-heart chef-kiss-icon"></i>
             {% endif %} 
         </div>
+
+        <!-- ensuring the user is logged in and the chef for this recipe -->
+        {% if user.is_authenticated and user.id == recipe.chef.id %}
+        <div class="col-6 text-end p-2">
+            <a class="btn btn-primary" href="#" role="button">Edit</a>
+
+            <a class="btn btn-danger" href="#" role="button">Delete</a>
+        </div>
+        {% endif %}
     </div>
-
-</div>
-
-
-
 
 {% endblock content %}
