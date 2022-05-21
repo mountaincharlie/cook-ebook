@@ -7,5 +7,5 @@ urlpatterns = [
     path('search-recipes/', views.RecipeSearchView.as_view(), name='search_recipes'),
     path('search-tags/<int:pk>', views.RecipeByTagView.as_view(), name='search_tags'),
     path('recipe-details/<int:pk>', views.RecipeDetailsView.as_view(), name='recipe_details'),
-    
+    path('recipe-chefs-kiss/<int:pk>', views.RecipeChefsKissView.as_view(), name='recipe_chefs_kiss'),
 ]
