@@ -69,18 +69,18 @@ main{
     text-align: center;
     align-content: center;
 
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(/static/images/cover-image.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(/static/images/cover-image.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* image credit: https://unsplash.com/photos/m1meZgcUYEk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink */
+/* image credit: https://unsplash.com/photos/Yn0l7uwBrpw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink */
 
 .site-intro{
     font-family:Lato, sans-serif;
-    font-size: 3.5vh;
+    font-size: 4vh;
     font-weight: 900;
-    color: rgb(94, 17, 17);
+    color: black;
     padding: 0.3em;
     margin: 0;
 }
