@@ -26,13 +26,15 @@
     </div>
 
     <!-- Chef (right) and public status (left) -->
-    <div class="row">
+    <div class="row chef-and-status-container">
         <!-- 2 columns on md screens and 1 on small screens -->
         <div class="col-md-6 col-sm-12">
-            <p class="m-0"><strong>Chef:</strong> {{ recipe.chef }}</p>
+            <h5>Chef:</h5>
+            <p class="m-0">{{ recipe.chef }}</p>
         </div>
         <div class="col-md-6 col-sm-12 text-md-end">
-            <p class="m-0"><strong>Status:</strong> {{ recipe.get_public_status_display }}</p>
+            <h5>Status:</h5>
+            <p class="m-0">{{ recipe.get_public_status_display }}</p>
         </div>
     </div>
 
@@ -52,9 +54,9 @@
 
     <!-- Ingredient col -->
     <!-- Method col -->
-    <div class="row">
+    <div class="row my-4">
         <!-- 2 columns on md screens and 1 on small screens -->
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-6 col-sm-12 recipe-list-container">
             <h4>Ingredients:</h4>
             <ul>
                 {% for item in recipe.ingredients.all %}
@@ -62,7 +64,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-6 col-sm-12 recipe-list-container">
             <h4>Method:</h4>
             <ol>
                 {% for step in recipe.method.all %}
