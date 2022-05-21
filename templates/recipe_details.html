@@ -75,7 +75,7 @@
     </div>
 
     <!-- ensuring the user is logged in and the chef for this recipe -->
-    {% if user.is_authenticated and user.id == recipe.chef.id%}
+    {% if user.is_authenticated and user.id == recipe.chef.id %}
     <div class="row p-2">
         <div class="col-12 text-md-end">
             <a class="btn btn-primary" href="#" role="button">Edit</a>
@@ -85,10 +85,30 @@
     </div>
     {% endif %}
 
-    <!-- Chefs kisses [interactive] -->
-    <div class="row">
+    <!-- user must be logged in to give a recipe a Chefs kisses -->
+    <div class="row chefs-kisses-container">
         <div class="col">
-            
+            <p>Chefs kisses:</p>
+            <p>{{ recipe.number_of_chefs_kisses }}</p>
+            {% if user.is_authenticated %}
+            <!-- uses post method to send to recipe_chefs_kiss url accessing the RecipeChefsKissView view class -->
+            <form class="d-inline" method="post" action="{% url 'recipe_chefs_kiss' recipe.pk %}">
+                {% csrf_token %}
+                <!-- if chefs_kiss = True from the form -->
+                {% if chefs_kiss %}
+                <button type="submit" name="recipe_id" value="{{ recipe.pk }}" class="btn">
+                    <i class="fa-solid fa-face-kiss-wink-heart chef-kiss-icon"></i>
+                </button>
+                {% else %}
+                <button type="submit" name="recipe_id" value="{{ recipe.pk }}" class="btn text-muted">
+                    <i class="fa-regular fa-face-kiss-wink-heart chef-kiss-icon"></i>
+                </button>
+                {% endif %}
+            </form>
+            <!-- if user not logged in -->
+            {% else %}
+            <i class="fa-regular fa-face-kiss-wink-heart chef-kiss-icon"></i>
+            {% endif %} 
         </div>
     </div>
 
