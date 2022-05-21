@@ -210,7 +210,6 @@ main{
 
 .tags-container {
     margin: 1em 0;
-    text-align: center;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -218,7 +217,7 @@ main{
 
 .recipe-details-tags{
     color:black;
-    font-size: 16px;
+    font-size: 14px;
 
     border-width: 6px;
     border-style: solid;
