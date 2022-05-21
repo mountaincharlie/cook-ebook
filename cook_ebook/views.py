@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from .models import Tag, Recipe
+from django.http import HttpResponseRedirect
 
 
 # viewing the recipes on the homepage
@@ -60,8 +61,30 @@ class RecipeDetailsView(View):
         # getting all the public recipes
         public_recipes = Recipe.objects.filter(public_status=1)
         recipe = get_object_or_404(public_recipes, pk=self.kwargs['pk'])
+
+        chefs_kiss = False
+        if recipe.chefs_kisses.filter(id=self.request.user.id).exists():
+            chefs_kiss = True
+
         context = {
-            "recipe": recipe,
+            'recipe': recipe,
+            'chefs_kiss': chefs_kiss,
         }
 
         return render(request, 'recipe_details.html', context)
+
+
+class RecipeChefsKissView(View):
+    # when the user clicks on the chefs kiss button
+    def post(self, request, *args, **kwargs):
+        # getting the recipe
+        recipe = get_object_or_404(Recipe, pk=self.kwargs['pk'])
+
+        # toggeling the btn highligh if the user has already clicked the btn
+        if recipe.chefs_kisses.filter(id=request.user.id).exists():
+            recipe.chefs_kisses.remove(request.user)
+        else:
+            recipe.chefs_kisses.add(request.user)
+
+        # now want the template to refresh to show the change
+        return HttpResponseRedirect(reverse('recipe_details', args=[kwargs['pk']]))
