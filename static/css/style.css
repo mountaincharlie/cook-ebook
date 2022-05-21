@@ -55,8 +55,8 @@ li{
 /* ---------------------- MAIN */
 
 main{
-    min-height: 90vh;
-
+    min-height: 85vh;
+    display:flex;
 }
 
 .container{
@@ -233,9 +233,26 @@ main{
     font-size:larger;
 }
 
+/* ---------------------- AUTHENTIFICATION PAGES*/
+
+.login-page{
+    align-self: center;
+}
+
+.auth-container h1{
+    font-family: Lato, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.auth-container{
+    width:100%;
+    text-align: center;
+    padding: 2em 0;
+}
 
 /* ---------------------- FOOTER */
 
 footer{
-    min-height: 5vh;
+    height: 10vh;
 }
