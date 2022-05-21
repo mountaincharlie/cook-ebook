@@ -20,7 +20,7 @@
         <form action="{% url 'search_recipes' %}" method="get">
             {% csrf_token %}
             <input type="text" name="search" placeholder="Search Recipe Titles...">
-            <button type="submit">Search</button>
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
         </form>
 
         <h1>{{ search }}</h1>
@@ -34,7 +34,7 @@
 
         <div class="row">
             <h2 class="m-0">Search results: {{ num_results }}</h2>
-            <a class="return-to-tag-tiles-link m-3" href="{% url 'home' %}">Return to Tag Tiles</a>
+            <a class="btn btn-outline-secondary return-to-tag-tiles-link m-3" href="{% url 'home' %}">Return to Tag Tiles</a> 
         </div>
 
         {% if num_results == 0 %}

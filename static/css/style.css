@@ -104,14 +104,8 @@ main{
 }
 
 .search-bar-container form button{
-    padding: 0 0.2em;
-    border: 2px solid grey;
-    border-radius:4px;
-}
-
-.search-bar-container form button:hover{
-    color:grey;
-    background-color: white;
+    padding: 0.2em 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .search-results {
@@ -119,18 +113,7 @@ main{
 }
 
 .return-to-tag-tiles-link{
-    /* margin-left: 0.8em; */
-    text-decoration: none;
-    color: black;
-    background-color:#efefef;
-    border: 2px solid grey;
-    border-radius: 4px;
     width:auto;
-}
-
-.return-to-tag-tiles-link:hover{
-    color: grey;
-    background-color:white;
 }
 
 /* ---------------------- TAG TILES */
