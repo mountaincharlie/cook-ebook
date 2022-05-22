@@ -50,7 +50,7 @@
                         {% if user.is_authenticated %}
                         <!-- menu options when a user is logged in -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My eBook</a>
+                            <a class="nav-link" href="{% url 'my_ebook' user.pk %}">My eBook</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
