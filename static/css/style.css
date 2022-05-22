@@ -235,7 +235,7 @@ main{
 
 /* ---------------------- AUTHENTIFICATION PAGES*/
 
-.login-page{
+.auth-page{
     align-self: center;
 }
 
@@ -249,6 +249,10 @@ main{
     width:100%;
     text-align: center;
     padding: 2em 0;
+}
+
+.auth-container form input{
+    padding: 0 0.2em;
 }
 
 /* ---------------------- FOOTER */
