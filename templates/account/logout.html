@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% block head_title %}{% trans "Logout" %}{% endblock %}
+{% block head_title_extra %}Logout{% endblock %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
               {% if redirect_field_value %}
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
               {% endif %}
-              <button class="btn btn-outline-secondary" type="submit">{% trans 'Logout' %}</button>
+              <button class="btn btn-outline-secondary" type="submit">Logout</button>
           </form>
       </div>
   </div>
