@@ -88,3 +88,19 @@ class RecipeChefsKissView(View):
 
         # now want the template to refresh to show the change
         return HttpResponseRedirect(reverse('recipe_details', args=[kwargs['pk']]))
+
+
+# viewing the users recipes in their ebook
+class UsereBookView(generic.ListView):
+    model = Recipe
+    template_name = "my_ebook.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(UsereBookView, self).get_context_data(*args, **kwargs)
+        users_recipes = Recipe.objects.filter(chef=self.kwargs['pk'])
+
+        # context['users_recipes'] = users_recipes.values_list()
+        context = {
+            'users_recipes': users_recipes,
+        }
+        return context
