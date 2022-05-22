@@ -8,4 +8,5 @@ urlpatterns = [
     path('search-tags/<int:pk>', views.RecipeByTagView.as_view(), name='search_tags'),
     path('recipe-details/<int:pk>', views.RecipeDetailsView.as_view(), name='recipe_details'),
     path('recipe-chefs-kiss/<int:pk>', views.RecipeChefsKissView.as_view(), name='recipe_chefs_kiss'),
+    path('my-ebook/<int:pk>', views.UsereBookView.as_view(), name='my_ebook'),
 ]
