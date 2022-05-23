@@ -32,13 +32,17 @@
     <div class="row search-result-container">
 
         <div class="row">
-            <h2 class="m-0">Search results: {{ num_results }}</h2>
-            <a class="btn btn-outline-secondary return-link m-3" href="{% url 'my_ebook' user.pk %}">Return to My eBook</a> 
+            <div class="col-12">
+                <h2 class="m-0">Search results: {{ num_results }}</h2>
+             <a class="btn btn-outline-secondary return-link m-3" href="{% url 'my_ebook' user.pk %}">Return to My eBook</a> 
+            </div>
         </div>
 
         {% if num_results == 0 %}
         <div class="row">
-            <p>{{ message }}</p>
+            <div class="col-12">
+                <p>{{ message }}</p>
+            </div>
         </div>
         {% else %}
 
