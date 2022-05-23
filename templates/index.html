@@ -31,7 +31,7 @@
     <div class="row search-result-container">
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h2 class="m-0">Search results: {{ num_results }}</h2>
                 <a class="btn btn-outline-secondary return-link m-3" href="{% url 'home' %}">Return to Tag Tiles</a> 
             </div>
@@ -39,7 +39,7 @@
 
         {% if num_results == 0 %}
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <p>{{ message }}</p>
             </div>
         </div>
@@ -106,7 +106,7 @@
 
     <div class="row">
         <div class="col">
-            <h4>Search recipes by title in the searchbar or by selecting one of the Tag Tiles below</h4>
+            <h4 class="text-center">Search recipes by title in the searchbar or by selecting one of the Tag Tiles below</h4>
         </div>
     </div>
 
