@@ -112,7 +112,7 @@ main{
     justify-content: center;
 }
 
-.return-to-tag-tiles-link{
+.return-link{
     width:auto;
 }
 
@@ -253,6 +253,12 @@ main{
 
 .auth-container form input{
     padding: 0 0.2em;
+}
+
+/* ---------------------- MY EBOOK */
+
+.my-ebook-heading-container h1{
+    text-align: center;
 }
 
 /* ---------------------- FOOTER */
