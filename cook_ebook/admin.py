@@ -1,6 +1,15 @@
 from django.contrib import admin
 from .models import Recipe, Ingredient, Method, Tag
 
+
+class IngredientInline(admin.TabularInline):
+    model = Ingredient
+
+
+class MethodInline(admin.TabularInline):
+    model = Method
+
+
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
 
@@ -8,6 +17,8 @@ class RecipeAdmin(admin.ModelAdmin):
     search_fields = ('title', 'public_status', 'created_date', 'chef__username')
     list_filter = ('public_status', 'chef__username', 'created_date')
     actions = ['make_private', 'make_public', 'make_awaits']
+
+    inlines = [IngredientInline, MethodInline, ]
 
     # changes status to private
     def make_private(self, request, queryset):
@@ -20,18 +31,6 @@ class RecipeAdmin(admin.ModelAdmin):
     # changes status to awaits
     def make_awaits(self, request, queryset):
         queryset.update(public_status=2)
-
-
-@admin.register(Ingredient)
-class IngredientAdmin(admin.ModelAdmin):
-    list_display = ('item', 'id')
-    search_fields = ('item', 'id')
-
-
-@admin.register(Method)
-class MethodAdmin(admin.ModelAdmin):
-    list_display = ('step', 'id')
-    search_fields = ('step', 'id')
 
 
 @admin.register(Tag)
