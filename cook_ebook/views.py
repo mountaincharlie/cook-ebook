@@ -59,9 +59,9 @@ class RecipeByTagView(generic.ListView):
 class RecipeDetailsView(View):
 
     def get(self, request, *args, **kwargs):
-        # getting all the public recipes
-        public_recipes = Recipe.objects.filter(public_status=1)
-        recipe = get_object_or_404(public_recipes, pk=self.kwargs['pk'])
+        # getting all the recipes
+        recipes = Recipe.objects.all()
+        recipe = get_object_or_404(recipes, pk=self.kwargs['pk'])
 
         chefs_kiss = False
         if recipe.chefs_kisses.filter(id=self.request.user.id).exists():
