@@ -79,9 +79,7 @@
                         <!-- card footer info -->
                         <div class="card-footer text-muted">
                             <p class="m-0">
-                                Chef: {{ recipe.chef }} <br>
-                                <!-- | <i class="fa-solid fa-hands-clapping fa-xs"></i>
-                                {{ recipe.number_of_likes }}  -->
+                                Chef: {{ recipe.chef }}<br>
                                 <small>{{ recipe.created_date }}</small> |
                                 <small>
                                     Chefs Kisses: {{ recipe.number_of_chefs_kisses }}
@@ -101,22 +99,68 @@
 
     {% else %}
 
-    <!-- <h2>{{ users_recipes }}</h2> -->
-    
     {% if users_recipes %}
-    
+    <!-- user's recipes as recipe cards -->
+    <div class="row">
+
         {% for recipe in users_recipes %}
-    
-            <div>
-                <h2>{{ recipe.title }}</h2>
-            </div> 
-    
+        <div class="col-md-4 col-sm-12 my-4">
+            <!-- creating the recipe cards -->
+            <a class="recipe-card-link" href="{% url 'recipe_details' recipe.pk %}">
+                <div class="card h-100">
+                    <!-- card cover image -->
+                    {% if "placeholder" in recipe.cover_image.url %}
+                        <!-- placeholder image in static dir -->
+                        <!-- placeholder image credits: https://unsplash.com/photos/5O1ddenSM4g?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+                        <img class="card-img" src="{% static 'images/placeholder-image.jpg' %}" alt="recipe cover image">
+                    {% else %}
+                        <!-- user specified image in Cloudinary -->
+                        <img class="card-img" src=" {{ recipe.cover_image.url }}" alt="recipe cover image">
+                    {% endif %}
+                    <!-- card body info -->
+                    <div class="card-body">
+                        <h3 class="card-title"><strong>{{ recipe.title }}</strong></h3>
+                        {% if recipe.summary %}
+                        <p class="card-text">{{ recipe.summary }}</p>
+                        {% else %}
+                        <p class="card-text">Open the full view to see more...</p>
+                        {% endif %}
+                    </div>
+                    <!-- showing tags added to the recipe if any -->
+                    {% if recipe.tags %}
+                    <div class="card-body-tags-container">
+                        {% for tag in recipe.tags.all %}
+                        <span class="card-body-tags" style="border-color:{{ tag.color }}">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <!-- card footer info -->
+                    <div class="card-footer text-muted">
+                        <p class="m-0">
+                            Chef: {{ recipe.chef }} <br>
+                            <small>{{ recipe.created_date }}</small> |
+                            <small>
+                                Chefs Kisses: {{ recipe.number_of_chefs_kisses }}
+                                <i class="fa-regular fa-face-kiss-wink-heart"></i> 
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
         {% endfor %}
-    
+
+    </div>
+
     {% else %}
-    <p>
-        You don't currently have any recipes in your cook ebook. To make your first recipe, click the Add Recipe button.
-    </p>
+    <!-- message if the user has no recipes yet -->
+    <div class="row">
+        <div class="col-12">
+            <p>
+                You don't currently have any recipes in your cook ebook. To make your first recipe, click the Add Recipe button.
+            </p>
+        </div>
+    </div>
     
     {% endif %}
     {% endif %}
