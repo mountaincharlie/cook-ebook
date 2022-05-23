@@ -61,7 +61,7 @@
         <div class="col-md-6 col-sm-12 recipe-list-container">
             <h4>Ingredients:</h4>
             <ul>
-                {% for item in recipe.ingredients.all %}
+                {% for item in ingredients.all %}
                 <li>{{ item }}</li>
                 {% endfor %}
             </ul>
@@ -69,7 +69,7 @@
         <div class="col-md-6 col-sm-12 recipe-list-container">
             <h4>Method:</h4>
             <ol>
-                {% for step in recipe.method.all %}
+                {% for step in method.all %}
                 <li>{{ step }}</li>
                 {% endfor %}
             </ol>
