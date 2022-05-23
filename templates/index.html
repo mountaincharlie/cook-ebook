@@ -100,7 +100,13 @@
 
     </div>
 
-    {% endif %}
+    {% else %}
+
+    <div class="row">
+        <div class="col">
+            <h4>Search recipes by title in the searchbar or by selecting one of the Tag Tiles below</h4>
+        </div>
+    </div>
 
     <div class="row tag-tiles-container">
 
@@ -119,6 +125,8 @@
         {% endfor %}
 
     </div>
+
+    {% endif %}
 
 </div>
 
