@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Tag, Recipe
+from .models import Tag, Recipe, Ingredient, Method
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 
@@ -63,12 +63,17 @@ class RecipeDetailsView(View):
         recipes = Recipe.objects.all()
         recipe = get_object_or_404(recipes, pk=self.kwargs['pk'])
 
+        ingredients = Ingredient.objects.filter(recipe=recipe)
+        method = Method.objects.filter(recipe=recipe)
+
         chefs_kiss = False
         if recipe.chefs_kisses.filter(id=self.request.user.id).exists():
             chefs_kiss = True
 
         context = {
             'recipe': recipe,
+            'ingredients': ingredients,
+            'method': method,
             'chefs_kiss': chefs_kiss,
         }
 
