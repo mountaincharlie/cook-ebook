@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from .models import Tag, Recipe
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 
 # viewing the recipes on the homepage
@@ -104,3 +105,24 @@ class UsereBookView(generic.ListView):
             'users_recipes': users_recipes,
         }
         return context
+
+
+class MyeBookRecipeSearchView(generic.ListView):
+    def get(self, request, *args, **kwargs):
+
+        search_input = request.GET.get('search').replace(" ", "")
+        recipes = Recipe.objects.filter(title__icontains=search_input).filter(chef=request.user.id)
+
+        # checking if search isnt blank and if any recipes title contain it
+        if search_input != '' and recipes:
+            context = {
+                'recipes': recipes,
+                'num_results': len(recipes)
+            }
+        else:
+            context = {
+                'recipes': 'none',
+                'num_results': 0,
+                'message': "None of your Recipe's titles contain all or part of this search"
+            }
+        return render(request, 'my_ebook.html', context)
