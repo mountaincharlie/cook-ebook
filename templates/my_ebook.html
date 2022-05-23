@@ -79,7 +79,7 @@
                         <!-- card footer info -->
                         <div class="card-footer text-muted">
                             <p class="m-0">
-                                Chef: {{ recipe.chef }}<br>
+                                Status: {{ recipe.get_public_status_display }}<br>
                                 <small>{{ recipe.created_date }}</small> |
                                 <small>
                                     Chefs Kisses: {{ recipe.number_of_chefs_kisses }}
@@ -137,7 +137,7 @@
                     <!-- card footer info -->
                     <div class="card-footer text-muted">
                         <p class="m-0">
-                            Chef: {{ recipe.chef }} <br>
+                            Status: {{ recipe.get_public_status_display }} <br>
                             <small>{{ recipe.created_date }}</small> |
                             <small>
                                 Chefs Kisses: {{ recipe.number_of_chefs_kisses }}
