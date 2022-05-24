@@ -10,4 +10,5 @@ urlpatterns = [
     path('recipe-chefs-kiss/<int:pk>', views.RecipeChefsKissView.as_view(), name='recipe_chefs_kiss'),
     path('my-ebook/<int:pk>', views.UsereBookView.as_view(), name='my_ebook'),
     path('my-ebook-search-recipes/', views.MyeBookRecipeSearchView.as_view(), name='my_ebook_search_recipes'),
+    path('create-recipe/', views.CreateRecipeView.as_view(), name='create_recipe'),
 ]
