@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from .models import Tag, Recipe, Ingredient, Method
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from .forms import CreateRecipeForm, AddIngredientFormSet, AddMethodFormSet
 
 
 # viewing the recipes on the homepage
@@ -131,3 +132,48 @@ class MyeBookRecipeSearchView(generic.ListView):
                 'message': "None of your Recipe's titles contain all or part of this search"
             }
         return render(request, 'my_ebook.html', context)
+
+
+class CreateRecipeView(View):
+
+    # getting form data
+    def get(self, request, *args, **kwargs):
+
+        recipe_form = CreateRecipeForm()
+        ingredients_formset = AddIngredientFormSet()
+        method_formset = AddMethodFormSet()
+
+        context = {
+            'recipe_form': recipe_form,
+            'ingredients_formset': ingredients_formset,
+            'method_formset': method_formset,
+        }
+
+        return render(request, 'create_recipe.html', context)
+    
+    # saving valid submitted data to db
+    def post(self, request, *args, **kwargs):
+
+        recipe_form = CreateRecipeForm(data=request.POST)
+
+        if recipe_form.is_valid():
+            recipe_form.save()
+
+            ingredients_formset = AddIngredientFormSet(request.POST, instance=recipe_form)
+
+            if ingredients_formset.is_valid():
+                ingredients_formset.save()
+
+                method_formset = AddMethodFormSet(request.POST, instance=recipe_form)
+
+                if method_formset.is_valid():
+                    method_formset.save()
+
+            return redirect('/success/')
+        else:
+            context = {
+                'recipe_form': recipe_form,
+                'ingredients_formset': ingredients_formset,
+                'method_formset': method_formset,
+            }
+            return render(request, 'create_recipe.html', context)
