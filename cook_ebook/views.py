@@ -157,19 +157,19 @@ class CreateRecipeView(View):
         recipe_form = CreateRecipeForm(data=request.POST)
 
         if recipe_form.is_valid():
-            recipe_form.save()
+            recipe = recipe_form.save()
 
-            ingredients_formset = AddIngredientFormSet(request.POST, instance=recipe_form)
+            ingredients_formset = AddIngredientFormSet(request.POST, instance=recipe)
 
             if ingredients_formset.is_valid():
                 ingredients_formset.save()
 
-                method_formset = AddMethodFormSet(request.POST, instance=recipe_form)
+                method_formset = AddMethodFormSet(request.POST, instance=recipe)
 
                 if method_formset.is_valid():
                     method_formset.save()
 
-            return redirect('/success/')
+            return redirect('/')
         else:
             context = {
                 'recipe_form': recipe_form,
