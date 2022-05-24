@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title_extra %} Create Recipe {% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12 text-center p-2">
+            <h1>Create Recipe</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <form method="post"> <!-- action="#" -->
+                {% csrf_token %}
+                {{ recipe_form | crispy }}
+                <br>
+                <h3>Ingredients:</h3>
+                {{ ingredients_formset.management_form }}
+                {% for form in ingredients_formset %}
+                {{ form |crispy }}
+                {% endfor %}
+                <br>
+                <h3>Method:</h3>
+                {{ method_formset.management_form }}
+                {% for form in method_formset %}
+                {{ form |crispy }}
+                {% endfor %}
+                <button class="btn btn-success" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
