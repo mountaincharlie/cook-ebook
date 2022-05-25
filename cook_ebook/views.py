@@ -157,7 +157,12 @@ class CreateRecipeView(View):
         recipe_form = CreateRecipeForm(data=request.POST)
 
         if recipe_form.is_valid():
-            recipe = recipe_form.save()
+            recipe = recipe_form.save(commit=False)
+            recipe.chef = User.objects.get(id=self.request.user.id)
+            recipe.save()
+            checked_tags = request.POST.getlist('tags')
+            recipe.tags.set(checked_tags)
+            recipe.save()
 
             ingredients_formset = AddIngredientFormSet(request.POST, instance=recipe)
 
