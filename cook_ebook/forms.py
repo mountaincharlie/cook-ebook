@@ -1,14 +1,19 @@
-from .models import Recipe, Ingredient, Method
+from .models import Recipe, Ingredient, Method, Tag
 from django import forms
 
 
 class CreateRecipeForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Recipe Title'}))
+    tags = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,required=False, queryset=Tag.objects.all())
+
     class Meta:
         model = Recipe
         exclude = (
+            'chef',
             'public_status',
             'created_date',
             'chefs_kisses',
+            'tags',
         )
 
 
