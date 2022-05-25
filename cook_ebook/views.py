@@ -154,11 +154,12 @@ class CreateRecipeView(View):
     # saving valid submitted data to db
     def post(self, request, *args, **kwargs):
 
-        recipe_form = CreateRecipeForm(data=request.POST)
+        recipe_form = CreateRecipeForm(request.POST, request.FILES)
 
         if recipe_form.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.chef = User.objects.get(id=self.request.user.id)
+            recipe.cover_image = request.FILES.get('upload_image')
             recipe.save()
             checked_tags = request.POST.getlist('tags')
             recipe.tags.set(checked_tags)
@@ -178,7 +179,7 @@ class CreateRecipeView(View):
         else:
             context = {
                 'recipe_form': recipe_form,
-                'ingredients_formset': ingredients_formset,
-                'method_formset': method_formset,
+                # 'ingredients_formset': ingredients_formset,
+                # 'method_formset': method_formset,
             }
             return render(request, 'create_recipe.html', context)
