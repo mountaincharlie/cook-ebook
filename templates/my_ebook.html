@@ -5,6 +5,9 @@
 
 {% block content %}
 
+<!-- checking that the logged in user hasn't tried to replace their id with another user's in the url itself -->
+{% if user.id|slugify == request.path|slice:"::-1"|slice:":1" %}
+
 <div class="container">
     <div class="row my-ebook-heading-container p-4">
         <h1>
@@ -176,5 +179,17 @@
     {% endif %}
     {% endif %}
 </div>
+
+{% else %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 align-middle">
+            <h1 class="text-center">This is not your eBook</h1>
+        </div>
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock content %}
