@@ -316,7 +316,11 @@ This application provides users with the ability to browse other user’s public
 * [CodingEntrepreneurs's youtube video](https://youtu.be/quJzUzCs6Q0) for how to add placeholder text in form fields so that I could have the placeholder 'Recipe Title' in the Title input field.
 * [Willem Van Onsem's solution on Slack](https://stackoverflow.com/a/60479660) for how to use ModelMultipleChoiceField in forms.py to create a multiple choce checkbox input in my form for the tags field.
 * [Silver Light's solution on Slack](https://stackoverflow.com/a/2417136) for how to get the checked checkboxes value from a form in the views.py post method. I used this in order to get the values for the tags that a user chooses to add to a recipe. 
-* [aero's solution on Slack](https://stackoverflow.com/a/38166800) for how to properly use .set() so that I could add the tags which a user selected to their recipe instance. 
+* [aero's solution on Slack](https://stackoverflow.com/a/38166800) for how to properly use .set() so that I could add the tags which a user selected to their recipe instance.
+* [Aidas Bendoraitis' solution on Slack](https://stackoverflow.com/a/13148812) for needing to include: request.FILES to my form within the post method of my CreateRecipeView, so that I could assign upload_image to recipe.cover_image.
+* [Vijesh Venugopal's solution on Slack](https://stackoverflow.com/a/47719052) for including: enctype="multipart/form-data" as an attribute in my form, so that in my views.py I could access the upload_image with: request.FILES.
+* [httpete's solution on Slack](https://stackoverflow.com/a/8432018) for using {{ request.path }} within a template inorder to get the current url path. I used this so that I could check if the logged in user's id matched the id passeed into the url for the user who owns the eBook and if not, then the user was informed that this wasnt their eBook. This was to stop user's being able to access another user's my_ebook page by changing the url.
+* [scytale's solution on Slack](https://stackoverflow.com/a/7405779) for using: |slugify to coerce an integer into acting as a string so that I could compare the user.id with the id in the url, when checking if the user was authorised to view a particular my_ebook page.
 
 ### Content
 * Fonts: 
