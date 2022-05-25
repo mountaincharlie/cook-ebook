@@ -5,6 +5,7 @@ from django import forms
 class CreateRecipeForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Recipe Title'}))
     tags = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,required=False, queryset=Tag.objects.all())
+    upload_image = forms.ImageField(required=False)
 
     class Meta:
         model = Recipe
@@ -14,6 +15,7 @@ class CreateRecipeForm(forms.ModelForm):
             'created_date',
             'chefs_kisses',
             'tags',
+            'cover_image',
         )
 
 
