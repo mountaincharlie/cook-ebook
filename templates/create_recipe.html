@@ -22,19 +22,85 @@
                 <br>
                 <h3>Ingredients:</h3>
                 {{ ingredients_formset.management_form }}
-                {% for form in ingredients_formset %}
-                {{ form |crispy }}
-                {% endfor %}
+                <div id="ingredient-list">
+                    {% for form in ingredients_formset %}
+                    <div class="ingredient-form">
+                        {{ form |crispy }}
+                    </div>
+                    {% endfor %}
+                </div>
+                
+
+                <!-- for additional ingredients -->
+                <div id="new-ingredient-form" class="visually-hidden">
+                    {{ ingredients_formset.empty_form |crispy }}
+                </div>
+                <button id="add-ingredient" class="btn btn-outline-secondary" type="button">Add An Ingredient</button>
+
                 <br>
                 <h3>Method:</h3>
                 {{ method_formset.management_form }}
-                {% for form in method_formset %}
-                {{ form |crispy }}
-                {% endfor %}
+                <div id="method-list">
+                    {% for form in method_formset %}
+                    <div class="method-form">
+                        {{ form |crispy }}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- for additional method steps -->
+                <div id="new-method-form" class="">
+                    {{ ingredients_formset.empty_form |crispy }}
+                </div>
+                <button id="add-method" class="btn btn-outline-secondary" type="button">Add A Step</button>
+
+                
                 <button class="btn btn-success" type="submit">Create</button>
             </form>
         </div>
     </div>
 </div>
+
+<!-- JS for adding another Ingredent item and/or Method step -->
+<!-- CREDIT for JavaScript and div structure for new forms: CodingEntrepreneurs' Youtube Video https://youtu.be/s3T-w2jhDHE adapted styling and constant names to fit the specific needs of my form -->
+<script>
+    // adding Ingredients with event listener on add-ingredient button
+
+    const addIngredientBtn = document.getElementById('add-ingredient');
+    // getting id_form-TOTAL_FORMS id from formset management_form to update value for each new ingredient
+    const totalNewIngredients = document.getElementById('id_items-TOTAL_FORMS');
+
+    addIngredientBtn.addEventListener('click', addIngredient);
+
+    function addIngredient(ev){
+        // preventing any potential default action
+        if (ev){
+            ev.preventDefault()
+        }
+        // getting total number of forms at this time
+        const allIngredientForms = document.getElementsByClassName('ingredient-form');
+        const numberOfIngredientForms = allIngredientForms.length
+
+        // getting the ingredient form list to append to
+        const ingredientFormList = document.getElementById('ingredient-list');
+
+        // getting the empty form and making a copy
+        const newEmptyIngredientForm = document.getElementById('new-ingredient-form').cloneNode(true);
+
+        // setting class for the new ingredient form to match the others
+        newEmptyIngredientForm.setAttribute('class', 'ingredient-form');
+        // setting unique id for new ingredient forms
+        newEmptyIngredientForm.setAttribute('id', `ingredient-form-${numberOfIngredientForms}`);
+        // using regular expression to change __prefix__ to the forms number so that the name and id for each form input will be unique as more are added
+        const regexp = new RegExp('__prefix__', 'g');
+        newEmptyIngredientForm.innerHTML = newEmptyIngredientForm.innerHTML.replace(regexp, numberOfIngredientForms);
+        // updating value for totalNewIngredients by 1
+        totalNewIngredients.setAttribute('value', numberOfIngredientForms + 1);
+
+        // adding the new form to ingredientFormList
+        ingredientFormList.append(newEmptyIngredientForm);
+    }
+
+</script>
 
 {% endblock %}
