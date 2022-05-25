@@ -282,8 +282,12 @@ This application provides users with the ability to browse other user’s public
     * Fix: instead of using css to manually overlay the site intro text over the cover image, I set the cover image as the background-image for the site-intro-container in css. Now when the mobile navigation is expanded, the cover image and site intro text move down together.
 * Bug: the RecipeDetailsView view class was storing all the public recipes in a public_recipes varible which was used to get the specific recipe to take the user to it details page, but this meant that when a user was trying to open a private recipe within their personal My eBook page, the view didnt work
     * Fix: changing 'public_recipes = Recipe.objects.filter(public_status=1)' to 'recipes = Recipe.objects.all()'. This still worked in the homepage and for user not logged in since the searchbar and Tag Tiles search functionality limit the displayed recipe cards to only those that are Public anyway.
+* Bug: Having set Ingredient and Method as having a ManyToMany relationship with Recipe, I found that adding Ingredient items and Method steps, within my create_recipe form, was very confusing as it allowed any particular item or step to be associated with many recipes. Since users chosen ingredients and method steps would vary so much it didn't make sense to need to associate any particular ingredient or method step with multiple recipes.
+    * Fix: I changed my database model so that both Ingredient adn Method had OneToMany relationships with Recipe, thus allowing a recipe to have many ingredients and method steps but not requiring that any of the specific ingredients or method steps should be able to apply to other recipes. 
 * Bug: when submitting the create_recipe form, trying to add the tags the user selected to the recipe raised the ValueError: "< Recipe: tags >" needs to have a value for field "id" before this many-to-many relationship can be used.
     * Fix: saving the recipe with: recipe.save(), so that the recipe exists and therefore has a value for field 'id, before trying to populate the tags ManyToManyField.
+* Bug:
+    * Fix:
 
 ### Unfixed Bugs
 * should be “No unfixed bugs”
