@@ -305,6 +305,10 @@ This application provides users with the ability to browse other user’s public
 * [David Roseman's solution on Slack](https://stackoverflow.com/a/24599835) for how to access the primary key of a particular item in the database. I used this so that when a user clicks on a Tag Tile, the primary key of that tag is attached to the url path and is also used in the RecipeByTagView class to filter the recipes by those which contain that particular tag.
 * [JustDjango's youtube video](https://youtu.be/vU0VeFN-abU) for how to use the '__icontains' method, so that I could check if the user's input in the searchbar contained all or part of a recipe's title.
 * [Codemy's youtube video](https://youtu.be/zb4fIvtn4tY) for how to use the 'get_context_data' method (used in my UsereBookView class view) in order to find the recipes created by the current user to display them when in the user's My eBook page.  
+* [nmb.ten's solution on Slack](https://stackoverflow.com/a/18247059) for how I could automatically set the Chef, for newly created recipes, as the current user, by executing recipe.chef = User.objects.get(id=self.request.user.id) before saving and commiting my the recipe_form.
+* [CodingEntrepreneurs's youtube video](https://youtu.be/quJzUzCs6Q0) for how to add placeholder text in form fields so that I could have the placeholder 'Recipe Title' in the Title input field.
+* [Silver Light's solution on Slack](https://stackoverflow.com/a/2417136) for how to get the checked checkboxes value from a form in the views.py post method. I used this in order to get the values for the tags that a user chooses to add to a recipe. 
+* [aero's solution on Slack](https://stackoverflow.com/a/38166800) for how to properly use .set() so that I could add the tags which a user selected to their recipe instance. 
 
 ### Content
 * Fonts: 
