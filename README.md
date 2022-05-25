@@ -323,6 +323,8 @@ This application provides users with the ability to browse other user’s public
 * [scytale's solution on stackoverflow](https://stackoverflow.com/a/7405779) for using: |slugify to coerce an integer into acting as a string so that I could compare the user.id with the id in the url, when checking if the user was authorised to view a particular my_ebook page.
 
 ### Content
+* JavaScript and div structure for dynamically adding Ingredients and Method steps inline formsets
+    * I used [CodingEntrepreneurs's YouTube video](https://youtu.be/s3T-w2jhDHE) inorder to build the JavaScript and formset div structure I needed to dynamically add ingredients and method steps. I added my own comments to describe the process as well as the specific styling and constant names which were suited to this project.
 * Fonts: 
 
 ### Code
