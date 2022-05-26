@@ -57,9 +57,9 @@
                 <button id="add-method" class="btn btn-outline-secondary my-2" type="button">Add A Step</button>
 
                 
-                <!-- cancel button -->
-                <button class="btn btn-success float-end d-block" type="submit">Edit</button>
-                <!-- delete button -->
+                <a class="btn btn-secondary float-end" href="{% url 'home' %}" role="button">Cancel</a>
+                <a class="btn btn-danger float-end mx-2" href="{% url 'delete_recipe' recipe.id %}" role="button">Delete</a>
+                <button class="btn btn-success float-end" type="submit">Edit</button>
             </form>
         </div>
     </div>
