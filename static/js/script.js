@@ -3,9 +3,17 @@
 const addIngredientBtn = document.getElementById('add-ingredient');
 // getting id_form-TOTAL_FORMS id from formset management_form to update value for each new ingredient
 const totalNewIngredients = document.getElementById('id_items-TOTAL_FORMS');
+console.log(totalNewIngredients);
 
 // CUSTOM JS - empty list to add used id's too to avoid duplication after items deleted
 const usedIngredientIds = [];  
+const existingIngredientForms = document.getElementsByClassName('ingredient-form');
+console.log('existing forms',existingIngredientForms);
+for (const c of existingIngredientForms) {
+    usedId = c.children[0].getAttribute('id')
+    usedIngredientIds.push(usedId)
+    console.log(usedIngredientIds);
+}
 
 addIngredientBtn.addEventListener('click', addIngredient);
 
@@ -33,7 +41,7 @@ function addIngredient(ev){
     // newDeleteIngredientBtn.classList.add('delete-ingredient'); 
     newDeleteIngredientBtn.setAttribute('id', `delete-ingredient-button-${ingredientFormId}`);
 
-    usedIngredientIds.push(ingredientFormId)
+    usedIngredientIds.push(ingredientFormId);
     
     // using regular expression to change __prefix__ to the forms number so that the name and id for each form input will be unique as more are added
     const regexp = new RegExp('__prefix__', 'g');
