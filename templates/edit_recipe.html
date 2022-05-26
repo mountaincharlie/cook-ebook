@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title_extra %} Edit Recipe {% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12 text-center p-2">
+            <h1>Edit Recipe</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ recipe_form | crispy }}
+                <br>
+                <h3>Ingredients:</h3>
+                {{ ingredients_formset.management_form }}
+                <div id="ingredient-list">
+                    {% for form in ingredients_formset %}
+                    <div class="ingredient-form">
+                        {{ form |crispy }}
+                    </div>
+                    {% endfor %}
+                </div>
+                
+
+                <!-- for additional ingredients -->
+                <div id="new-ingredient-form" class="visually-hidden">
+                    {{ ingredients_formset.empty_form |crispy }}
+                    <button id="new-delete-ingredient-button" class="delete-ingredient btn btn-outline-danger my-2" type="button">Delete Ingredient</button>
+                </div>
+                <button id="add-ingredient" class="btn btn-outline-secondary my-2" type="button">Add An Ingredient</button>
+
+                <br>
+                <h3>Method:</h3>
+                {{ method_formset.management_form }}
+                <div id="method-list">
+                    {% for form in method_formset %}
+                    <div class="method-form">
+                        {{ form |crispy }}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- for additional method steps -->
+                <div id="new-method-form" class="visually-hidden">
+                    {{ ingredients_formset.empty_form |crispy }}
+                    <button id="new-delete-method-button" class="delete-method btn btn-outline-danger my-2" type="button">Delete Step</button>
+                </div>
+                <button id="add-method" class="btn btn-outline-secondary my-2" type="button">Add A Step</button>
+
+                
+                <!-- cancel button -->
+                <button class="btn btn-success float-end d-block" type="submit">Edit</button>
+                <!-- delete button -->
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JS for adding/deleting Ingredent items and Method steps -->
+<!-- CREDIT for JavaScript for adding ingredients and div structure for new forms: CodingEntrepreneurs' Youtube Video https://youtu.be/s3T-w2jhDHE I adapted the way that new item/step ids were created so that duplicate ids wouldnt be created after an item/step was deleted and added custom JavaScript for the delete button functionality -->
+<script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}
