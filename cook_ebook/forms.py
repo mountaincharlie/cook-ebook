@@ -32,6 +32,6 @@ class AddMethodForm(forms.ModelForm):
         exclude = ('recipe',)
 
 
-AddIngredientFormSet = forms.inlineformset_factory(Recipe, Ingredient, form=AddIngredientForm, extra=0)
+AddIngredientFormSet = forms.inlineformset_factory(Recipe, Ingredient, form=AddIngredientForm, extra=0, can_delete=False)
 
-AddMethodFormSet = forms.inlineformset_factory(Recipe, Method, form=AddMethodForm, extra=0)
+AddMethodFormSet = forms.inlineformset_factory(Recipe, Method, form=AddMethodForm, extra=0, can_delete=False)
