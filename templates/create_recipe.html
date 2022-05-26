@@ -34,8 +34,9 @@
                 <!-- for additional ingredients -->
                 <div id="new-ingredient-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
+                    <button id="new-delete-ingredient-button" class="btn btn-outline-danger my-2" type="button">Delete Ingredient</button>
                 </div>
-                <button id="add-ingredient" class="btn btn-outline-secondary" type="button">Add An Ingredient</button>
+                <button id="add-ingredient" class="btn btn-outline-secondary my-2" type="button">Add An Ingredient</button>
 
                 <br>
                 <h3>Method:</h3>
@@ -70,6 +71,9 @@
     // getting id_form-TOTAL_FORMS id from formset management_form to update value for each new ingredient
     const totalNewIngredients = document.getElementById('id_items-TOTAL_FORMS');
 
+    // CUSTOM JS - empty list to add used id's too to avoid duplication after items deleted
+    const usedIngredientIds = [];  
+
     addIngredientBtn.addEventListener('click', addIngredient);
 
     function addIngredient(ev){
@@ -77,9 +81,8 @@
         if (ev){
             ev.preventDefault()
         }
-        // getting total number of forms at this time
-        const allIngredientForms = document.getElementsByClassName('ingredient-form');
-        const numberOfIngredientForms = allIngredientForms.length
+        // CUSTOM JS - length of usedIngredientIds = next unused id which will definetly be unique
+        const ingredientFormId = usedIngredientIds.length
 
         // getting the ingredient form list to append to
         const ingredientFormList = document.getElementById('ingredient-list');
@@ -90,15 +93,40 @@
         // setting class for the new ingredient form to match the others
         newEmptyIngredientForm.setAttribute('class', 'ingredient-form');
         // setting unique id for new ingredient forms
-        newEmptyIngredientForm.setAttribute('id', `ingredient-form-${numberOfIngredientForms}`);
+        newEmptyIngredientForm.setAttribute('id', `ingredient-form-${ingredientFormId}`);
+
+        // CUSTOM JS - getting delete button and setting id for the delete button using the numberOfIngredientForms
+        newDeleteIngredientBtn = newEmptyIngredientForm.lastElementChild
+        newDeleteIngredientBtn.classList.add('delete-ingredient'); 
+        newDeleteIngredientBtn.setAttribute('id', `delete-ingredient-button-${ingredientFormId}`);
+
+        usedIngredientIds.push(ingredientFormId)
+        
         // using regular expression to change __prefix__ to the forms number so that the name and id for each form input will be unique as more are added
         const regexp = new RegExp('__prefix__', 'g');
-        newEmptyIngredientForm.innerHTML = newEmptyIngredientForm.innerHTML.replace(regexp, numberOfIngredientForms);
+        newEmptyIngredientForm.innerHTML = newEmptyIngredientForm.innerHTML.replace(regexp, ingredientFormId);
         // updating value for totalNewIngredients by 1
-        totalNewIngredients.setAttribute('value', numberOfIngredientForms + 1);
-
+        totalNewIngredients.setAttribute('value', ingredientFormId + 1);
         // adding the new form to ingredientFormList
         ingredientFormList.append(newEmptyIngredientForm);
+
+        // CUSTOM JS - deleting Ingredients with event listener on delete-ingredient buttons
+
+        let deleteIngredientBtn = document.getElementsByClassName('delete-ingredient');
+        // console.log(deleteIngredientBtn);
+        // looping through the buttons to assign EventListener
+        for (i in deleteIngredientBtn){
+            deleteIngredientBtn[i].addEventListener("click", deleteIngredient);
+        }
+        function deleteIngredient(ev){
+            // preventing any potential default action
+            if (ev){
+                ev.preventDefault()
+            }
+            // console.log('parent element', this.parentElement)
+            this.parentElement.remove()
+            // console.log('the form has been removed')
+        }
     }
 
 </script>
