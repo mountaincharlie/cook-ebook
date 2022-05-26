@@ -4,6 +4,7 @@ from .models import Tag, Recipe, Ingredient, Method
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .forms import CreateRecipeForm, AddIngredientFormSet, AddMethodFormSet
+from django.urls import reverse_lazy
 
 
 # viewing the recipes on the homepage
@@ -183,3 +184,13 @@ class CreateRecipeView(View):
                 # 'method_formset': method_formset,
             }
             return render(request, 'create_recipe.html', context)
+
+
+class DeleteRecipeView(generic.DeleteView):
+    model = Recipe
+    template_name = "delete_recipe.html"
+
+    def post(self, request, *args, **kwargs):
+        recipe = Recipe.objects.get(id=self.kwargs['pk'])
+        recipe.delete()
+        return redirect('/')
