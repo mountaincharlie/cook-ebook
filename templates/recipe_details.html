@@ -105,7 +105,7 @@
         <!-- ensuring the user is logged in and the chef for this recipe -->
         {% if user.is_authenticated and user.id == recipe.chef.id %}
         <div class="col-6 text-end p-2">
-            <a class="btn btn-primary" href="#" role="button">Edit</a>
+            <a class="btn btn-primary" href="{% url 'edit_recipe' recipe.id %}" role="button">Edit</a>
 
             <a class="btn btn-danger" href="{% url 'delete_recipe' recipe.id %}" role="button">Delete</a>
         </div>
