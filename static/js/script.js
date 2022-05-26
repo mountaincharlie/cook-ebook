@@ -1,9 +1,25 @@
-// adding Ingredients with event listener on add-ingredient button
 
+// event listeners on dom load
+// -add buttons
+// -delete buttons
+
+// ADDING d-none CLASS TO ALL formset DELETE CHECKBOXES
+console.log('FORM-CHECK ELEMENTS',document.getElementsByClassName('checkboxinput'));  
+const checkboxesToHide = document.getElementsByClassName('checkboxinput')
+for (const checkbox of checkboxesToHide){
+    checkbox.parentElement.classList.add('d-none');
+    console.log('CHECKBOX',checkbox)
+}
+
+
+// INGREDIENTS
+
+// getting the add-ingredient button
 const addIngredientBtn = document.getElementById('add-ingredient');
-// getting id_form-TOTAL_FORMS id from formset management_form to update value for each new ingredient
-const totalNewIngredients = document.getElementById('id_items-TOTAL_FORMS');
-console.log(totalNewIngredients);
+
+// getting the 'id_items-TOTAL_FORMS' div so that I can update this number everytime a new ingredient is added/deleted
+let totalIngredients = document.getElementById('id_items-TOTAL_FORMS');
+console.log(totalIngredients);
 
 // CUSTOM JS - empty list to add used id's too to avoid duplication after items deleted
 const usedIngredientIds = [];  
@@ -62,8 +78,8 @@ function addIngredient(ev){
     // using regular expression to change __prefix__ to the forms number so that the name and id for each form input will be unique as more are added
     const regexp = new RegExp('__prefix__', 'g');
     newEmptyIngredientForm.innerHTML = newEmptyIngredientForm.innerHTML.replace(regexp, ingredientFormId);
-    // updating value for totalNewIngredients by 1
-    totalNewIngredients.setAttribute('value', ingredientFormId + 1);
+    // updating value for totalIngredients by 1
+    totalIngredients.setAttribute('value', ingredientFormId + 1);
     // adding the new form to ingredientFormList
     ingredientFormList.append(newEmptyIngredientForm);
 
@@ -89,11 +105,26 @@ function deleteIngredient(ev){
         ev.preventDefault()
     }
     // console.log('parent element', this.parentElement)
-    this.parentElement.remove()
-    // console.log('the form has been removed')
+    
+    // console.log('parent', this.parentElement.children)
+    // getting the checkbox
+    const checkbox = this.parentElement.querySelector('.form-check').querySelector('.form-check-input')
+    // checking it
+    checkbox.checked = true;
+
+    console.log(checkbox)
+    // hidding the html element
+    this.parentElement.classList.add('d-none'); 
+    // this.parentElement.remove()
 }
 
 
+
+
+
+
+
+// FOR METHODS (JUST COPY AND CHANGE NAMES FOR INGREDENTS)
 // adding Method steps with event listener on add-method button
 
 const addMethodBtn = document.getElementById('add-method');
