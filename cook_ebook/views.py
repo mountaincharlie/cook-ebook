@@ -186,6 +186,59 @@ class CreateRecipeView(View):
             return render(request, 'create_recipe.html', context)
 
 
+class EditRecipeView(View):
+
+    def get(self, request, *args, **kwargs):
+        recipe = Recipe.objects.get(id=self.kwargs['pk'])
+
+        recipe_form = CreateRecipeForm(instance=recipe)
+        ingredients_formset = AddIngredientFormSet(instance=recipe)
+        method_formset = AddMethodFormSet(instance=recipe)
+
+        context = {
+            'recipe': recipe,
+            'recipe_form': recipe_form,
+            'ingredients_formset': ingredients_formset,
+            'method_formset': method_formset,
+        }
+
+        return render(request, 'edit_recipe.html', context)
+    
+    def post(self, request, *args, **kwargs):
+        # original_recipe = Recipe.objects.get(id=self.kwargs['pk'])
+        recipe = Recipe.objects.get(id=self.kwargs['pk'])
+
+        recipe_form = CreateRecipeForm(request.POST, request.FILES, instance=recipe)
+
+        if recipe_form.is_valid():
+            recipe = recipe_form.save(commit=False)
+            recipe.chef = User.objects.get(id=self.request.user.id)
+            recipe.cover_image = request.FILES.get('upload_image')
+            recipe.save()
+            checked_tags = request.POST.getlist('tags')
+            recipe.tags.set(checked_tags)
+            recipe.save()
+
+            ingredients_formset = AddIngredientFormSet(request.POST, instance=recipe)
+
+            if ingredients_formset.is_valid():
+                ingredients_formset.save()
+
+                method_formset = AddMethodFormSet(request.POST, instance=recipe)
+
+                if method_formset.is_valid():
+                    method_formset.save()
+
+            return redirect('/')
+        else:
+            context = {
+                'recipe_form': recipe_form,
+                # 'ingredients_formset': ingredients_formset,
+                # 'method_formset': method_formset,
+            }
+            return render(request, 'create_recipe.html', context)
+
+
 class DeleteRecipeView(generic.DeleteView):
     model = Recipe
     template_name = "delete_recipe.html"
