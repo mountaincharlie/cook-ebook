@@ -8,10 +8,26 @@ console.log(totalNewIngredients);
 // CUSTOM JS - empty list to add used id's too to avoid duplication after items deleted
 const usedIngredientIds = [];  
 const existingIngredientForms = document.getElementsByClassName('ingredient-form');
+
+// getting a copy of the delete ingredient button
+const getDeleteIngredientBtn = document.getElementById('new-delete-ingredient-button').cloneNode(true);
+
+var n = 0;
+for (const div of existingIngredientForms) {
+    div.setAttribute('id', `ingredient-form-${n}`);
+    // give delete button a matching id
+    const newDeleteIngredientBtn = getDeleteIngredientBtn.cloneNode(true);
+    newDeleteIngredientBtn.setAttribute('id', `delete-ingredient-button-${n}`);
+    // add the button to the div
+    div.appendChild(newDeleteIngredientBtn);
+    console.log(existingIngredientForms);
+    n++;
+}
+
 console.log('existing forms',existingIngredientForms);
-for (const c of existingIngredientForms) {
-    usedId = c.children[0].getAttribute('id')
-    usedIngredientIds.push(usedId)
+for (const div of existingIngredientForms) {
+    usedId = div.children[0].getAttribute('id');
+    usedIngredientIds.push(usedId);
     console.log(usedIngredientIds);
 }
 
@@ -59,15 +75,22 @@ function addIngredient(ev){
     for (i in deleteIngredientBtn){
         deleteIngredientBtn[i].addEventListener("click", deleteIngredient);
     }
-    function deleteIngredient(ev){
-        // preventing any potential default action
-        if (ev){
-            ev.preventDefault()
-        }
-        // console.log('parent element', this.parentElement)
-        this.parentElement.remove()
-        // console.log('the form has been removed')
+}
+
+let deleteIngredientBtn = document.getElementsByClassName('delete-ingredient');
+// // console.log(deleteIngredientBtn);
+// // looping through the buttons to assign EventListener
+for (i in deleteIngredientBtn){
+    deleteIngredientBtn[i].addEventListener("click", deleteIngredient);
+}
+function deleteIngredient(ev){
+    // preventing any potential default action
+    if (ev){
+        ev.preventDefault()
     }
+    // console.log('parent element', this.parentElement)
+    this.parentElement.remove()
+    // console.log('the form has been removed')
 }
 
 
