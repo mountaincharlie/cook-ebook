@@ -34,7 +34,7 @@
                 <!-- for additional ingredients -->
                 <div id="new-ingredient-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
-                    <button id="new-delete-ingredient-button" class="btn btn-outline-danger my-2" type="button">Delete Ingredient</button>
+                    <button id="new-delete-ingredient-button" class="delete-ingredient btn btn-outline-danger my-2" type="button">Delete Ingredient</button>
                 </div>
                 <button id="add-ingredient" class="btn btn-outline-secondary my-2" type="button">Add An Ingredient</button>
 
@@ -52,7 +52,7 @@
                 <!-- for additional method steps -->
                 <div id="new-method-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
-                    <button id="new-delete-method-button" class="btn btn-outline-danger my-2" type="button">Delete Step</button>
+                    <button id="new-delete-method-button" class="delete-method btn btn-outline-danger my-2" type="button">Delete Step</button>
                 </div>
                 <button id="add-method" class="btn btn-outline-secondary my-2" type="button">Add A Step</button>
 

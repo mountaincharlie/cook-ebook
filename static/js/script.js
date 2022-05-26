@@ -30,7 +30,7 @@ function addIngredient(ev){
 
     // CUSTOM JS - getting delete button and setting id for the delete button using the numberOfIngredientForms
     newDeleteIngredientBtn = newEmptyIngredientForm.lastElementChild
-    newDeleteIngredientBtn.classList.add('delete-ingredient'); 
+    // newDeleteIngredientBtn.classList.add('delete-ingredient'); 
     newDeleteIngredientBtn.setAttribute('id', `delete-ingredient-button-${ingredientFormId}`);
 
     usedIngredientIds.push(ingredientFormId)
@@ -95,7 +95,7 @@ function addMethod(ev){
 
     // CUSTOM JS - getting delete button and setting id for the delete button using the methodFormId
     newDeleteMethodBtn = newEmptyMethodForm.lastElementChild
-    newDeleteMethodBtn.classList.add('delete-method'); 
+    // newDeleteMethodBtn.classList.add('delete-method'); 
     newDeleteMethodBtn.setAttribute('id', `delete-method-button-${methodFormId}`);
 
     usedMethodIds.push(methodFormId)
