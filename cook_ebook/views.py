@@ -4,7 +4,7 @@ from .models import Tag, Recipe, Ingredient, Method
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .forms import CreateRecipeForm, AddIngredientFormSet, AddMethodFormSet
-from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 # viewing the recipes on the homepage
@@ -176,6 +176,7 @@ class CreateRecipeView(View):
                 if method_formset.is_valid():
                     method_formset.save()
 
+            messages.success(request, ('Your recipe was successfully created!'))
             return redirect('/')
         else:
             context = {
@@ -229,6 +230,7 @@ class EditRecipeView(View):
                 if method_formset.is_valid():
                     method_formset.save()
 
+            messages.success(request, ('Your recipe was successfully updated!'))
             return redirect('/')
         else:
             context = {
@@ -246,4 +248,6 @@ class DeleteRecipeView(generic.DeleteView):
     def post(self, request, *args, **kwargs):
         recipe = Recipe.objects.get(id=self.kwargs['pk'])
         recipe.delete()
+
+        messages.success(request, ('Your recipe was successfully deleted!'))
         return redirect('/')
