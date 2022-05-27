@@ -253,3 +253,8 @@ class DeleteRecipeView(generic.DeleteView):
 
         messages.success(request, ('Your recipe was successfully deleted!'))
         return redirect('/')
+
+
+class AboutPageView(generic.ListView):
+    model = User
+    template_name = "about.html"
