@@ -58,7 +58,7 @@
 
                 
                 <a class="btn btn-secondary float-end" href="{% url 'my_ebook' user.username %}" role="button">Cancel</a>
-                <a class="btn btn-danger float-end mx-2" href="{% url 'delete_recipe' recipe.id %}" role="button">Delete</a>
+                <a class="btn btn-danger float-end mx-2" href="{% url 'delete_recipe' recipe.slug %}" role="button">Delete</a>
                 <button class="btn btn-success float-end" type="submit">Save</button>
             </form>
         </div>
