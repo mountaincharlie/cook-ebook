@@ -214,8 +214,10 @@ class EditRecipeView(View):
         if recipe_form.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.chef = User.objects.get(id=self.request.user.id)
-            recipe.cover_image = request.FILES.get('upload_image')
-            recipe.save()
+            # checking if a new file was added, else leaving the existing
+            if request.FILES.get('upload_image'):
+                recipe.cover_image = request.FILES.get('upload_image')
+                recipe.save()
             checked_tags = request.POST.getlist('tags')
             recipe.tags.set(checked_tags)
             recipe.save()
