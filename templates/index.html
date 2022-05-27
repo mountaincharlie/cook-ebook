@@ -75,6 +75,7 @@
                         {% if recipe.tags %}
                         <div class="card-body-tags-container">
                             {% for tag in recipe.tags.all %}
+                            <!-- NOTE: using inline styling since the tag color is a database value so this is not an attribute that I will ever change in the external CSS -->
                             <span class="card-body-tags" style="border-color:{{ tag.color }}">{{ tag }}</span>
                             {% endfor %}
                         </div>
@@ -117,6 +118,7 @@
                 
                 <a class="tag-tile-link" href="{% url 'search_tags' tag.pk %}">
                     <div class="card">
+                        <!-- NOTE: using inline styling since the tag color is a database value so this is not an attribute that I will ever change in the external CSS -->
                         <div class="card-body tag-tile" style="background-color:{{ tag.color }}">
                             <p>{{ tag.tag }}</p>
                         </div>
