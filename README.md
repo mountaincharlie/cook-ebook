@@ -326,7 +326,8 @@ This application provides users with the ability to browse other user’s public
 
 ### Content
 * JavaScript and div structure for dynamically adding Ingredients and Method steps inline formsets
-    * I used [CodingEntrepreneurs's YouTube video](https://youtu.be/s3T-w2jhDHE) inorder to build the JavaScript and formset div structure I needed to dynamically add ingredients and method steps. I added my own comments to describe the process as well as the specific styling and constant names which were suited to this project.
+    * I used [CodingEntrepreneurs' YouTube video](https://youtu.be/s3T-w2jhDHE) inorder to build the JavaScript and formset div structure I needed to dynamically add ingredients and method steps. I added my own comments to describe the process as well as the specific styling and constant names which were suited to this project.
+    * [UPDATE] due to the nature of my specific project; the custom delete buttons I added and checking for exisiting ingredients and methods before more can be added, the JavaScript for this project became almost entirely my own custom code. So in the end I only really used CodingEntrepreneurs' idea of having a hidden new form which I used to add new ingredients and methods and I also used his idea for changing the id of new ingredients and methods by using regular expressions.
 * Fonts: 
 
 ### Code
