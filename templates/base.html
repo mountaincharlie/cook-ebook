@@ -70,6 +70,23 @@
             </nav>
         </header>
 
+        <!-- iterating through messages to display -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 m-2">
+                    <div class="alert {{ message.tags }} alert-dismissable fade show" id="msg" role="alert">
+                        {{ message | safe }}
+                        <!-- dismiss btn using bootstrap alert controls -->
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
         <!-- templates content -->
         <main>
             {% block content %}
