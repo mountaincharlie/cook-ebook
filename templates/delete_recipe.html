@@ -23,7 +23,7 @@
         <div class="col-12 text-center">
             <form method="post">
                 {% csrf_token %}
-                <a class="btn btn-secondary" href="{% url 'home' %}" role="button">Cancel</a>
+                <a class="btn btn-secondary" href="{% url 'my_ebook' user.username %}" role="button">Cancel</a>
                 <button class="btn btn-danger" type="submit" name="confirm_delete">Delete Recipe</button>
             </form>
         </div>
