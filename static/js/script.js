@@ -1,3 +1,24 @@
+// getting all the hidden elements containing all the existing tags for the recipe
+const existingTags = document.getElementsByClassName('existing-tag');
+// creating an empty list to put the existing tag ids into
+const listOfExistingTagValues = [];
+
+// adding the existing tag ids into the list as integers
+for(const tag of existingTags){
+    listOfExistingTagValues.push(parseInt(tag.innerHTML));
+    console.log('existing tags',listOfExistingTagValues);
+}
+
+// getting all the elements with class 'form-check-input'
+const allCheckInputs = document.getElementsByClassName('form-check-input');
+// checking if any of the check inputs have a value which is in listOfExistingTagValues and if so, their checkbox is checked
+for(const checkBox of allCheckInputs){
+    if (listOfExistingTagValues.includes(parseInt(checkBox.getAttribute('value')))){
+        checkBox.checked = true;
+    }
+}
+    
+
 
 // [GLOBAL VAR] getting the 'id_items-TOTAL_FORMS' div so that I can update this number everytime a new ingredient is added
 let totalIngredients = document.getElementById('id_items-TOTAL_FORMS');
