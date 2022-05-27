@@ -31,12 +31,9 @@ body{
 
 /* ---------------------- BG COLOURS */
 
-.header--bg-light-grey{
-    background-color: rgb(189, 188, 188);
-}
-
-.footer--bg-dark-grey{
-    background-color: rgb(56, 55, 55);
+.bg-light-grey{
+    background-color: rgb(243, 239, 239);
+    /* background-color: rgb(56, 55, 55); */
 }
 
 
@@ -49,6 +46,10 @@ header{
 
 li{
     font-family: Lato, sans-serif;
+}
+
+.nav-link{
+    color: rgba(0, 0, 0, 0.902);
 }
 
 
