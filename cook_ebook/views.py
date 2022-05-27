@@ -42,8 +42,9 @@ class RecipeByTagView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         # getting all recipes with this tag (by its pk)
-        recipes = Recipe.objects.filter(tags=self.kwargs['pk']).filter(public_status=1)
-        print('This is recipes:', recipes)
+        chosen_tag = get_object_or_404(Tag, tag=self.kwargs['tag'])
+        recipes = Recipe.objects.filter(tags=chosen_tag.id).filter(public_status=1)
+        
         if len(recipes) != 0:
             context = {
                 'recipes': recipes,
@@ -253,7 +254,6 @@ class DeleteRecipeView(generic.DeleteView):
     template_name = "delete_recipe.html"
 
     def post(self, request, *args, **kwargs):
-        # recipe = Recipe.objects.get(id=self.kwargs['pk'])
         recipe = get_object_or_404(Recipe, slug=self.kwargs['slug'])
 
         recipe.delete()
