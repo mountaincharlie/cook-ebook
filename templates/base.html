@@ -34,7 +34,7 @@
 
     <body>
         <!-- navbar header -->
-        <header class="header--bg-light-grey px-2">
+        <header class="bg-light-grey px-2">
             <nav class="navbar navbar-expand-md navbar-light">
 
                 <!-- clickable site logo -->
@@ -93,16 +93,17 @@
             {% endblock content %}
         </main>
 
-        <footer class="footer--bg-dark-grey text-white">
+        <!-- make contact into instagram link and only visible for authorised users -->
+        <footer class="bg-light-grey">
             <ul class="nav justify-content-between">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Contact</a>
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
-            <p class="text-center text-muted my-0">© 2022 Student of Code Institute</p>
+            <p class="text-center fs-6 my-0">© 2022 Student of Code Institute</p>
         </footer>
     </body>
 </html>
