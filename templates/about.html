@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <!-- set as only visible for authorised users -->
+    {% if user.is_authenticated %}
     <div class="row">
         <div class="col-12 text-center my-4">
             <h3 class="fw-bold">Give Feedback:</h3>
@@ -48,6 +48,7 @@
             </p>
         </div>
     </div>
+    {% endif %}
 
    
 </div>
