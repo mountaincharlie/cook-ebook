@@ -5,8 +5,8 @@
 
 {% block content %}
 
-<!-- checking that the logged in user hasn't tried to replace their id with another user's in the url itself -->
-{% if user.id|slugify == request.path|slice:"::-1"|slice:":1" %}
+<!-- checking that the logged in user hasn't tried to replace their username with another user's in the url itself -->
+{% if user.username == authorised_user %}
 
 <div class="container">
     <div class="row my-ebook-heading-container p-4">
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="m-0">Search results: {{ num_results }}</h2>
-             <a class="btn btn-outline-secondary return-link m-3" href="{% url 'my_ebook' user.pk %}">Return to My eBook</a> 
+             <a class="btn btn-outline-secondary return-link m-3" href="{% url 'my_ebook' user.username %}">Return to My eBook</a> 
             </div>
         </div>
 
@@ -170,8 +170,8 @@
     <!-- message if the user has no recipes yet -->
     <div class="row">
         <div class="col-12">
-            <p>
-                You don't currently have any recipes in your cook ebook. To make your first recipe, click the Add Recipe button.
+            <p class="text-center">
+                You don't currently have any recipes in your cook ebook. To make your first recipe, click the Create Recipe button.
             </p>
         </div>
     </div>
@@ -182,10 +182,10 @@
 
 {% else %}
 
-<div class="container">
+<div class="container align-self-center">
     <div class="row">
         <div class="col-12 align-middle">
-            <h1 class="text-center">This is not your eBook</h1>
+            <h1 class="text-center fw-bold">This is not your eBook</h1>
         </div>
     </div>
 </div>
