@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from colorfield.fields import ColorField
+import random
 
 
 PUBLIC_STATUS = ((0, 'Private'), (1, 'Public'), (2, 'Awaits'))
@@ -29,6 +30,18 @@ class Tag(models.Model):
         return self.tag
 
 
+def random_slug():
+
+    # generate 10 random numbers
+    random_numbers_list = [random.randint(0, 100) for i in range(20)]
+    # make integer list into string list
+    random_str_list = [str(i) for i in random_numbers_list]
+    # joining list items into one long string
+    random_str = str("".join(random_str_list))
+
+    return random_str
+
+
 class Recipe(models.Model):
     title = models.CharField(max_length=80)
     summary = models.TextField(max_length=200, blank=True)
@@ -37,7 +50,7 @@ class Recipe(models.Model):
     public_status = models.IntegerField(choices=PUBLIC_STATUS, default=0)
     created_date = models.DateTimeField(auto_now_add=True)
     chef = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_creator')
-    # slug = models.SlugField(max_length=150, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, default=random_slug)
     chefs_kisses = models.ManyToManyField(User, blank=True, related_name='recipe_chefs_kiss')
 
     class Meta:
