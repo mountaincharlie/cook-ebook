@@ -16,6 +16,7 @@ class CreateRecipeForm(forms.ModelForm):
             'chefs_kisses',
             'tags',
             'cover_image',
+            'slug',
         )
 
 
