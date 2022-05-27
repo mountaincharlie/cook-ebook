@@ -105,11 +105,14 @@ class UsereBookView(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(UsereBookView, self).get_context_data(*args, **kwargs)
-        users_recipes = Recipe.objects.filter(chef=self.kwargs['pk'])
+        current_user = User.objects.filter(username=self.kwargs['username'])
+        # print('user id', current_user[0].id)
+        users_recipes = Recipe.objects.filter(chef=current_user[0].id)
 
         # context['users_recipes'] = users_recipes.values_list()
         context = {
             'users_recipes': users_recipes,
+            'authorised_user': current_user[0].username,
         }
         return context
 
@@ -124,13 +127,15 @@ class MyeBookRecipeSearchView(generic.ListView):
         if search_input != '' and recipes:
             context = {
                 'recipes': recipes,
-                'num_results': len(recipes)
+                'num_results': len(recipes),
+                'authorised_user': request.user.username,
             }
         else:
             context = {
                 'recipes': 'none',
                 'num_results': 0,
-                'message': "None of your Recipe's titles contain all or part of this search"
+                'message': "None of your Recipe's titles contain all or part of this search",
+                'authorised_user': request.user.username,
             }
         return render(request, 'my_ebook.html', context)
 
@@ -177,7 +182,7 @@ class CreateRecipeView(View):
                     method_formset.save()
 
             messages.success(request, ('Your recipe was successfully created!'))
-            return redirect('/')
+            return redirect(f'/my-ebook/{self.request.user.username}')
         else:
             context = {
                 'recipe_form': recipe_form,
@@ -233,7 +238,7 @@ class EditRecipeView(View):
                     method_formset.save()
 
             messages.success(request, ('Your recipe was successfully updated!'))
-            return redirect('/')
+            return redirect(f'/my-ebook/{self.request.user.username}')
         else:
             context = {
                 'recipe_form': recipe_form,
@@ -251,8 +256,8 @@ class DeleteRecipeView(generic.DeleteView):
         recipe = Recipe.objects.get(id=self.kwargs['pk'])
         recipe.delete()
 
-        messages.success(request, ('Your recipe was successfully deleted!'))
-        return redirect('/')
+        messages.success(request, ('Your recipe was successfully deleted!'))  
+        return redirect(f'/my-ebook/{self.request.user.username}')
 
 
 class AboutPageView(generic.ListView):
