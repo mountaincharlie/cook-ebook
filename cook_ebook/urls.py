@@ -13,4 +13,5 @@ urlpatterns = [
     path('create-recipe/', views.CreateRecipeView.as_view(), name='create_recipe'),
     path('edit-recipe/<int:pk>', views.EditRecipeView.as_view(), name='edit_recipe'),
     path('delete-recipe/<int:pk>', views.DeleteRecipeView.as_view(), name='delete_recipe'),
+    path('about/', views.AboutPageView.as_view(), name='about'),
 ]
