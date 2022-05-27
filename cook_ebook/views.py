@@ -63,7 +63,7 @@ class RecipeDetailsView(View):
     def get(self, request, *args, **kwargs):
         # getting all the recipes
         recipes = Recipe.objects.all()
-        recipe = get_object_or_404(recipes, pk=self.kwargs['pk'])
+        recipe = get_object_or_404(recipes, slug=self.kwargs['slug'])
 
         ingredients = Ingredient.objects.filter(recipe=recipe)
         method = Method.objects.filter(recipe=recipe)
@@ -86,7 +86,7 @@ class RecipeChefsKissView(View):
     # when the user clicks on the chefs kiss button
     def post(self, request, *args, **kwargs):
         # getting the recipe
-        recipe = get_object_or_404(Recipe, pk=self.kwargs['pk'])
+        recipe = get_object_or_404(Recipe, slug=self.kwargs['slug'])
 
         # toggeling the btn highligh if the user has already clicked the btn
         if recipe.chefs_kisses.filter(id=request.user.id).exists():
@@ -95,7 +95,7 @@ class RecipeChefsKissView(View):
             recipe.chefs_kisses.add(request.user)
 
         # now want the template to refresh to show the change
-        return HttpResponseRedirect(reverse('recipe_details', args=[kwargs['pk']]))
+        return HttpResponseRedirect(reverse('recipe_details', args=[kwargs['slug']]))
 
 
 # viewing the users recipes in their ebook
@@ -195,7 +195,7 @@ class CreateRecipeView(View):
 class EditRecipeView(View):
 
     def get(self, request, *args, **kwargs):
-        recipe = Recipe.objects.get(id=self.kwargs['pk'])
+        recipe = get_object_or_404(Recipe, slug=self.kwargs['slug'])
 
         recipe_form = CreateRecipeForm(instance=recipe)
         ingredients_formset = AddIngredientFormSet(instance=recipe)
@@ -211,8 +211,8 @@ class EditRecipeView(View):
         return render(request, 'edit_recipe.html', context)
     
     def post(self, request, *args, **kwargs):
-        # original_recipe = Recipe.objects.get(id=self.kwargs['pk'])
-        recipe = Recipe.objects.get(id=self.kwargs['pk'])
+        recipe = get_object_or_404(Recipe, slug=self.kwargs['slug'])
+
 
         recipe_form = CreateRecipeForm(request.POST, request.FILES, instance=recipe)
 
@@ -253,7 +253,9 @@ class DeleteRecipeView(generic.DeleteView):
     template_name = "delete_recipe.html"
 
     def post(self, request, *args, **kwargs):
-        recipe = Recipe.objects.get(id=self.kwargs['pk'])
+        # recipe = Recipe.objects.get(id=self.kwargs['pk'])
+        recipe = get_object_or_404(Recipe, slug=self.kwargs['slug'])
+
         recipe.delete()
 
         messages.success(request, ('Your recipe was successfully deleted!'))  
