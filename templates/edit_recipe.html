@@ -63,6 +63,16 @@
             </form>
         </div>
     </div>
+
+    <!-- hidden div for checking existing tags -->
+    {% if recipe.tags.all %}
+    {% for tag in recipe.tags.all %}
+    <div class="d-none existing-tag">
+        {{ tag.id }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
 </div>
 
 <!-- JS for adding/deleting Ingredent items and Method steps -->
