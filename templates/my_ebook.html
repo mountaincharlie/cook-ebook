@@ -118,8 +118,8 @@
     <div class="row tag-tiles-container justify-content-center">
         {% for tag in all_tags %}
             <div class="col-sm-2 col-6 p-1">
-                <a class="tag-tile-link" href="{% url 'ebook_search_tags' tag.tag %}">
-                    <div class="card" aria-label="Link to recipe full view">
+                <a class="tag-tile-link" href="{% url 'ebook_search_tags' tag.tag %}" role="button" aria-label="Tag search button">
+                    <div class="card">
                         <!-- NOTE: using inline styling since the tag color is a database value so this is not an attribute that I will ever change in the external CSS -->
                         <div class="card-body p-2 my-ebook-tag-tile" style="background-color:{{ tag.color }}">
                             <p class="m-0">{{ tag.tag }}</p>
