@@ -341,6 +341,8 @@ This application provides users with the ability to browse other user’s public
 * Icons:
     * Font Awesome's [solid face-kiss-wink-heart](https://fontawesome.com/icons/face-kiss-wink-heart?s=solid) for when a logged in user clicks/has previously clicked the 'Chefs Kiss' button for a recipe
     * Font Awesome's [regular face-kiss-wink-heart](https://fontawesome.com/icons/face-kiss-wink-heart?s=regular) for when a non-logged in user sees the 'Chefs Kisses' for a recipe and when a logged in user clicks the 'Chefs Kiss' button for a recipe again to undo their 'Chefs Kiss'
+    * Font Awesome's [solid fa-cookie-bite](https://fontawesome.com/icons/cookie-bite?s=solid) as part of the logo for the site
+    * Made Font Awesome's [solid fa-cookie-bite](https://fontawesome.com/icons/cookie-bite?s=solid) into a favicon with [favicon.io](https://favicon.io/)
 
 ## Future Features (to finish)
 ---
