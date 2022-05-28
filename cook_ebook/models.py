@@ -8,20 +8,6 @@ import random
 PUBLIC_STATUS = ((0, 'Private'), (1, 'Public'), (2, 'Awaits'))
 
 
-# OLD INGREDIENTS
-# class Ingredient(models.Model):
-#     item = models.CharField(max_length=200)
-#     def __str__(self):
-#         return self.item
-
-#  OLD METHOD
-# class Method(models.Model):
-#     step = models.CharField(max_length=400)
-
-#     def __str__(self):
-#         return self.step
-
-
 class Tag(models.Model):
     tag = models.CharField(max_length=100)
     color = ColorField(unique=True)
@@ -65,7 +51,7 @@ class Recipe(models.Model):
 
 class Ingredient(models.Model):
     item = models.CharField(max_length=200)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="items", null=True)  # need , null=True? remove before final deployment
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="items", null=True)
 
     def __str__(self):
         return self.item
@@ -77,28 +63,3 @@ class Method(models.Model):
 
     def __str__(self):
         return self.step
-
-
-# OLD RECIPE CLASS
-# class Recipe(models.Model):
-#     title = models.CharField(max_length=80)
-#     summary = models.TextField(max_length=200, blank=True)
-#     cover_image = CloudinaryField('image', default='placeholder')
-#     ingredients = models.ManyToManyField(Ingredient, related_name='recipe_item')
-#     method = models.ManyToManyField(Method, related_name='recipe_step')
-#     tags = models.ManyToManyField(Tag, blank=True, related_name='recipe_tag')
-#     public_status = models.IntegerField(choices=PUBLIC_STATUS, default=0)
-#     created_date = models.DateTimeField(auto_now_add=True)
-#     chef = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_creator')
-#     # slug = models.SlugField(max_length=150, unique=True)
-#     chefs_kisses = models.ManyToManyField(User, blank=True, related_name='recipe_chefs_kiss')
-
-#     class Meta:
-#         ordering = ['-created_date']
-    
-#     def __str__(self):
-#         return self.title
-    
-#     def number_of_chefs_kisses(self):
-#         return self.chefs_kisses.count()
-    
