@@ -20,7 +20,7 @@
         <form action="{% url 'search_recipes' %}" method="get">
             {% csrf_token %}
             <input type="text" name="search" placeholder="Search Recipe Titles...">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
+            <button class="btn btn-outline-secondary" type="submit" aria-label="Search button">Search</button>
         </form>
         
     </div>
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="m-0">Search results: {{ num_results }}</h2>
-                <a class="btn btn-outline-secondary return-link m-3" href="{% url 'home' %}">Return to Tag Tiles</a> 
+                <a class="btn btn-outline-secondary return-link m-3" href="{% url 'home' %}" role="button" aria-label="Return to homepage button">Return to Tag Tiles</a> 
             </div>
         </div>
 
@@ -51,7 +51,7 @@
 
             <div class="col-md-4 col-sm-12 my-4">
                 <!-- creating the recipe cards -->
-                <a class="recipe-card-link" href="{% url 'recipe_details' recipe.slug %}">
+                <a class="recipe-card-link" href="{% url 'recipe_details' recipe.slug %}" aria-label="Link to recipe full view">
                     <div class="card h-100">
                         <!-- card cover image -->
                         {% if "placeholder" in recipe.cover_image.url %}
@@ -117,7 +117,7 @@
             <div class="col-md-3 col-sm-6 px-4 py-4">
                 
                 <a class="tag-tile-link" href="{% url 'search_tags' tag.tag %}">
-                    <div class="card">
+                    <div class="card" aria-label="Link to recipe full view">
                         <!-- NOTE: using inline styling since the tag color is a database value so this is not an attribute that I will ever change in the external CSS -->
                         <div class="card-body tag-tile" style="background-color:{{ tag.color }}">
                             <p>{{ tag.tag }}</p>

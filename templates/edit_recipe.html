@@ -34,9 +34,9 @@
                 <!-- for additional ingredients -->
                 <div id="new-ingredient-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
-                    <button id="new-delete-ingredient-button" class="delete-ingredient btn btn-outline-danger my-2" type="button">Delete Ingredient</button>
+                    <button id="new-delete-ingredient-button" class="delete-ingredient btn btn-outline-danger my-2" type="button" aria-label="Delete ingredient button">Delete Ingredient</button>
                 </div>
-                <button id="add-ingredient" class="btn btn-outline-secondary my-2" type="button">Add An Ingredient</button>
+                <button id="add-ingredient" class="btn btn-outline-secondary my-2" type="button" aria-label="Add another ingredient button">Add An Ingredient</button>
 
                 <br>
                 <h3>Method:</h3>
@@ -52,14 +52,14 @@
                 <!-- for additional method steps -->
                 <div id="new-method-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
-                    <button id="new-delete-method-button" class="delete-method btn btn-outline-danger my-2" type="button">Delete Step</button>
+                    <button id="new-delete-method-button" class="delete-method btn btn-outline-danger my-2" type="button" aria-label="Delete method step button">Delete Step</button>
                 </div>
-                <button id="add-method" class="btn btn-outline-secondary my-2" type="button">Add A Step</button>
+                <button id="add-method" class="btn btn-outline-secondary my-2" type="button" aria-label="Add enother method step button">Add A Step</button>
 
                 
-                <a class="btn btn-secondary float-end" href="{% url 'my_ebook' user.username %}" role="button">Cancel</a>
-                <a class="btn btn-danger float-end mx-2" href="{% url 'delete_recipe' recipe.slug %}" role="button">Delete</a>
-                <button class="btn btn-success float-end" type="submit">Save</button>
+                <a class="btn btn-secondary float-end" href="{% url 'my_ebook' user.username %}" role="button" aria-label="Cancel and return to my ebook button">Cancel</a>
+                <a class="btn btn-danger float-end mx-2" href="{% url 'delete_recipe' recipe.slug %}" role="button" aria-label="Delete recipe button">Delete</a>
+                <button class="btn btn-success float-end" type="submit" aria-label="Save changes to recipe button">Save</button>
             </form>
         </div>
     </div>
