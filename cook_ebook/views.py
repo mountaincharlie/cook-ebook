@@ -44,7 +44,7 @@ class RecipeByTagView(generic.ListView):
         # getting all recipes with this tag (by its pk)
         chosen_tag = get_object_or_404(Tag, tag=self.kwargs['tag'])
         recipes = Recipe.objects.filter(tags=chosen_tag.id).filter(public_status=1)
-        
+
         if len(recipes) != 0:
             context = {
                 'recipes': recipes,
@@ -109,11 +109,13 @@ class UsereBookView(generic.ListView):
         current_user = User.objects.filter(username=self.kwargs['username'])
         # print('user id', current_user[0].id)
         users_recipes = Recipe.objects.filter(chef=current_user[0].id)
+        all_tags = Tag.objects.all()
 
         # context['users_recipes'] = users_recipes.values_list()
         context = {
             'users_recipes': users_recipes,
             'authorised_user': current_user[0].username,
+            'all_tags': all_tags,
         }
         return context
 
@@ -136,6 +138,29 @@ class MyeBookRecipeSearchView(generic.ListView):
                 'recipes': 'none',
                 'num_results': 0,
                 'message': "None of your Recipe's titles contain all or part of this search",
+                'authorised_user': request.user.username,
+            }
+        return render(request, 'my_ebook.html', context)
+
+
+class MyeBookTagSearchView(generic.ListView):
+    def get(self, request, *args, **kwargs):
+        # getting all recipes with this tag (by its pk)
+        chosen_tag = get_object_or_404(Tag, tag=self.kwargs['tag'])
+        # filtering recipes by this tag and then by those belonging to the user
+        recipes = Recipe.objects.filter(tags=chosen_tag.id).filter(chef=request.user.id)
+
+        if len(recipes) != 0:
+            context = {
+                'recipes': recipes,
+                'num_results': len(recipes),
+                'authorised_user': request.user.username,
+            }
+        else:
+            context = {
+                'recipes': 'none',
+                'num_results': len(recipes),
+                'message': 'None of your recipes have been assigned this tag yet',
                 'authorised_user': request.user.username,
             }
         return render(request, 'my_ebook.html', context)
