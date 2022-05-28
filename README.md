@@ -227,11 +227,11 @@ This application provides users with the ability to browse other user’s public
 * [image]
 
 ### Semantic Elements
-* Header
-* 
+* Using 'header', 'nav', 'main' and 'footer' in base.html to make the roles of each section obvious.
+* Adding role="button" for link elements which are being used as buttons
 
-### Aria-Labels/Aria-LabelledBy
-* [if used]
+### Aria-Labels
+* Added aria-labels to all link and button elements
 
 ### Attributes
 * [if used]
