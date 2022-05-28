@@ -49,9 +49,12 @@ li{
 }
 
 .nav-link{
-    color: rgba(0, 0, 0, 0.902);
+    color: rgba(0, 0, 0, 0.9);
 }
 
+.nav-link:hover{
+    color: rgb(145, 143, 143);
+}
 
 /* ---------------------- MAIN */
 
@@ -273,4 +276,5 @@ main{
 
 footer{
     height: 10vh;
+    font-family:Lato, sans-serif;
 }
