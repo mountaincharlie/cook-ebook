@@ -34,6 +34,11 @@ urlpatterns = [
         name='my_ebook_search_recipes'
         ),
     path(
+        'my-ebook-tags-search/<str:tag>',
+        views.MyeBookTagSearchView.as_view(),
+        name='ebook_search_tags'
+        ),
+    path(
         'create-recipe/',
         views.CreateRecipeView.as_view(),
         name='create_recipe'
