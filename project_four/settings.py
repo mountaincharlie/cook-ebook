@@ -30,13 +30,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['cook-ebook.herokuapp.com', 'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -65,6 +65,8 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
