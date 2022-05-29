@@ -73,7 +73,7 @@ main{
     text-align: center;
     align-content: center;
 
-    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(/static/images/cover-image.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(https://res.cloudinary.com/mountaincharlie/image/upload/v1653822817/static/images/cover-image.e8563f4bd8a3.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
