@@ -239,16 +239,124 @@ This application provides users with the ability to browse other user’s public
 ## Testing (to finish)
 ---
 
-### Python Testing with Unittest
+### Automated Testing with Django
 * In order to run these tests, I needed Django to use sqlite3 as a local database. To do this I created a 'TESTING' variable in my env.py file and then in settings.py I added an If Statement which checked for this variable and used the sqlite3 database if it was found. When I was not running tests, I commented out this variable and so Django instead used my postgresql database.
-    * [screenshots]
-* Testing models:
-    * tested to make sure that when a recipe is created, its 'public_status' is set to 'Private'/0 by default
-    * tested to make sure that the Recipe class' 'number_of_chefs_kisses' method calculated the number of chefs kisses correctly
-* 
+    * in my env.py:
+    * ![env.py var for testing](./static/images/readme_images/testing_mode_env.jpg "env.py var for testing")
+    * in my settings.py:
+    * ![setting.py condition for testing](./static/images/readme_images/testing_mode_settings.jpg "setting.py condition for testing")
+* Rather than create all my tests in one test.py file, I decideed to split them into:
+    * test_models.py
+    * test_urls.py
+    * test_forms.py
+    * test_views.py
 
-### JavaScript Testing with JEST
-* [if used]
+### Testing models in test_models.py:
+* Tested to make sure that when a recipe is created, its 'public_status' is set to 'Private'/0 by default
+* Tested to make sure that the Recipe class' 'number_of_chefs_kisses' method calculated the number of chefs kisses correctly
+* Tested that when a new tag is created by the admin, the color assigned to it must be unique
+* Tested that the slug field for all recipes must be unique
+* Tested that the function that generates the random slugs, does generate random and unique slugs for different recipes
+* All of these tests were successful
+
+### Testing urls in test_urls.py:
+* Tested that each of my urls resovles correctly.
+* The tests were succesful for all of my urls
+
+### Testing forms in test_forms.py:
+* Tested that title is a required field for recipes
+* Tested that chefs_kisses is not a required field for recipes
+* Tested that tags is not a required field for recipes
+* Tested that cover_image is not a required field for recipes
+* Tested that ingredient items are not required
+* Tested that method steps are not required
+* All of these tests were successful
+
+### Testing views in test_views.py:
+* Tested the home url is successfully reversed and the correct template is used
+* Tested the RecipeSearchView view class' get method is successfully reversed and the correct template is used
+* Tested the recipe_details url is successfully reversed and the correct template is used
+* Tested the create_recipe url is successfully reversed and the correct template is used
+* Tested the about url is successfully reversed and the correct template is used
+
+### Initial Coverage
+* After implementing 29 successful tests across my models, urls, forms and urls, I installed Django Coverage.
+* Django Coverage installation to viewing html report (following [Code Institute's video](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/dc049b343a9b474f8d75822c5fda1582/5666926980b74689b37a0d5da3cec510/)):
+    * pip3 install coverage
+    * set os.environ['TESTING'] = 'yes' in my env.py
+    * coverage run --source=cook_ebook manage.py test
+    * coverage report
+    * coverage html
+    * python3 -m http.server 
+* Initial coverage report: 80%
+* ![initial coverage report](./static/images/readme_images/initial_coverage_report.jpg "initial coverage report for Cook eBook website")
+* From the report I could see that my:
+    * models.py was missing tests for the __ str __ methods
+    * admin.py was missing tests for my make_private(), make_public() and make_awaits() methods
+    * views.py was running 63 tests but missing 76 tests
+* So I revisited my test files in order to cover as many of these missing tests as possible
+ 
+### Further Tests (FINISH)
+* For models.py I added automated tests for:
+    * the four __ str __ methods
+    * these test all passed
+    * models.py then had 100% coverage
+    * my overall code coverage became 82%
+* For admin.py I struggled to write the automated tests so I did manual tests for:
+    * the make_private() method
+    * ![make_private() method manual test](./static/images/readme_images/public_status_make_private.jpg "make_private() method manual test")
+    * the make_public() method
+    * ![make_public() method manual test](./static/images/readme_images/public_status_make_public.jpg "make_public() method manual test")
+    * the make_awaits() method
+    * ![make_awaits() method manual test](./static/images/readme_images/public_status_make_awaits.jpg "make_awaits() method manual test")
+* For views.py I struggled to write the automated tests so I did manual tests for:
+    * Chefs kiss icon updates number of Chef's Kisses for the recipe
+    * ![clicking chefs kiss icon updates chefs kisses](./static/images/readme_images/update_chefs_kiss.jpg "clicking chefs kiss icon updates chefs kisses")
+    * The user's recipes are displayed in their My eBook page
+    * 
+    * The user can search their recipes by title in the searchbar on their My eBook page
+    * 
+    * The user can select a tag tile to view all their recipes with that tag on their My eBook page
+    * 
+    * The user can create a recipe and is redirected back to their My eBook page with success message
+    * 
+    * The user can edit a recipe and is redirected back to their My eBook page with success message
+    * 
+    * The user can delete a recipe and is redirected back to their My eBook page with success message
+    * 
+
+### Manual Testing Other Features (FINISH)
+* Users can only see the 'Edit' and 'Delete' buttons for a recipe if they are the Chef for that recipe
+    * (image for logged in as Charlie, viewing Charlie's recipe)
+    * (image for logged in as Charlie, viewing someone else's recipe)
+* User's can only view their own My eBook page
+    * (image for logged in as Charlie, viewing Charlie's ebook)
+    * (image for logged in as Charlie, trying to view someone else's ebook)
+* User's can only leave a Chef's Kiss on recipes when they're logged in
+    * 
+* User's only have access to their My eBook page when logged in
+    * (image of navbar options when logged in)
+    * (image of navbar options when not logged in)
+* User's can only see the link to my Instagram page (to give feedback) when logged in
+    * (image of footer when logged in)
+    * (image of footer when not logged in)
+    * (image of about page when logged in)
+    * (image of about page when not logged in)
+* User's see success messages for signing up, logging in and logging out
+    * (image of signup success message)
+    * (image of login success message)
+    * (image of logout success message)
+
+### Manual Testing JavaScript functionality
+* The delete Ingredient button
+* The add Ingredient button
+* The delete Method button
+* The add Method button
+
+### Final Coverage 
+* After implementing 33 successful tests across my models, urls, forms and urls, I installed Django Coverage.
+* ![final coverage report](./static/images/readme_images/final_coverage_report.jpg "final coverage report for Cook eBook website")
+* The areas I was not able to cover with automated testing, I tried to test thoroughly with manual testing (documented in the above sections). 
 
 ### PEP8 Python Validator
 * should be “No errors or warnings”
@@ -265,11 +373,6 @@ This application provides users with the ability to browse other user’s public
 ### JS Check in JSHint
 * should be “No errors or warnings”
 * (link)
-
-### Manual Testing (on a physical mobile device?)
-* e.g. TEST: when users view their own recipe can they see the 'Edit' and 'Delete' buttons?
-    * OUTCOME: explain
-    * [images]
 
 
 ## Bugs (to finish)
