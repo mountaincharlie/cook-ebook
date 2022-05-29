@@ -389,22 +389,43 @@ This application provides users with the ability to browse other user’s public
     * Fix: I changed my database model so that both Ingredient adn Method had OneToMany relationships with Recipe, thus allowing a recipe to have many ingredients and method steps but not requiring that any of the specific ingredients or method steps should be able to apply to other recipes. 
 * Bug: when submitting the create_recipe form, trying to add the tags the user selected to the recipe raised the ValueError: "< Recipe: tags >" needs to have a value for field "id" before this many-to-many relationship can be used.
     * Fix: saving the recipe with: recipe.save(), so that the recipe exists and therefore has a value for field 'id, before trying to populate the tags ManyToManyField.
-* Bug:
-    * Fix:
+* Bug: when I made my final deployment to Heroku and opened my app, my home page cover image was missing. This issue was being caused by my css file not being able access the cloudinary link to the cover image.
+    * Fix: copying the exact url from Cloudinary for my image and then pasting that in as the url for my site-intro-container background image in my style.css file.
+* My Helpful Resources subsection in the Credits section also lists resources which helped me to work out how to code particular parts of my project. Whilst these did't show up specifically as bugs, the resources did help me solve/fix problems I encountered whist trying to create all the functinoality for my project
 
 ### Unfixed Bugs
 * should be “No unfixed bugs”
 
-## Deployment (to finish)
+## Deployment
 ---
 
 ### Early Deployment to Heroku
-* (step)
-* [image?]
+* First I created the cook-ebook app on Heroku
+* Then I added my Heroku Postgres database in Heroku's Resources -> Add Ons
+* I created an env.py file in my root directory and made sure that it was listed in my .gitignore so that it would never be commited to GitHub
+* I copied the link to my Heroku database from the Heroku Config Variable and pasted it into my env.py file
+* In my env.py file I created variables for my DATABASE_URL and my SECRET_KEY
+* I gave my SECRET_KEY a value and created a Heroku Config Variable for this 
+* I then changed my default database to use dj_database_url and DATABASE_URL
+* In my settings.py file I set my Heroku app as a localhost in my ALLOWED_HOSTS variable
+* After installing Cloudinary, I created a 'DISABLE_COLLECTSATIC' Config Variable in Heroku with a value of '1', since I didn't have any staticfiles at that time
+* I then created a Procfile for my app
+* Finally I used the Command Line Interface to:
+    * login to my Heroku app
+    * select my app
+    * push my commited changes to 'heroku main'
+
 
 ### Final Deployment
-* 
-* 
+* In settings.py I created the variables:
+    * ACCOUNT_EMAIL_VERIFICATION = 'none'
+    * DEBUG = False
+    * X_FRAME_OPTIONS = "SAMEORIGIN"
+* I then removed my 'DISABLE_COLLECTSATIC' Config Variable since I did have staticfiles
+* Finally I used the Command Line Interface to:
+    * login to my Heroku app
+    * select my app
+    * push my commited changes to 'heroku main'
 
 ## Credits (to finish)
 ---
