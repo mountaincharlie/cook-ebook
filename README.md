@@ -415,7 +415,6 @@ This application provides users with the ability to browse other user’s public
     * select my app
     * push my commited changes to 'heroku main'
 
-
 ### Final Deployment
 * In settings.py I created the variables:
     * ACCOUNT_EMAIL_VERIFICATION = 'none'
@@ -446,27 +445,31 @@ This application provides users with the ability to browse other user’s public
 * [httpete's solution on stackoverflow](https://stackoverflow.com/a/8432018) for using {{ request.path }} within a template inorder to get the current url path. I used this so that I could check if the logged in user's id matched the id passeed into the url for the user who owns the eBook and if not, then the user was informed that this wasnt their eBook. This was to stop user's being able to access another user's my_ebook page by changing the url.
 * [scytale's solution on stackoverflow](https://stackoverflow.com/a/7405779) for using: |slugify to coerce an integer into acting as a string so that I could compare the user.id with the id in the url, when checking if the user was authorised to view a particular my_ebook page.
 * [solution on reddit thread](https://www.reddit.com/r/learnjavascript/comments/5j5quz/add_eventlistener_to_all_buttons_of_class/) for how to add an event listener to all buttons with a particular class. I used this so that when a user is creating a recipe, each time they add an ingredient or method step, there is a delete button that comes with it and has a click Event Listener attached to it in order to delete that specific ingredient or method step.
-* [JavaScript Tutorial's page](https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/) for how to use JavaScript to set a checkbox as 'checked'. I used this so that when a user clicks on my delete buttons for ingredients/method steps, it triggers the formset's delete checkbox to be checked so that the field is actually deleted and not just removed from the page. 
+* [JavaScript Tutorial's page](https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/) for how to use JavaScript to set a checkbox as 'checked'. I used this so that when a user clicks on my delete buttons for ingredients/method steps, it triggers the formset's delete checkbox to be checked so that the field is actually deleted and not just removed from the page.
+* [Ned Batchelder's solution on stackoverflow](https://stackoverflow.com/a/12654998) for how to set a default for a model field as a method. I used this so that I could set the slug for each recipe as a string of a random 20 numbers between 0 and 100. This was so that my slugs were unique and did not contain the Recipe's Primary Key, so I could safely use this slug in the url for each Recipe.
+* [The Dumbfounds' YouTube series](https://youtu.be/qwypH3YvMKc) on Django Testing, for advice on how to setup basic tests in Django.
 
 ### Content
 * JavaScript and div structure for dynamically adding Ingredients and Method steps inline formsets
     * I used [CodingEntrepreneurs' YouTube video](https://youtu.be/s3T-w2jhDHE) inorder to build the JavaScript and formset div structure I needed to dynamically add ingredients and method steps. I added my own comments to describe the process as well as the specific styling and constant names which were suited to this project.
     * [UPDATE] due to the nature of my specific project; the custom delete buttons I added and checking for exisiting ingredients and methods before more can be added, the JavaScript for this project became almost entirely my own custom code. So in the end I only really used CodingEntrepreneurs' idea of having a hidden new form which I used to add new ingredients and methods and I also used his idea for changing the id of new ingredients and methods by using regular expressions.
 * Fonts: 
+    * Google Font's [Lato](https://fonts.google.com/specimen/Lato?query=lato) for headings and the text in the header and footer.
+    * Google Font's [Raleway](https://fonts.google.com/specimen/Raleway?query=Raleway) for the rest of the text content on the site.
 
 ### Code
 * installed [django-colorfield](https://github.com/fabiocaccamo/django-colorfield) by [Fabio Caccamo](https://github.com/fabiocaccamo), originally developed by [Jared Forsyth](https://github.com/jaredly). Used to create a color field in the Tag table so that each Tag can have a unique color associated with it in order to create the Tag tiles.
 
 ### Media
 * Images:
-    * [Image](https://unsplash.com/photos/Yn0l7uwBrpw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink) by Jimmy Dean on Unsplash, used as the site's homepage cover image.
+    * [Image](https://unsplash.com/photos/Yn0l7uwBrpw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink) by Jimmy Dean on Unsplash, used as the site's homepage and About page cover image.
     * [Person reads cookbook recipe](https://unsplash.com/photos/5O1ddenSM4g?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink) by Dan Gold on Unsplash, used as a placeholder cover image for recipes when the user chooses not to upload their own image.
-
 * Icons:
     * Font Awesome's [solid face-kiss-wink-heart](https://fontawesome.com/icons/face-kiss-wink-heart?s=solid) for when a logged in user clicks/has previously clicked the 'Chefs Kiss' button for a recipe
     * Font Awesome's [regular face-kiss-wink-heart](https://fontawesome.com/icons/face-kiss-wink-heart?s=regular) for when a non-logged in user sees the 'Chefs Kisses' for a recipe and when a logged in user clicks the 'Chefs Kiss' button for a recipe again to undo their 'Chefs Kiss'
     * Font Awesome's [solid fa-cookie-bite](https://fontawesome.com/icons/cookie-bite?s=solid) as part of the logo for the site
     * Made Font Awesome's [solid fa-cookie-bite](https://fontawesome.com/icons/cookie-bite?s=solid) into a favicon with [favicon.io](https://favicon.io/)
+    * Font Awesome's [fa-brands fa-instagram](https://fontawesome.com/icons/instagram?s=brands) as the link to my Instagram page to leave feedback.
 
 ## Future Features (to finish)
 ---
