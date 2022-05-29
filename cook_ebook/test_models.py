@@ -1,6 +1,6 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
-from .models import Recipe, Tag
+from .models import Recipe, Tag, Ingredient, Method
 from django.db import IntegrityError
 
 class TestModels(TestCase):
@@ -63,3 +63,20 @@ class TestModels(TestCase):
             chef=test_user2,
         )
         self.assertFalse(recipe1.slug == recipe2.slug)
+
+    def test_tag_string_method_returns_tag(self):
+        tag = Tag.objects.create(tag='Chicken')
+        self.assertEqual(str(tag), 'Chicken')
+
+    def test_recipe_string_method_returns_title(self):
+        test_user = User.objects.create_user(username='user1', password='123')
+        recipe = Recipe.objects.create(title='Test Recipe', chef=test_user)
+        self.assertEqual(str(recipe), 'Test Recipe')
+
+    def test_ingredient_string_method_returns_item(self):
+        item = Ingredient.objects.create(item='Pasta')
+        self.assertEqual(str(item), 'Pasta')
+
+    def test_method_string_method_returns_step(self):
+        step = Method.objects.create(step='Boil the pasta.')
+        self.assertEqual(str(step), 'Boil the pasta.')
