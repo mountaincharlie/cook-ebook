@@ -41,11 +41,6 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'recipe_details.html')
 
-    # tests requiring request.user.id
-    # test_my_ebook_tag_search_GET 
-    # test_edit_recipe_GET
-    # test_delete_recipe_POST ...
-
     def test_create_recipe_GET(self):
         client = Client()
         response = client.get(reverse('create_recipe'))
