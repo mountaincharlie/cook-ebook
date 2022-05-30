@@ -233,11 +233,11 @@ This application provides users with the ability to browse other user’s public
 ### navigation
 * 
 
-## Accessibility (to finish)
+## Accessibility
 ---
 
 ### Lighthouse Accessibility Score
-* [image]
+* ![lighthouse accessability score](./static/images/readme_images/lighthouse-score.jpg "lighthouse accessability score")
 
 ### Semantic Elements
 * Using 'header', 'nav', 'main' and 'footer' in base.html to make the roles of each section obvious.
@@ -245,9 +245,6 @@ This application provides users with the ability to browse other user’s public
 
 ### Aria-Labels
 * Added aria-labels to all link and button elements
-
-### Attributes
-* [if used]
 
 ## Testing (to finish)
 ---
