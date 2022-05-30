@@ -1,12 +1,12 @@
-# Cook eBook (to finish)
+# Cook eBook
 
 Cook eBook is an interactive web application for users who want to create and keep track of their own recipes and have quick and easy access to them from their smartphone or other devices.
 
 This application provides users with the ability to browse other user’s public recipes on the app as well as make their own account so they can create, view and edit their own recipes in their eBook. By adding tags to their recipes, registered users can categorize their recipes and filter through their eBook with ease. 
 
 
-![Viewing my website on the Am I Responsive site](url_for_image "Cook eBook website on the Am I Responsive site")
-[Image made using <a href = "http://ami.responsivedesign.is/">Am I Responsive Website</a>]
+![Viewing Cook eBook on desktop](./static/images/readme_images/cook-ebook-on-desktop.jpg "Viewing Cook eBook on desktop")
+![Viewing Cook eBook on mobile](./static/images/readme_images/cook-ebook-on-mobile.jpg "Viewing Cook eBook on mobile")
 
 ## Contents (to finish)
 ---
