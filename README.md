@@ -265,6 +265,25 @@ This application provides users with the ability to browse other user’s public
 ### Aria-Labels
 * Added aria-labels to all link and button elements
 
+
+## Commit Messages
+---
+
+* In order to improve my Git Commit messages, following feedback on previous projects, I decided to use [Conventional Commit’s](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) recommended commit message structure. 
+* I used a mixture of their recommended Types and some of my own:
+    * feat - new feature
+    * fix - bug fixes
+    * docs - documentation only changes
+    * style - changes not affecting the code meaning (e.g. removing blank lines)
+    * refactor - code change which isnt a fix or feature
+    * test - adding a missing/correcting an existing test
+    * chore - changes not affecting the source or test file (e.g. deleting unwanted files)
+    * setup (custom type) - installing dependencies and adding setup code for them
+* They also suggested using square brackets after the Type to add an optional Scope, which would be the thing that the commit applies to, if necessary.
+* The commit messages follow the structure:
+    * "type[optional scope]: commit description"
+
+
 ## Testing (to finish)
 ---
 
