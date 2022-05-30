@@ -237,20 +237,44 @@ This application provides users with the ability to browse other user’s public
 *  
 
 
-## User Experience Design (to finish)
+## User Experience Design
 ---
 
 ### Mobile First Design With Bootstrap
-* 
+* I used Bootstrap's [Grid System](https://getbootstrap.com/docs/5.0/layout/grid/) in order to make use of its ability to rearrange columns on the screen depending on its screen size.
+* By using this I was able to create my site designs with a Mobile First Design approach in mind.
+* An example of where I made use of this Grid System for switching between desktop and mobile screens, was in how recipe's details are displayed in each view:
+    * ![desktop view of recipe details layout](./static/images/readme_images/uxd-desktop-view.jpg "desktop view of recipe details layout")
+    * ![mobile view of recipe details layout](./static/images/readme_images/uxd-mobile-view.jpg "mobile view of recipe details layout")
+* You can see that in the desktop view the 'Chef' and 'Status' are in two columns and so are the 'Ingredients' and 'Method', but in mobile view 'Chef' and 'Status' move into one column and 'Ingredients' and 'Method' move into one column.
 
-### consistency
-* 
+### Consistency
+* Making use of Django as a templating language, I created a base.html file with header, main and footer sections.
+* Each of my other pages then extended from this base.html and their content appears in the main element section, so all of the pages have the same header and footer design and functionality.
+* Each of the template html files also follow Bootstraps grid system and primarily use bootstrap classes for styling so that the layout is familiar across the whole site.
+* Each page also has the same font for headings and for other text content so this also remains consistent throughout the site.
 
 ### Specific Feedback Messages To Users 
-* 
+* Successful signup/login message:
+    * ![signup message](./static/images/readme_images/signin-message.jpg "signup message")
+* Successful logout message:
+    * ![logout message](./static/images/readme_images/logout-message.jpg "logout message")
+* Successfully created recipe message:
+    * ![created recipe message](./static/images/readme_images/created-recipe-message.jpg "created recipe message")
+* Successfully edited recipe message:
+    * ![edited recipe message](./static/images/readme_images/updated-recipe-message.jpg "edited recipe message")
+* Successfully deleted recipe message:
+    * ![deleted recipe message](./static/images/readme_images/deleted-recipe-message.jpg "deleted recipe message")
 
-### navigation
-* 
+### Navigation
+* The site logo is a clickable link back to the homepage
+* Features such as the 'About' page and the 'Signup/Login and My eBook/Logout' links are avaliable in the footer/header in all pages, so the user doesn't have to go anywhere in order to use these features.
+* Return To My eBook and Return To Tag Tiles buttons so that the user can navigate easily from their search results back to the Tag Tiles or to their eBook, depending on which page they made the search.
+    * ![Return To My eBook](./static/images/readme_images/return-to-ebook.jpg "Return To My eBook")
+    * ![Return To Tag Tiles](./static/images/readme_images/return-to-tag-tiles.jpg "Return To Tag Tiles")
+* Cancel button on Edit Recipe and Delete confirmation pages so that the user deosn't have to use the browsers back button in order to cancel out of either of these pages.
+    * ![Cancel from edit page](./static/images/readme_images/cancel-edit-button.jpg "Cancel from edit page")
+    * ![Cancel from delete page](./static/images/readme_images/cancel-delete-button.jpg "Cancel from delete page")
 
 ## Accessibility
 ---
