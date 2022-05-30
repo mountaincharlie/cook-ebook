@@ -21,7 +21,11 @@ class RecipeSearchView(generic.ListView):
     def get(self, request, *args, **kwargs):
 
         search_input = request.GET.get('search').replace(" ", "")
-        recipes = Recipe.objects.filter(title__icontains=search_input).filter(public_status=1)
+        recipes = Recipe.objects.filter(
+            title__icontains=search_input
+        ).filter(
+            public_status=1
+        )
 
         # checking if search isnt blank and if any recipes title contain it
         if search_input != '' and recipes:
