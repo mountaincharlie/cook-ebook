@@ -8,6 +8,7 @@ This application provides users with the ability to browse other user’s public
 ![Viewing Cook eBook on desktop](./static/images/readme_images/cook-ebook-on-desktop.jpg "Viewing Cook eBook on desktop")
 ![Viewing Cook eBook on mobile](./static/images/readme_images/cook-ebook-on-mobile.jpg "Viewing Cook eBook on mobile")
 
+
 ## Contents (to finish)
 ---
 * [Exact Heading](https://github.com/mountaincharlie/project-four-cook-ebook#exact-heading)
@@ -36,22 +37,32 @@ This application provides users with the ability to browse other user’s public
 * Cloudinary
 
 
-## Project Management (to finish)
+## Project Management
 ---
 * Using GitHub
     * [project-four-cook-ebook GitHub Projects](https://github.com/mountaincharlie/project-four-cook-ebook/projects)
 
-* Using GitHub Projects to create Epics (big features)
-    * [screenshot]
+* Using GitHub Projects to create Epics (big features/tasks)
+    * ![GitHub Projects](./static/images/readme_images/github-projects.jpg "GitHub Projects")
 
 * Using GitHub Issues to create User Stories and Project Maintenance (with GitHub’s labels to identify their type)
-    * [screenshot]
+    * ![GitHub Issues](./static/images/readme_images/github-issues.jpg "GitHub Issues")
+
+* Using GitHub's Project KanBan board feature to mark my progress throughout the project
+    * ![GitHub Projects KanBan board](./static/images/readme_images/project-kanban-board.jpg "GitHub Projects KanBan board")
 
 * Using GitHub labels to prioritize User Stories (using MoSCoW prioritization)
-    * [screenshot]
+    * ![Project Maintainance label](./static/images/readme_images/proj-maint-label.jpg "Project Maintainance label")
+    * ![Testing label](./static/images/readme_images/testing-label.jpg "Testing label")
+    * ![User Story label](./static/images/readme_images/user-story-label.jpg "User Story label")
+    * ![Must Have label](./static/images/readme_images/must-have-label.jpg "Must Have label")
+    * ![Should Have label](./static/images/readme_images/should-have-label.jpg "Should Have label")
+    * ![Could Have label](./static/images/readme_images/could-have-label.jpg "Could Have label")
+    * ![Would Have label](./static/images/readme_images/would-have-label.jpg "Would Have label")
 
-* Using checklists within the GitHub Issues in order to specify the tasks required to achieve User Stories and Project Maintenance 
-    * [screenshot]
+* Using checklists within the GitHub Issues in order to specify the tasks required to achieve User Stories, Project Maintenance and Testing
+    * ![Checklist example](./static/images/readme_images/checklist_example.jpg "Checklist example")
+
 
 ## Designs (to finish)
 ---
