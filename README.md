@@ -559,5 +559,43 @@ This application provides users with the ability to browse other user’s public
     * Made Font Awesome's [solid fa-cookie-bite](https://fontawesome.com/icons/cookie-bite?s=solid) into a favicon with [favicon.io](https://favicon.io/)
     * Font Awesome's [fa-brands fa-instagram](https://fontawesome.com/icons/instagram?s=brands) as the link to my Instagram page to leave feedback.
 
-## Future Features (to finish)
+## Future Features
 ---
+Ideas that could be used to expand the site's functionality. 
+
+### Users can order the recipe's displayed by date or popularity
+* Could have a radio button for or dropdown filter for showing the recipe cards in order of most recently created or by popularity (how many chefs kisses they have).
+
+### Users can register with social media accounts
+* Could use django-all_auth's templates for allowing the user to login with one of their social media accounts.
+
+### Public status change checkbox
+* There could be a checkbox in the Create/Edit recipe form which the user can tick if they want their recipe to be made public. Ticking this box would set the recipe's public_status to 'awaits' and the user would be notified that their recipe is waiting for an admin to make it public. 
+* For public recipes, this checkbox could be used to set the recipe back to private (no admin authorisation required)
+
+### Contact form
+* Could have a contact form page for logged in users. The user would have checkboxes they can select to indicate the type of feedback (question, bug found, improvement idea etc...). The feedback would be set as 'generic feedback' if no tickbox was selected.
+* The user's username would already be populated into the form so that they wouldn't have to add any information we already have.
+* The Email JS API could be used to manage the user's feedback as an email sent to me.
+
+### List of equipment required
+* Could have an optional section on the Create/Edit recipe form where the user can include a list of the equipment you would need for the recipe.
+
+### Saving to favourites
+* Could have a section of the user's eBook where they can save favourites from their own recipes and others' public recipes.
+
+### Create shoppping list
+* Could have a button for user to add all the ingredients from a recipe into a personal Shopping List page.
+
+### Verified Users
+* If a user has had 10 or more of their recipes approved as public by the admin, they could become a Verified User and then their recipes could be set to public without needing to await admin decision.
+* Although the verified user's recipe can be made public whenever they want, the admin would still be able to override this action and even remove the user's 'verified' status.
+
+### Sharing recipes
+* Logged in users have the option to share any of their recipes or other's public recipes on social media (Facebook, Instagram, Whatsapp etc...) or get a link to share by email etc...
+
+### Custom Tags
+* Could allow users to create their own custom tags (only usuable on their eBook).
+* The admin may need to approve a user's tag if it is on a recipe which is already public or one that is trying to be made public, to ensure no harmful content is posted for other users to see.
+* Could be that only 'verified users' can have this feature.
+
