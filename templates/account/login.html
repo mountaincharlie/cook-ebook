@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+<!-- additional content for title element -->
 {% block head_title_extra %}Login{% endblock %}
 
 {% block content %}
 
+<!-- container for all the content to be used with base.html main section -->
 <div class="container auth-page">
+
+    <!-- page heading and message -->
     <div class="row auth-container">
       <div class="col-12">
         <h1>Login</h1>
         <p>If you haven't made an account yet, then please <a href="{% url 'account_signup' %}">Signup</a> first</p>
       </div>
     </div>
+
+    <!-- django-all_auth's login form -->
     <div class="row auth-container">
         <div class="col">
             <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -20,7 +26,6 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> -->
                 <button class="btn btn-outline-secondary primaryAction" type="submit">Login</button>
             </form>
         </div>
@@ -28,8 +33,3 @@
 </div>
 
 {% endblock %}
-
-
-
-
-

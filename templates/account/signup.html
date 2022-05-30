@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+<!-- additional content for title element -->
 {% block head_title_extra %}Signup{% endblock %}
 
 {% block content %}
 
+<!-- container for all the content to be used with base.html main section -->
 <div class="container auth-page">
+
+  <!-- page heading and message -->
   <div class="row auth-container">
     <div class="col-12">
       <h1>Signup</h1>
       <p>If you already have an account you can <a href="{% url 'account_login' %}">login here</a>.</p>
     </div>
   </div>
+
+  <!-- django-all_auth's signup form -->
   <div class="row auth-container">
       <div class="col">
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">

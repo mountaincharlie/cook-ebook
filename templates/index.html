@@ -2,21 +2,26 @@
 {% load static %}
 
 {% block content %}
+<!-- container for all the content to be used with base.html main section -->
 <div class="container">
+
+    <!-- row with the site intro text -->
     <div class="row site-intro-container">
-        <div class="col-md-4 col-sm-12 site-intro">
+        <!-- the content displays in three columns on medium and above screens and as one column by default -->
+        <div class="col-md-4 col-12 site-intro">
             <span>DISCOVER<br>New Recipes</span>
         </div>
-        <div class="col-md-4 col-sm-12 site-intro">
+        <div class="col-md-4 col-12 site-intro">
             <span>CREATE<br>Your Own</span>
         </div>
-        <div class="col-md-4 col-sm-12 site-intro">
+        <div class="col-md-4 col-12 site-intro">
             <span>SHARE<br>Your Creations</span>
         </div>
     </div>
 
     <div class="row search-bar-container my-4">
 
+        <!-- form for search for recipes by all/part of their title -->
         <form action="{% url 'search_recipes' %}" method="get">
             {% csrf_token %}
             <input type="text" name="search" placeholder="Search Recipe Titles...">
@@ -27,9 +32,10 @@
 
     {% if recipes %}
 
-    <!-- search results -->
+    <!-- search results container -->
     <div class="row search-result-container">
 
+        <!-- number of search results and Return to Tag Tiles button -->
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="m-0">Search results: {{ num_results }}</h2>
@@ -37,6 +43,7 @@
             </div>
         </div>
 
+        <!-- message displayed if no recipes are found in the search -->
         {% if num_results == 0 %}
         <div class="row">
             <div class="col-12 text-center">
@@ -45,8 +52,8 @@
         </div>
         {% else %}
 
+        <!-- displaying the search results with the recipes as recipe cards -->
         <div class="row search-results">
-        <!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
             {% for recipe in recipes %}
 
             <div class="col-md-4 col-sm-12 my-4">
@@ -84,8 +91,6 @@
                         <div class="card-footer text-muted">
                             <p class="m-0">
                                 Chef: {{ recipe.chef }} <br>
-                                <!-- | <i class="fa-solid fa-hands-clapping fa-xs"></i>
-                                {{ recipe.number_of_likes }}  -->
                                 <small>{{ recipe.created_date }}</small> |
                                 <small>
                                     Chefs Kisses: {{ recipe.number_of_chefs_kisses }}
@@ -105,14 +110,17 @@
 
     {% else %}
 
+    <!-- container for informative message about how to make searches -->
     <div class="row">
         <div class="col">
             <h4 class="text-center">Search recipes by title in the searchbar or by selecting one of the Tag Tiles below</h4>
         </div>
     </div>
 
+    <!-- container for displaying all the tag tiles -->
     <div class="row tag-tiles-container justify-content-center">
 
+        <!-- creating the tag tiles -->
         {% for tag in tag_list %}
             <div class="col-md-3 col-sm-6 px-4 py-4">
                 

@@ -27,11 +27,12 @@
         <!-- linked css file -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+        <!-- custom title which can be added to in the templates which extend base.html -->
         <title>Cook eBook {% block head_title_extra %}{% endblock %}</title>
     </head>
 
     <body>
-        <!-- navbar header -->
+        <!-- site header with navbar-->
         <header class="bg-light-grey px-2">
             <nav class="navbar navbar-expand-md navbar-light">
 
@@ -41,12 +42,14 @@
                     Cook eBook
                 </a>
 
-                <!-- Bootstrap expandable navbar link: https://getbootstrap.com/docs/5.0/components/navbar/#external-content -->
+                <!-- Bootstrap expandable navbar button credit: https://getbootstrap.com/docs/5.0/components/navbar/#external-content for controlling the div with id=navbarToggleMobileMenu -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleMobileMenu" aria-controls="navbarToggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- the div controlled by the navbar-toggler button -->
                 <div class="collapse navbar-collapse" id="navbarToggleMobileMenu">
+
                     <ul class="navbar-nav text-end ms-auto">
                         {% if user.is_authenticated %}
                         <!-- menu options when a user is logged in -->
@@ -57,7 +60,7 @@
                             <a class="nav-link" href="{% url 'account_logout' %}" aria-label="Link to logout page">Logout</a>
                         </li>
                         {% else %}
-                        <!-- default menu options -->
+                        <!-- default menu options when users are not logged in -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_signup' %}" aria-label="Link to signup page">Signup</a>
                         </li>
@@ -66,12 +69,13 @@
                         </li>
                         {% endif %}
                     </ul>
+
                 </div>
 
             </nav>
         </header>
 
-        <!-- iterating through messages to display -->
+        <!-- iterating through success messages to display to the user -->
         {% if messages %}
         {% for message in messages %}
         <div class="container">
@@ -88,15 +92,17 @@
         {% endfor %}
         {% endif %}
 
-        <!-- templates content -->
+        <!-- block content provided in the templates which extend base.html -->
         <main>
             {% block content %}
             {% endblock content %}
         </main>
 
-        <!-- make contact into instagram link and only visible for authorised users -->
+        <!-- site footer -->
         <footer class="bg-light-grey">
+
             {% if user.is_authenticated %}
+            <!-- links for the About page and to Instagram are both visible for logged in -->
             <ul class="nav justify-content-between">
                 <li class="nav-item">
                     <a class="nav-link fs-4 p-2 mx-4" href="{% url 'about' %}" aria-label="Link to about page">About</a>
@@ -108,9 +114,12 @@
                 </li>
             </ul>
             {% else %}
+            <!-- only the centralised link to the About page is visible for users which are not logged in -->
             <a class="nav-link fs-4 p-2 mx-4 text-center" href="{% url 'about' %}" aria-label="Link to about page">About</a>
             {% endif %}
+
             <p class="text-center fs-6 my-0">© 2022 Student of Code Institute</p>
+
         </footer>
     </body>
 </html>

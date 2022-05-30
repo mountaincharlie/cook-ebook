@@ -1,18 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- additional content for title element -->
 {% block head_title_extra %} About {% endblock %}
 
 {% block content %}
-
+<!-- container for all the content to be used with base.html main section -->
 <div class="container align-self-center">
 
+    <!-- about page heading -->
     <div class="row site-intro-container">
         <div class="col-12 text-center p-2">
-            <h1 id="about-header">About <br> Cook eBook</h1>
+            <h1 id="about-header">
+                About <br>
+                Cook eBook
+            </h1>
         </div>
     </div>
 
+    <!-- site creator section -->
     <div class="row">
         <div class="col-12 text-center my-4">
             <h3 class="fw-bold">Site Creator:</h3>
@@ -20,11 +26,13 @@
                 mountaincharlie <br>
                 Student Web Developer <br>
                 Find me on
+                <!-- link to mountaincharlie GitHub profile -->
                 <a class="fw-bold text-muted text-decoration-none" href="https://github.com/mountaincharlie" target = "_blank" rel = "noopener noreffer" aria-label="Link to mountaincharlie's GitHub profile">GitHub</a>
             </p>
         </div>
     </div>
 
+    <!-- site purpose section -->
     <div class="row">
         <div class="col-12 text-center my-4">
             <h3 class="fw-bold">Site Purpose:</h3>
@@ -32,11 +40,13 @@
                 Cook eBook is a place where user's can view recipes created by others, as well as create and edit their own.<br>
                 Built with mobile-first design in mind, Cook eBook is convenient and easy to take with you and use wherever you go. <br>
                 Check out the 
+                <!-- link to Cook eBook GitHub repo -->
                 <a class="fw-bold text-muted text-decoration-none" href="https://github.com/mountaincharlie/project-four-cook-ebook" target = "_blank" rel = "noopener noreffer" aria-label="Link to mountaincharlie's GitHub repo for Cook eBook">Cook eBook Repo</a>
             </p>
         </div>
     </div>
 
+    <!-- give feedback section - only displayed if the user is logged in -->
     {% if user.is_authenticated %}
     <div class="row">
         <div class="col-12 text-center my-4">
@@ -44,6 +54,7 @@
             <p>
                 I'd love to hear what you think of Cook eBook <br>
                 Find me on
+                <!-- link to code_by_charlie Instagram page -->
                 <a class="fw-bold text-muted text-decoration-none" href="https://www.instagram.com/code_by_charlie97/" target = "_blank" rel = "noopener noreffer" aria-label="Link to code_by_charlie97's Instagram account">
                     <i class="fa-brands fa-instagram"></i>
                     Instagram
@@ -53,9 +64,6 @@
     </div>
     {% endif %}
 
-   
 </div>
-
-
 
 {% endblock %}

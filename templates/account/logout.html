@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+<!-- additional content for title element -->
 {% block head_title_extra %}Logout{% endblock %}
 
 {% block content %}
 
+<!-- container for all the content to be used with base.html main section -->
 <div class="container auth-page">
+
+  <!-- page heading and message -->
   <div class="row auth-container">
     <div class="col-12">
       <h1>Logout</h1>
       <p>Are you sure you want to log out?</p>
     </div>
   </div>
+
+  <!-- django-all_auth's logout form -->
   <div class="row auth-container">
       <div class="col">
           <form method="post" action="{% url 'account_logout' %}">

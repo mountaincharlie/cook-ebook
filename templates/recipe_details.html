@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- additional content for title element -->
 {% block head_title_extra %} - {{ recipe.title }}{% endblock %}
 
 {% block content %}
-
+<!-- container for all the content to be used with base.html main section -->
 <div class="container">
     <!-- cover image -->
     <div class="row cover-image-container">
@@ -20,27 +21,27 @@
         </div>
     </div>
 
-    <!-- title -->
+    <!-- recipe title container -->
     <div class="row title-container">
         <div class="col">
             <h1 class="m-0">{{ recipe.title }}</h1>
         </div>
     </div>
 
-    <!-- Chef (right) and public status (left) -->
+    <!-- chef and public status container -->
     <div class="row chef-and-status-container">
-        <!-- 2 columns on md screens and 1 on small screens -->
-        <div class="col-md-6 col-sm-12">
+        <!-- the content displays in two columns on medium and above screens and as one column by default -->
+        <div class="col-md-6 col12">
             <h5>Chef:</h5>
             <p class="m-0">{{ recipe.chef }}</p>
         </div>
-        <div class="col-md-6 col-sm-12 text-md-end">
+        <div class="col-md-6 col-12 text-md-end">
             <h5>Status:</h5>
             <p class="m-0">{{ recipe.get_public_status_display }}</p>
         </div>
     </div>
 
-    <!-- tags -->
+    <!-- container for displaying any tags the recipe has -->
     {% if recipe.tags %}
     <div class="row">
         <div class="col tags-container">
@@ -52,14 +53,12 @@
     </div>
     {% endif %}
 
-    <!-- hr - add 50% width class -->
     <hr class="small-centered-hr">
 
-    <!-- Ingredient col -->
-    <!-- Method col -->
+    <!-- ingredient and method container -->
     <div class="row my-4">
-        <!-- 2 columns on md screens and 1 on small screens -->
-        <div class="col-md-6 col-sm-12 recipe-list-container">
+        <!-- 2 columns on medium and above screens and 1 column by default -->
+        <div class="col-md-6 col-12 recipe-list-container">
             <h4>Ingredients:</h4>
             <ul>
                 {% for item in ingredients.all %}
@@ -67,7 +66,8 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-md-6 col-sm-12 recipe-list-container">
+        <!-- 2 columns on medium and above screens and 1 column by default -->
+        <div class="col-md-6 col-12 recipe-list-container">
             <h4>Method:</h4>
             <ol>
                 {% for step in method.all %}
@@ -77,37 +77,41 @@
         </div>
     </div>
 
-    <!-- row for chefs kisses(left) and edit/delete buttons(right if user=Chef) -->
+    <!-- chefs kisses and edit/delete buttons container -->
     <div class="row">
+        <!-- chefs kisses count and button -->
         <div class="col-6 chefs-kisses-container p-2">
             <p>Chefs kisses:</p>
             <p>{{ recipe.number_of_chefs_kisses }}</p>
+
             {% if user.is_authenticated %}
-            <!-- uses post method to send to recipe_chefs_kiss url accessing the RecipeChefsKissView view class -->
+            <!-- if the user is logged in, the chefs kiss icon is a clickable icon to toggle between giving the recipe a chefs kiss and taking away the user's chefs kiss -->
             <form class="d-inline" method="post" action="{% url 'recipe_chefs_kiss' recipe.slug %}">
                 {% csrf_token %}
-                <!-- if chefs_kiss = True from the form -->
+                <!-- if chefs_kiss = True then the icon has fa-solid style -->
                 {% if chefs_kiss %}
                 <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn" aria-label="Un-Chef's kiss button">
                     <i class="fa-solid fa-face-kiss-wink-heart chef-kiss-icon"></i>
                 </button>
                 {% else %}
+                <!-- if chefs_kiss = False then the icon has fa-regular style -->
                 <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn text-muted" aria-label="Chef's kiss button">
                     <i class="fa-regular fa-face-kiss-wink-heart chef-kiss-icon"></i>
                 </button>
                 {% endif %}
             </form>
-            <!-- if user not logged in -->
+            <!-- if user is not logged in the icon is not a button -->
             {% else %}
             <i class="fa-regular fa-face-kiss-wink-heart chef-kiss-icon"></i>
             {% endif %} 
         </div>
 
-        <!-- ensuring the user is logged in and the chef for this recipe -->
+        <!-- ensuring the user is logged in and the chef for this recipe in order to display the edit and delete buttons -->
         {% if user.is_authenticated and user.id == recipe.chef.id %}
         <div class="col-6 text-end p-2">
+            <!-- edit button -->
             <a class="btn btn-primary" href="{% url 'edit_recipe' recipe.slug %}" role="button" aria-label="Edit recipe button">Edit</a>
-
+            <!-- delete button -->
             <a class="btn btn-danger" href="{% url 'delete_recipe' recipe.slug %}" role="button" aria-label="Delete recipe button">Delete</a>
         </div>
         {% endif %}

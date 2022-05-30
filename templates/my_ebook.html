@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- additional content for title element -->
 {% block head_title_extra %}My eBook{% endblock %}
 
 {% block content %}
@@ -8,7 +9,9 @@
 <!-- checking that the logged in user hasn't tried to replace their username with another user's in the url itself -->
 {% if user.username == authorised_user %}
 
+<!-- container for all the content to be used with base.html main section if the user is authorised -->
 <div class="container">
+    <!-- page heading with condition for display the 's' only if the user's username doesn't end with an 's' -->
     <div class="row my-ebook-heading-container p-4">
         <h1>
             {{ user.username }}'
@@ -19,9 +22,10 @@
         </h1>
     </div>
 
-    <!-- searchbar -->
+    <!-- searchbar and create button container -->
     <div class="row my-4">
 
+        <!-- searchbar form -->
         <div class="col-12 search-bar-container">
             <form action="{% url 'my_ebook_search_recipes' %}" method="get">
                 {% csrf_token %}
@@ -30,7 +34,7 @@
             </form>
         </div>
 
-        <!--  create-recipe-btn --> 
+        <!-- create recipe button --> 
         <div class="col-12 text-center text-md-end">
             <a class="btn btn-success m-3" href="{% url 'create_recipe' %}" role="button" aria-label="Create new recipe button">Create Recipe</a>
         </div>
@@ -41,13 +45,15 @@
     {% if recipes %}
     <div class="row search-result-container">
 
+        <!-- number of search results and Return to My eBook button -->
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="m-0">Search results: {{ num_results }}</h2>
-             <a class="btn btn-outline-secondary return-link m-3" href="{% url 'my_ebook' user.username %}">Return to My eBook</a> 
+             <a class="btn btn-outline-secondary return-link m-3" href="{% url 'my_ebook' user.username %}" role="button" aria-label="Return to My eBook page button">Return to My eBook</a> 
             </div>
         </div>
 
+        <!-- message displayed if no recipes are found in the search -->
         {% if num_results == 0 %}
         <div class="row">
             <div class="col-12 text-center">
@@ -56,8 +62,8 @@
         </div>
         {% else %}
 
+        <!-- displaying the search results with the recipes as recipe cards -->
         <div class="row search-results">
-        <!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
             {% for recipe in recipes %}
 
             <div class="col-md-4 col-sm-12 my-4">
@@ -114,9 +120,12 @@
 
     {% else %}
 
-    <!-- tagtiles but smaller -->
+    <!-- container for displaying all the tag tiles (smaller than on homepage) -->
     <div class="row tag-tiles-container justify-content-center">
+
+        <!-- creating the tag tiles -->
         {% for tag in all_tags %}
+        <!-- displaying in 6 columns on small and above screen and  -->
             <div class="col-sm-2 col-6 p-1">
                 <a class="tag-tile-link" href="{% url 'ebook_search_tags' tag.tag %}" role="button" aria-label="Tag search button">
                     <div class="card">
@@ -185,7 +194,7 @@
     </div>
 
     {% else %}
-    <!-- message if the user has no recipes yet -->
+    <!-- message to the user if they have no recipes yet -->
     <div class="row">
         <div class="col-12">
             <p class="text-center">
@@ -200,6 +209,7 @@
 
 {% else %}
 
+<!-- container for all the content to be used with base.html main section if the user is not authorised -->
 <div class="container align-self-center">
     <div class="row">
         <div class="col-12 align-middle">

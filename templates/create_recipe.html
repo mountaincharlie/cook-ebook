@@ -1,24 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- additional content for title element -->
 {% block head_title_extra %} Create Recipe {% endblock %}
 
 {% block content %}
 {% load crispy_forms_tags %}
 
+<!-- container for all the content to be used with base.html main section -->
 <div class="container">
 
+    <!-- page heading -->
     <div class="row">
         <div class="col-12 text-center p-2">
             <h1>Create Recipe</h1>
         </div>
     </div>
 
+    <!-- form for creating recipes -->
     <div class="row">
         <div class="col-12">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ recipe_form | crispy }}
+
+                <!-- ingredients formset -->
                 <br>
                 <h3>Ingredients:</h3>
                 {{ ingredients_formset.management_form }}
@@ -30,14 +36,16 @@
                     {% endfor %}
                 </div>
                 
-
-                <!-- for additional ingredients -->
+                <!-- hidden section for additional ingredients used by script.js -->
                 <div id="new-ingredient-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
                     <button id="new-delete-ingredient-button" class="delete-ingredient btn btn-outline-danger my-2" type="button" aria-label="Delete ingredient button">Delete Ingredient</button>
                 </div>
+
+                <!-- add ingredient button -->
                 <button id="add-ingredient" class="btn btn-outline-secondary my-2" type="button" aria-label="Add another ingredient button">Add An Ingredient</button>
 
+                <!-- method steps formset -->
                 <br>
                 <h3>Method:</h3>
                 {{ method_formset.management_form }}
@@ -49,19 +57,22 @@
                     {% endfor %}
                 </div>
 
-                <!-- for additional method steps -->
+                <!-- hidden section for additional method steps used by script.js -->
                 <div id="new-method-form" class="visually-hidden">
                     {{ ingredients_formset.empty_form |crispy }}
                     <button id="new-delete-method-button" class="delete-method btn btn-outline-danger my-2" type="button" aria-label="Delete method step button">Delete Step</button>
                 </div>
+
+                <!-- add method button -->
                 <button id="add-method" class="btn btn-outline-secondary my-2" type="button" aria-label="Add a new method step button">Add A Step</button>
 
-                
+                <!-- create recipe submit form button -->
                 <button class="btn btn-success float-end d-block" type="submit" aria-label="Confirm create recipe button">Create</button>
             </form>
         </div>
     </div>
 
+    <!-- note to users that recipes are created as private by default -->
     <div class="row">
         <div class="col-12 text-center text-muted">
             <p>Recipe's are made Private by default. An Admin can allow your recipe to be Public.</p>
@@ -69,7 +80,6 @@
     </div>
 </div>
 
-<!-- JS for adding/deleting Ingredent items and Method steps -->
 <!-- CREDIT for JavaScript for adding ingredients and div structure for new forms: CodingEntrepreneurs' Youtube Video https://youtu.be/s3T-w2jhDHE I adapted the way that new item/step ids were created so that duplicate ids wouldnt be created after an item/step was deleted and added custom JavaScript for the delete button functionality -->
 <script src="{% static 'js/script.js' %}"></script>
 
