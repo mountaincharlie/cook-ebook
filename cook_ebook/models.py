@@ -1,19 +1,31 @@
+"""
+Django's models.py where I have created the classes
+for each of my database tables
+"""
+
+import random
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from colorfield.fields import ColorField
-import random
 
 
+# tuple for storing the possible values for a recipe's public_status
 PUBLIC_STATUS = ((0, 'Private'), (1, 'Public'), (2, 'Awaits'))
 
 
 class Tag(models.Model):
+    """
+    Class for Tag table
+    Contains:
+    -tag field (label for each tag)
+    -color field (unique color for each tag)
+    """
     tag = models.CharField(max_length=100)
     color = ColorField(unique=True)
 
     def __str__(self):
-        return self.tag
+        return str(self.tag)
 
 
 def random_slug():
