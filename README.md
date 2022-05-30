@@ -355,10 +355,6 @@ This application provides users with the ability to browse other user’s public
     * (image of footer when not logged in)
     * (image of about page when logged in)
     * (image of about page when not logged in)
-* User's see success messages for signing up, logging in and logging out
-    * (image of signup success message)
-    * (image of login success message)
-    * (image of logout success message)
 
 ### Manual Testing JavaScript functionality
 * The delete Ingredient button
@@ -371,9 +367,39 @@ This application provides users with the ability to browse other user’s public
 * ![final coverage report](./static/images/readme_images/final_coverage_report.jpg "final coverage report for Cook eBook website")
 * The areas I was not able to cover with automated testing, I tried to test thoroughly with manual testing (documented in the above sections). 
 
-### PEP8 Python Validator
-* should be “No errors or warnings”
-* (link)
+### PEP8 and Pylint Python Validators
+* admin.py 
+    * has pylint warning 'Unsued argument 'request'' for each of my public_status update methods, but this argument is used in the methods without explicitly typing it in.
+    * PEP8 result: All Right
+* apps.py
+    * no pylint errors or warnings
+    * PEP8 result: All Right
+* forms.py 
+    * has pylint error 'Class 'Tag' has no 'objects' member', but using 'objects' to get the objects created with the Tag model does work fine.
+    * PEP8 result: All Right
+* models.py 
+    * has pylint error 'Instance of 'ManyToManyField' has no 'count' member', but the method does successfully count the number of chefs kisses.
+    * PEP8 result: All Right
+* urls.py
+    * no pylint errors or warnings
+    * PEP8 result: All Right
+* views.py 
+    * has pylint errors 'Tag/Recipe/Ingredient/Method has no 'objects' member', but using 'objects' to get the objects created with each of these models does work fine.
+    * has pylint errors 'line too long', but these are only for the messages I'm passing to the user for when there are no recipes with a particular tag or with all or part of their search in the title and I can't break these messages onto different lines without causing serious errors.
+    * has pylint warning 'Unsued argument 'arg/kwargs'' for each of my class based views methods, but these are passed in as optional arguments.
+    * PEP8 result: only 3 'line too long' errors, explained above
+* test_forms.py 
+    * no pylint errors or warnings
+    * PEP8 result: All Right
+* test_models.py 
+    * has pylint errors 'Tag/Recipe/Ingredient/Method has no 'objects' member', but using 'objects' to get the objects created with each of these models does work fine.
+    * PEP8 result: All Right
+* test_urls.py 
+    * no pylint errors or warnings
+    * PEP8 result: All Right
+* test_views.py 
+    * has pylint errors 'Tag/Recipe has no 'objects' member', but using 'objects' to get the objects created with each of these models does work fine.
+    * PEP8 result: All Right
 
 ### HTML Validation in Offical W3C Validator
 * should be “No errors or warnings”
