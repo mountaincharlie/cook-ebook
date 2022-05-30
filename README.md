@@ -402,16 +402,49 @@ This application provides users with the ability to browse other user’s public
     * PEP8 result: All Right
 
 ### HTML Validation in Offical W3C Validator
-* should be “No errors or warnings”
-* (link)
+* base.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+* index.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+    * has 2 errors for 'property value expected' and 'at-rule or selector expected' where I have used inline styling, but this was where I used the tag.color database value inorder to apply colour to each tag tile. The reason for using inline styling was that the the color style I'm applying is given a value from the database, rather than a manual colour and this is not a property I would ever want to change in my css file. Changing this color is only possible through changing it in the actual database, which works fine.
+* about.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+* recipe_details.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+    * has 1 error for 'property value expected' and 'at-rule or selector expected' where I have used inline styling, but this was where I used the tag.color database value inorder to apply colour to each tag tile. The reason for using inline styling was that the the color style I'm applying is given a value from the database, rather than a manual colour and this is not a property I would ever want to change in my css file. Changing this color is only possible through changing it in the actual database, which works fine.
+* my_ebook.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+    * has 3 errors for 'property value expected' and 'at-rule or selector expected' where I have used inline styling, but this was where I used the tag.color database value inorder to apply colour to each tag tile. The reason for using inline styling was that the the color style I'm applying is given a value from the database, rather than a manual colour and this is not a property I would ever want to change in my css file. Changing this color is only possible through changing it in the actual database, which works fine.
+* create_recipe.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+* edit_recipe.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+* delete_recipe.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+* customised version of django-all_auth's login.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+* customised version of django-all_auth's logout.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
+* customised version of django-all_auth's signup.html
+    * has some Offical W3C Validator errors for using {{ }} and {%  %} syntax, but these are necessary for Django functionality
+    * has some Offical W3C Validator errors for missing head element information, but this file extends from base.html which contains the head element
 
 ### CSS Validation in Offical Jigsaw Validator
-* should be “No errors or warnings”
-* (link)
+* style.css
+    * no errors or warnings in Offical Jigsaw Validator
 
 ### JS Check in JSHint
-* should be “No errors or warnings”
-* (link)
+* script.js
+    * no errors or warning in JSHint
 
 
 ## Bugs (to finish)
