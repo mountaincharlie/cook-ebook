@@ -153,9 +153,22 @@ This application provides users with the ability to browse other user’s public
 * [design drawing image]
 * 
 
-### Database Schema
-* [design drawing image]
-* 
+### Initial Database Schema
+* My intial plans for my database schema was to have:
+    * A Recipe table, containing fields for recipe data (auto generated id, title, optional summary, cover image, public status, created date, unique slug and chef foreign-key) 
+    * Django's User table, which would have a one-to-many relationship with the Recipe table through its Chef field (one user/chef can have many recipes)
+    * An Ingredient table, containing a field for items in addition to its auto generated id field. This would have a many-to-many relationship with the Recipe table, via a one-to-many relationship with the intermediate table Recipe_Ingredient, which then also would have a one-to-many relationship with the Recipe table.
+    * A Method table, containing a field for steps in addition to its auto generated id field. This would also have a many-to-many relationship with the Recipe table, through a one-to-many relationship with the Recipe_Method table.
+    * A Tag table, containing a field for tags in addition to its auto generated id field. This would also have a many-to-many relationship with the Recipe table, through a one-to-many relationship with the Recipe_Tag table.
+    * A Chefs_kiss table, containing a field for chefs_kisses in addition to its auto generated id field. This would also have a many-to-many relationship with the Recipe table, through a one-to-many relationship with the Recipe_Chefs_kiss table.
+* I used [dbdiagram.io](https://dbdiagram.io/home) to create a visual representation of my database schema, as well as to 
+* ![initial database schema](./static/images/readme_images/initial_database_schema.jpg "initial database schema")
+
+### Final Database Schema
+* When it came to making my Create Recipe form, I realised that it wasn't necessary for the Ingredient and Method tables to have a many-to-many relationship with Recipe, since each user may write their method steps and ingredient items in very different ways which were specific to their own recipes. This wide variety would likely lead to many similar entries being saved into the Ingredient and Method tables without hardly any of them being reused by multiple or the same users.
+* From this I decided to change my Ingredient and Method tables so that they had a one-to-many replationship with the Recipe table. So one recipe could have many ingredient items and many method steps, but each item and step would belong to only one recipe.
+* My new database schema in [dbdiagram.io](https://dbdiagram.io/home): 
+* ![final database schema](./static/images/readme_images/final_database_schema.jpg "final database schema")
 
 ## Features (to finish)
 ---
@@ -385,8 +398,8 @@ This application provides users with the ability to browse other user’s public
     * Fix: instead of using css to manually overlay the site intro text over the cover image, I set the cover image as the background-image for the site-intro-container in css. Now when the mobile navigation is expanded, the cover image and site intro text move down together.
 * Bug: the RecipeDetailsView view class was storing all the public recipes in a public_recipes varible which was used to get the specific recipe to take the user to it details page, but this meant that when a user was trying to open a private recipe within their personal My eBook page, the view didnt work
     * Fix: changing 'public_recipes = Recipe.objects.filter(public_status=1)' to 'recipes = Recipe.objects.all()'. This still worked in the homepage and for user not logged in since the searchbar and Tag Tiles search functionality limit the displayed recipe cards to only those that are Public anyway.
-* Bug: Having set Ingredient and Method as having a ManyToMany relationship with Recipe, I found that adding Ingredient items and Method steps, within my create_recipe form, was very confusing as it allowed any particular item or step to be associated with many recipes. Since users chosen ingredients and method steps would vary so much it didn't make sense to need to associate any particular ingredient or method step with multiple recipes.
-    * Fix: I changed my database model so that both Ingredient adn Method had OneToMany relationships with Recipe, thus allowing a recipe to have many ingredients and method steps but not requiring that any of the specific ingredients or method steps should be able to apply to other recipes. 
+* Bug: Having set Ingredient and Method as having a many-to-many relationship with Recipe, I found that adding Ingredient items and Method steps, within my create_recipe form, was very confusing as it allowed any particular item or step to be associated with many recipes. Since users chosen ingredients and method steps would vary so much it didn't make sense to need to associate any particular ingredient or method step with multiple recipes.
+    * Fix: I changed my database model so that both Ingredient and Method had one-to-many relationships with Recipe, thus allowing a recipe to have many ingredients and method steps but not requiring that any of the specific ingredients or method steps should be able to apply to other recipes. 
 * Bug: when submitting the create_recipe form, trying to add the tags the user selected to the recipe raised the ValueError: "< Recipe: tags >" needs to have a value for field "id" before this many-to-many relationship can be used.
     * Fix: saving the recipe with: recipe.save(), so that the recipe exists and therefore has a value for field 'id, before trying to populate the tags ManyToManyField.
 * Bug: when I made my final deployment to Heroku and opened my app, my home page cover image was missing. This issue was being caused by my css file not being able access the cloudinary link to the cover image.
@@ -448,6 +461,7 @@ This application provides users with the ability to browse other user’s public
 * [JavaScript Tutorial's page](https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/) for how to use JavaScript to set a checkbox as 'checked'. I used this so that when a user clicks on my delete buttons for ingredients/method steps, it triggers the formset's delete checkbox to be checked so that the field is actually deleted and not just removed from the page.
 * [Ned Batchelder's solution on stackoverflow](https://stackoverflow.com/a/12654998) for how to set a default for a model field as a method. I used this so that I could set the slug for each recipe as a string of a random 20 numbers between 0 and 100. This was so that my slugs were unique and did not contain the Recipe's Primary Key, so I could safely use this slug in the url for each Recipe.
 * [The Dumbfounds' YouTube series](https://youtu.be/qwypH3YvMKc) on Django Testing, for advice on how to setup basic tests in Django.
+* [dbdiagram.io](https://dbdiagram.io/home) for creating my intitial and final database schema designs.
 
 ### Content
 * JavaScript and div structure for dynamically adding Ingredients and Method steps inline formsets
