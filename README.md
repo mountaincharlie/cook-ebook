@@ -323,44 +323,62 @@ This application provides users with the ability to browse other user’s public
     * the make_awaits() method
     * ![make_awaits() method manual test](./static/images/readme_images/public_status_make_awaits.jpg "make_awaits() method manual test")
 * For views.py I struggled to write the automated tests so I did manual tests for:
-    * Chefs kiss icon updates number of Chef's Kisses for the recipe
+    * 1 - Chefs kiss icon updates number of Chef's Kisses for the recipe
     * ![clicking chefs kiss icon updates chefs kisses](./static/images/readme_images/update_chefs_kiss.jpg "clicking chefs kiss icon updates chefs kisses")
-    * The user's recipes are displayed in their My eBook page
-    * 
-    * The user can search their recipes by title in the searchbar on their My eBook page
-    * 
-    * The user can select a tag tile to view all their recipes with that tag on their My eBook page
-    * 
-    * The user can create a recipe and is redirected back to their My eBook page with success message
-    * 
-    * The user can edit a recipe and is redirected back to their My eBook page with success message
-    * 
-    * The user can delete a recipe and is redirected back to their My eBook page with success message
-    * 
+    * 2 - The user's recipes are displayed in their My eBook page
+    * Screen shot of the recipes listed in the admin panel as belonging to the user 'Charlie':
+    * ![charlies recipes in admin panel](./static/images/readme_images/charlie-users-recipes-admin-panel.jpg "charlies recipes in admin panel")
+    * Screen shot of the recipes listed in the user 'Charlie''s eBook:
+    * ![charlies recipes in ebook](./static/images/readme_images/charlie-users-recipes-ebook.jpg "charlies recipes in ebook")
+    * 3 - The user can search their recipes by title in the searchbar or select a tag tile to view all their recipes with that tag on their My eBook page
+    * Screenshot of a public recipe by chef 'Marcus, which is visible from a search in the homepage:
+    * ![recipe-in-homepage-browse](./static/images/readme_images/recipe-in-homepage-browse.jpg "recipe in homepage browse")
+    * Screenshot of the search results within Charlie's eBook for a search of 'chicken' either by the tag or in the searchbar:
+    * ![charlie-users-recipes-ebook](./static/images/readme_images/recipe-in-ebook-browse.jpg "charlie users recipes ebook")
+    * You can see that Marcus' recipe is not visible here, only Charlie's.
+    * 4 - The user can create a recipe and is redirected back to their My eBook page with success message
+    * Screenshot of a user creating a recipe:
+    * ![top of create recipe form](./static/images/readme_images/create-recipe-top-section.jpg "top of create recipe form")
+    * ![bottom of create recipe form](./static/images/readme_images/create-recipe-bottom-section.jpg "bottom of create recipe form")
+    * Screenshot of the redirect back to the user's ebook page after clicking Create:
+    * ![create recipe redirect screenshot](./static/images/readme_images/newly-created-recipe-ebook-redirect.jpg "create recipe redirect screenshot")
+    * You can see the success message which is displayed and that the new recipenow displays as a recipe card in the user's eBook page
+    * 5 - The user can edit a recipe and is redirected back to their My eBook page with success message
+    * Screenshot of the user adding a new tag and changing some of the ingredients:
+    * ![editing a recipe](./static/images/readme_images/edit-recipe.jpg "editing a recipe")
+    * Screenshot of the redirect back to the user's eBook with success message:
+    * ![successful recipe update](./static/images/readme_images/successful-update.jpg "successful recipe update")
+    * Screenshot of the recipe showing the changes have been applied:
+    * ![recipe details updated](./static/images/readme_images/showing-recipe-updated.jpg "recipe details updated")
+    * 6 - The user can delete a recipe and is redirected back to their My eBook page with success message
+    * Screenshot of the delete recipe confirmation page:
+    * ![delete recipe confirmation](./static/images/readme_images/delete-recipe-confirmation.jpg "delete recipe confirmation")
+    * Screenshot of the redirect back to the user's eBook with success message:
+    * ![recipe deleted](./static/images/readme_images/recipe-successfully-deleted.jpg "recipe deleted")
+    * You can see that the Vegan Chocolate Cake recipe has been deleted
 
-### Manual Testing Other Features (FINISH)
+### Manual Testing Other Features
 * Users can only see the 'Edit' and 'Delete' buttons for a recipe if they are the Chef for that recipe
-    * (image for logged in as Charlie, viewing Charlie's recipe)
-    * (image for logged in as Charlie, viewing someone else's recipe)
+    * Screenshot of Charlie viewing one of their own recipes, so the Edit and Delete buttons are there:
+    * ![edit and delete buttons visible on your own recipe](./static/images/readme_images/charlie-can-edit-their-recipe.jpg "edit and delete buttons visible on your own recipe")
+    * Screenshot of Charlie viewing a recipe by Marcus, so the Edit and Delete buttons are not there:
+    * ![edit and delete buttons not visible on someon elses recipe](./static/images/readme_images/charlie-cannot-edit-marcus-recipe.jpg "edit and delete buttons not visible on someon elses recipe")
 * User's can only view their own My eBook page
-    * (image for logged in as Charlie, viewing Charlie's ebook)
-    * (image for logged in as Charlie, trying to view someone else's ebook)
-* User's can only leave a Chef's Kiss on recipes when they're logged in
-    * 
+    * Screenshot of Charlie trying to view Marcus' eBook page by manually changing the url:
+    * ![changing the url to a different user](./static/images/readme_images/changing-url-to-different-user.jpg "changing the url to a different user")
+    * Screenshot of Charlie being taken to the This is not your eBook page:
+    * ![not your ebook page](./static/images/readme_images/not-your-ebook.jpg "not your ebook page")
 * User's only have access to their My eBook page when logged in
-    * (image of navbar options when logged in)
-    * (image of navbar options when not logged in)
+    * Screenshot of the header navbar when the user is not logged in:
+    * ![user not logged in navbar](./static/images/readme_images/not-logged-in-navbar.jpg "user not logged in navbar")
+    * Screenshot of the header navbar when the user is logged in:
+    * ![user logged in navbar](./static/images/readme_images/logged-in-navbar.jpg "user logged in navbar")
 * User's can only see the link to my Instagram page (to give feedback) when logged in
-    * (image of footer when logged in)
-    * (image of footer when not logged in)
-    * (image of about page when logged in)
-    * (image of about page when not logged in)
-
-### Manual Testing JavaScript functionality
-* The delete Ingredient button
-* The add Ingredient button
-* The delete Method button
-* The add Method button
+    * Screenshot of when the user is not logged in:
+    * ![about page when user is not logged in](./static/images/readme_images/not-logged-in-about-page.jpg "about page when user is not logged in")
+    * Screenshot of when the user is logged in:
+    * ![about page when user is logged in](./static/images/readme_images/logged-in-about-page.jpg "about page when user is logged in")
+    * You can see that the footer has changed (in base.html, so for all pages) and that the Give Feedback section is visible in the About page
 
 ### Final Coverage 
 * After implementing 33 successful tests across my models, urls, forms and urls, I installed Django Coverage.
