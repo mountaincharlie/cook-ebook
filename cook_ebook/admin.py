@@ -21,15 +21,15 @@ class RecipeAdmin(admin.ModelAdmin):
     inlines = [IngredientInline, MethodInline, ]
 
     # changes status to private
-    def make_private(self, request, queryset):
-        queryset.update(public_status=0)
+    def make_private(self, queryset):
+        queryset.update(public_status=0)  #  request,
 
     # changes status to public
-    def make_public(self, request, queryset):
+    def make_public(self, queryset):
         queryset.update(public_status=1)
 
     # changes status to awaits
-    def make_awaits(self, request, queryset):
+    def make_awaits(self, queryset):
         queryset.update(public_status=2)
 
 
