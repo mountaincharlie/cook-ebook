@@ -14,10 +14,26 @@ This application provides users with the ability to browse other user’s public
 * 
 
 
-## Technologies Used (to finish)
+## Technologies Used
 ---
-* 
-* 
+* HTML
+* CSS
+* Python
+* JavaScript
+
+
+## Frameworks, Libraries and other Applications Used
+---
+
+* Django with;
+    * gunicorn
+    * psycopg2
+    * postgresql
+    * AllAuth
+    * Crispy Forms
+    * colorfield
+* Bootstrap
+* Cloudinary
 
 
 ## Project Management (to finish)
@@ -209,14 +225,6 @@ This application provides users with the ability to browse other user’s public
 * [images]
 *  
 
-
-## Frameworks, Libraries and other Applications Used (to finish)
----
-
-* Django with;
-    * gunicorn
-* Bootstrap
-* 
 
 ## User Experience Design (to finish)
 ---
