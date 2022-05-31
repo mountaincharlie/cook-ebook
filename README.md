@@ -64,11 +64,12 @@ This application provides users with the ability to browse other user’s public
     * ![Checklist example](./static/images/readme_images/checklist_example.jpg "Checklist example")
 
 
-## Designs (to finish)
+## Initial Designs (to finish)
 ---
 
 ### Home Page
-* [design drawing image]
+* ![Mobile homepage design](./static/images/readme_images/mobile-homepage-design.jpg "Mobile homepage design")
+* ![Desktop homepage design](./static/images/readme_images/desktop-homepage-design.jpg "Desktop homepage design")
 * Header
     * Is the same across all pages
     * Clickable logo link to the homepage on the lefthand side
@@ -94,7 +95,7 @@ This application provides users with the ability to browse other user’s public
     * Link to the Contact form on the righthand side
 
 ### User’s personal eBook Page
-* [design drawing image]
+* ![My eBook design](./static/images/readme_images/ebook-page-design.jpg "My eBook design")
 * The user must be logged in to access this page and it is specific to each user
 * The user's name is displayed in the page heading
 * Tag filter
@@ -108,7 +109,7 @@ This application provides users with the ability to browse other user’s public
     * Each recipe is displayed as a card with its cover image, title, optional summary, tags and creator
 
 ### Add Recipe Page
-* [design drawing image]
+* ![Create recipe design](./static/images/readme_images/create-page-design.jpg "Create recipe design")
 * The user must be logged in to access this page
     * The user's username is prepopulated (GET and POST method) in the non-editable 'Chef: ' field
 * Title
@@ -141,7 +142,7 @@ This application provides users with the ability to browse other user’s public
     * Redirects to the View Recipe page for the newly created recipe
 
 ### View Recipe Page
-* [design drawing image]
+* ![recipe details design](./static/images/readme_images/view-page-design.jpg "recipe details design")
 * Page populated with data from the recipe's database entry
 * Cover Image
     * User's chosen image or placeholder image
@@ -166,19 +167,25 @@ This application provides users with the ability to browse other user’s public
     * Either floating to the lower righthand side or at the bottom of the page
 
 ### Edit Recipe Page
-* [design drawing image]
+* ![Edit recipe design](./static/images/readme_images/edit-page-design.jpg "Edit recipe design")
 * Same layout as the Add Recipe page
 * All fields are prepopulated with the recipe's data
 * All fields can be edited in the same way that data could be added/deleted in the Add Recipe page
 * The 'Chef' is visible but still not editable
 
 ### About Page
-* [design drawing image]
-* 
+* ![About Page design](./static/images/readme_images/about-page-design.jpg "About Page design")
+* Site Creator section 
+    * Has a brief bit about me and a link to my GitHub
+* Site Purpose section 
+    * Has a brief bit about the site's purpose and a link to the project's GitHub repo
+* Give Feedback section
+    * Only visible to logged in users
+    * Has a link to my Instagram page
 
-### Contact Form
-* [design drawing image]
-* 
+
+## Database Schema
+---
 
 ### Initial Database Schema
 * My intial plans for my database schema was to have:
@@ -197,7 +204,8 @@ This application provides users with the ability to browse other user’s public
 * My new database schema in [dbdiagram.io](https://dbdiagram.io/home): 
 * ![final database schema](./static/images/readme_images/final_database_schema.jpg "final database schema")
 
-## Features (to finish)
+
+## Final Designs (to finish)
 ---
 
 ### Header and footer
