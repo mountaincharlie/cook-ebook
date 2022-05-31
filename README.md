@@ -4,6 +4,8 @@ Cook eBook is an interactive web application for users who want to create and ke
 
 This application provides users with the ability to browse other user’s public recipes on the app as well as make their own account so they can create, view and edit their own recipes in their eBook. By adding tags to their recipes, registered users can categorize their recipes and filter through their eBook with ease. 
 
+### Deployed Site link
+* [Cook eBook](https://cook-ebook.herokuapp.com/)
 
 ![Viewing Cook eBook on desktop](./static/images/readme_images/cook-ebook-on-desktop.jpg "Viewing Cook eBook on desktop")
 ![Viewing Cook eBook on mobile](./static/images/readme_images/cook-ebook-on-mobile.jpg "Viewing Cook eBook on mobile")
@@ -614,6 +616,10 @@ This application provides users with the ability to browse other user’s public
     * login to my Heroku app
     * select my app
     * push my commited changes to 'heroku main'
+
+### Deployed site link
+* [Cook eBook](https://cook-ebook.herokuapp.com/)
+
 
 ## Credits
 ---
