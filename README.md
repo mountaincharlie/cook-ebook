@@ -9,10 +9,22 @@ This application provides users with the ability to browse other user’s public
 ![Viewing Cook eBook on mobile](./static/images/readme_images/cook-ebook-on-mobile.jpg "Viewing Cook eBook on mobile")
 
 
-## Contents (to finish)
+## Contents
 ---
-* [Exact Heading](https://github.com/mountaincharlie/project-four-cook-ebook#exact-heading)
-* 
+* [Technologies Used](https://github.com/mountaincharlie/project-four-cook-ebook#technologies-used)
+* [Frameworks Libraries and other Applications Used](https://github.com/mountaincharlie/project-four-cook-ebook#frameworks-libraries-and-other-applications-used)
+* [Project Management](https://github.com/mountaincharlie/project-four-cook-ebook#project-management)
+* [Initial Designs](https://github.com/mountaincharlie/project-four-cook-ebook#initial-designs)
+* [Database Schema](https://github.com/mountaincharlie/project-four-cook-ebook#database-schema)
+* [Final Designs](https://github.com/mountaincharlie/project-four-cook-ebook#final-designs)
+* [User Experience Design](https://github.com/mountaincharlie/project-four-cook-ebook#user-experience-design)
+* [Accessibility](https://github.com/mountaincharlie/project-four-cook-ebook#accessibility)
+* [Commit Messages](https://github.com/mountaincharlie/project-four-cook-ebook#commit-messages)
+* [Testing](https://github.com/mountaincharlie/project-four-cook-ebook#testing)
+* [Bugs](https://github.com/mountaincharlie/project-four-cook-ebook#bugs)
+* [Deployment](https://github.com/mountaincharlie/project-four-cook-ebook#deployment)
+* [Credits](https://github.com/mountaincharlie/project-four-cook-ebook#credits)
+* [Future Features](https://github.com/mountaincharlie/project-four-cook-ebook#future-features)
 
 
 ## Technologies Used
@@ -23,7 +35,7 @@ This application provides users with the ability to browse other user’s public
 * JavaScript
 
 
-## Frameworks, Libraries and other Applications Used
+## Frameworks Libraries and other Applications Used
 ---
 
 * Django with;
@@ -64,7 +76,7 @@ This application provides users with the ability to browse other user’s public
     * ![Checklist example](./static/images/readme_images/checklist_example.jpg "Checklist example")
 
 
-## Initial Designs (to finish)
+## Initial Designs
 ---
 
 ### Home Page
@@ -205,7 +217,7 @@ This application provides users with the ability to browse other user’s public
 * ![final database schema](./static/images/readme_images/final_database_schema.jpg "final database schema")
 
 
-## Final Designs (to finish)
+## Final Designs
 ---
 
 ### Header and footer
@@ -336,7 +348,7 @@ This application provides users with the ability to browse other user’s public
     * "type[optional scope]: commit description"
 
 
-## Testing (to finish)
+## Testing
 ---
 
 ### Automated Testing with Django
@@ -396,7 +408,7 @@ This application provides users with the ability to browse other user’s public
     * views.py was running 63 tests but missing 76 tests
 * So I revisited my test files in order to cover as many of these missing tests as possible
  
-### Further Tests (FINISH)
+### Further Tests
 * For models.py I added automated tests for:
     * the four __ str __ methods
     * these test all passed
@@ -552,7 +564,7 @@ This application provides users with the ability to browse other user’s public
     * no errors or warning in JSHint
 
 
-## Bugs (to finish)
+## Bugs
 ---
 
 ### Bugs and Fixes
@@ -571,7 +583,7 @@ This application provides users with the ability to browse other user’s public
 * My Helpful Resources subsection in the Credits section also lists resources which helped me to work out how to code particular parts of my project. Whilst these did't show up specifically as bugs, the resources did help me solve/fix problems I encountered whist trying to create all the functinoality for my project
 
 ### Unfixed Bugs
-* should be “No unfixed bugs”
+* No known unfixed bugs (other than warnings/errors explained in code validation section)
 
 ## Deployment
 ---
@@ -603,7 +615,7 @@ This application provides users with the ability to browse other user’s public
     * select my app
     * push my commited changes to 'heroku main'
 
-## Credits (to finish)
+## Credits
 ---
 
 ### Helpful Resources
@@ -688,4 +700,3 @@ Ideas that could be used to expand the site's functionality.
 * Could allow users to create their own custom tags (only usuable on their eBook).
 * The admin may need to approve a user's tag if it is on a recipe which is already public or one that is trying to be made public, to ensure no harmful content is posted for other users to see.
 * Could be that only 'verified users' can have this feature.
-
