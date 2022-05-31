@@ -209,40 +209,60 @@ This application provides users with the ability to browse other user’s public
 ---
 
 ### Header and footer
-* [images]
-* 
+* For users who are not logged in:
+    * ![header for users not logged in](./static/images/readme_images/not-logged-in-navbar.jpg "header for users not logged in")
+    * ![footer for users not logged in](./static/images/readme_images/not-logged-in-footer.jpg "footer for users not logged in")
+* For users who are logged in:
+    * ![header for users logged in](./static/images/readme_images/logged-in-navbar.jpg "header for users logged in")
+    * ![footer for users logged in](./static/images/readme_images/logged-in-footer.jpg "footer for users logged in") 
+* Changes from initial design:
+    * Using Instagram link instead of Contact form page. The contact form could be a future feature to add.
 
 ### Home Page
-* [images]
-* 
+* Desktop and mobile final designs
+    * ![Desktop Home Page final designs](./static/images/readme_images/desktop-homepage-final.jpg "final Home Page designs") 
+    * ![mobile Home Page final designs](./static/images/readme_images/mobile-homepage-final.jpg "mobile Home Page final designs") 
 
 ### User’s personal eBook Page
-* [images]
-* 
+* Desktop and mobile final designs
+    * ![Desktop eBook Page final designs](./static/images/readme_images/desktop-ebook-page-final.jpg "final eBook Page designs") 
+    * ![mobile eBook Page final designs](./static/images/readme_images/mobile-ebook-page-final.jpg "mobile eBook Page final designs")
+* Changes from initial design:
+    * Small Tag Tiles are displayed for searches with tags instead of a dropdown filter. I think that having the Tags displayed as Tiles helps with consistency between the homepage and personal eBook as well as being visually easier for users to see the avaliable Tags.
+    * 'Create' instead of 'Add'. Fits with the site intro text: DISCOVER CREATE SHARE.
+    * Recipe cards in the user's eBook display the public status of the recipe instead of the chef name since the user would be the chef for all of the recipes in their eBook.
 
 ### Add Recipe Page
-* [images]
-* 
+* Desktop and mobile final designs
+    * ![Desktop Add Recipe Page final designs](./static/images/readme_images/desktop-create-page-final.jpg "final Add Recipe Page designs") 
+    * ![mobile Add Recipe Page final designs](./static/images/readme_images/mobile-create-page-final.jpg "mobile Add Recipe Page final designs")
+* Changes from initial design:
+    * No public status checkbox. This could be a future feature. Instead there is a message at the bottom of the page to explain how the public status works.
+    * Tags are checkboxes not in a dropdown filter. This way they're easier to see and change.
 
 ### View Recipe Page
-* [images]
-* 
+* Desktop and mobile final designs
+    * ![Desktop View Recipe Page final designs](./static/images/readme_images/desktop-view-page-final.jpg "final View Recipe Page designs") 
+    * ![mobile View Recipe Page final designs](./static/images/readme_images/mobile-view-page-final.jpg "mobile View Recipe Page final designs")
+* Changes from initial design were just the layout so that it was more symmetrical:
+    * Chefs kisses are on the page bottom left side.
+    * The Edit and Delete buttons are at the page bottom right side.
+    * The tags are horizontally central on the page.
+    * The public status is on the top right side inline with the chef name.
 
 ### Edit Recipe Page
-* [images]
-* 
+* Desktop and mobile final designs
+    * ![Desktop Edit Recipe Page final designs](./static/images/readme_images/desktop-edit-page-final.jpg "final Edit Recipe Page designs") 
+    * ![mobile Edit Recipe Page final designs](./static/images/readme_images/mobile-edit-page-final.jpg "mobile Edit Recipe Page final designs")
+* Changes from initial design:
+    * No public status checkbox. This could be a future feature. Instead there is a message at the bottom of the page to explain how the public status works.
+    * Tags are checkboxes not in a dropdown filter. This way they're easier to see and change.
+    * The order of the Save, Delete and Cancel buttons. The cancel button is then closest to where the user's thumb/palm may touch the screen on a phone.
 
 ### About Page
-* [images]
-* 
-
-### Contact Form
-* [images]
-* 
-
-### Database? [only if changes made to schema]
-* [images]
-*  
+* Desktop and mobile final designs
+    * ![Desktop About Page final designs](./static/images/readme_images/desktop-about-page-final.jpg "final About Page designs") 
+    * ![mobile About Page final designs](./static/images/readme_images/mobile-about-page-final.jpg "mobile About Page final designs")  
 
 
 ## User Experience Design
