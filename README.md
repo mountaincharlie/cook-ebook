@@ -481,6 +481,35 @@ This application provides users with the ability to browse other user’s public
     * ![about page when user is logged in](./static/images/readme_images/logged-in-about-page.jpg "about page when user is logged in")
     * You can see that the footer has changed (in base.html, so for all pages) and that the Give Feedback section is visible in the About page
 
+### Manual JavaScript tests
+* The Add Ingredient button creates another ingredient form
+    * Clicking the Add An Ingredient button:
+    * ![Clicking the Add An Ingredient button](./static/images/readme_images/click-add-ingredient.jpg "Clicking the Add An Ingredient button")
+    * New ingredient form added and the user can type into the box:
+    * ![new ingredient added](./static/images/readme_images/ingredient-form-added.jpg "new ingredient added")
+* The Delete Ingredient button deletes its ingredient form
+    * Clicking the Delete Ingredient button:
+    * ![Clicking the Delete Ingredient button](./static/images/readme_images/click-delete-ingredient.jpg "Clicking the Delete Ingredient button")
+    * Ingredient form deleted:
+    * ![ingredient deleted](./static/images/readme_images/ingredient-form-deleted.jpg "ingredient deleted")
+* The Add Step button creates another method form
+    * Clicking the Add Step button:
+    * ![Clicking the Add A Step button](./static/images/readme_images/click-add-step.jpg "Clicking the Add A Step button")
+    * New method form added and the user can type into the box:
+    * ![new method added](./static/images/readme_images/method-form-added.jpg "new method added")
+* The Delete Step button deletes its method form
+    * Clicking the Delete Step button:
+    * ![Clicking the Delete Step button](./static/images/readme_images/click-delete-step.jpg "Clicking the Delete Step button")
+    * Method form deleted:
+    * ![step deleted](./static/images/readme_images/method-form-deleted.jpg "step deleted")
+* The changes are visible in the recipe detailspage:
+    * ![ingredient and method changes visible in recipe details](./static/images/readme_images/changes-to-recipe-in-recipe-view.jpg "ingredient and method changes visible in recipe details")
+* Tag tiles which have already been assigned to a recipe show as ticked checkboxes in the Edit Recipe page
+    * In the recipe details page:
+    * ![tags assigned to a recipe](./static/images/readme_images/tags-on-recipe.jpg "tags assigned to a recipe")
+    * In the edit recipe page:
+    * ![tags shown in edit recipe page](./static/images/readme_images/tags-ticked-in-edit-page.jpg "tags shown in edit recipe page")
+
 ### Final Coverage 
 * After implementing 33 successful tests across my models, urls, forms and urls, I installed Django Coverage.
 * ![final coverage report](./static/images/readme_images/final_coverage_report.jpg "final coverage report for Cook eBook website")
