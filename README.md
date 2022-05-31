@@ -207,7 +207,7 @@ This application provides users with the ability to browse other user’s public
     * A Method table, containing a field for steps in addition to its auto generated id field. This would also have a many-to-many relationship with the Recipe table, through a one-to-many relationship with the Recipe_Method table.
     * A Tag table, containing a field for tags in addition to its auto generated id field. This would also have a many-to-many relationship with the Recipe table, through a one-to-many relationship with the Recipe_Tag table.
     * A Chefs_kiss table, containing a field for chefs_kisses in addition to its auto generated id field. This would also have a many-to-many relationship with the Recipe table, through a one-to-many relationship with the Recipe_Chefs_kiss table.
-* I used [dbdiagram.io](https://dbdiagram.io/home) to create a visual representation of my database schema, as well as to 
+* I used [dbdiagram.io](https://dbdiagram.io/home) to create a visual representation of my database schema
 * ![initial database schema](./static/images/readme_images/initial_database_schema.jpg "initial database schema")
 
 ### Final Database Schema
